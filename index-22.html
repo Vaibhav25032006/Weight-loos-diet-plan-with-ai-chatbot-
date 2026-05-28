@@ -1,0 +1,4643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weight Loss Diet Plan | Vaibhav Vashisth</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root {
+  --g900: #0a2414;
+  --g800: #1B4332;
+  --g700: #2D6A4F;
+  --g600: #40916C;
+  --g400: #74C69D;
+  --g200: #B7E4C7;
+  --g100: #D8F3DC;
+  --g50:  #F0F7F4;
+  --gold: #D4A853;
+  --goldl: #F0C97A;
+  --cream: #FAFBF7;
+  --td: #1A2E1A;
+  --tm: #3D5A3E;
+  --tl: #6B8F6B;
+  --red: #C0392B;
+  --shadow: 0 4px 24px rgba(10,36,20,.10);
+  --shadowl: 0 8px 40px rgba(10,36,20,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Nunito','Noto Sans Devanagari',sans-serif;
+  background:var(--cream);
+  color:var(--td);
+  overflow-x:hidden;
+  min-height:100vh;
+}
+
+/* ─── HEADER ─────────────────────────────────── */
+.header{
+  background:linear-gradient(150deg,var(--g900) 0%,var(--g800) 55%,var(--g700) 100%);
+  position:relative;
+  overflow:hidden;
+}
+.header::before{
+  content:'';
+  position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(116,198,157,.18) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(212,168,83,.12) 0%, transparent 50%);
+  pointer-events:none;
+}
+/* botanical leaf decorations */
+.leaf-deco{
+  position:absolute;
+  font-size:80px;
+  opacity:.08;
+  pointer-events:none;
+  line-height:1;
+}
+.leaf-deco.tl{top:-10px;left:-10px;transform:rotate(-20deg);}
+.leaf-deco.tr{top:-10px;right:-10px;transform:rotate(20deg);}
+.leaf-deco.bl{bottom:-10px;left:10px;transform:rotate(30deg);}
+.leaf-deco.br{bottom:-10px;right:10px;transform:rotate(-30deg);}
+
+.header-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 20px 8px;
+  position:relative;z-index:2;
+}
+
+.hbl-badge{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:12px;
+  padding:8px 12px;
+  backdrop-filter:blur(8px);
+}
+.hbl-badge .hbl-leaf{font-size:22px;}
+.hbl-badge span{
+  color:#fff;
+  font-weight:800;
+  font-size:10px;
+  line-height:1.3;
+  text-transform:uppercase;
+  letter-spacing:.6px;
+}
+
+.lang-btn{
+  background:rgba(255,255,255,.14);
+  border:1.5px solid rgba(255,255,255,.38);
+  border-radius:24px;
+  padding:8px 18px;
+  color:#fff;
+  font-family:'Nunito',sans-serif;
+  font-weight:800;
+  font-size:13px;
+  cursor:pointer;
+  letter-spacing:.4px;
+  backdrop-filter:blur(8px);
+  transition:all .25s ease;
+}
+.lang-btn:hover{background:rgba(255,255,255,.26);transform:scale(1.04);}
+
+.header-hero{
+  text-align:center;
+  padding:10px 20px 20px;
+  position:relative;z-index:2;
+}
+.target-badge{
+  display:inline-block;
+  background:var(--gold);
+  color:var(--g900);
+  font-weight:900;
+  font-size:12px;
+  padding:7px 22px;
+  border-radius:24px;
+  text-transform:uppercase;
+  letter-spacing:.9px;
+  margin-bottom:14px;
+  box-shadow:0 4px 16px rgba(212,168,83,.45);
+}
+.header-hero h1{
+  font-family:'Playfair Display','Noto Sans Devanagari',serif;
+  font-size:clamp(28px,8vw,54px);
+  font-weight:900;
+  color:#fff;
+  line-height:1.1;
+  text-shadow:0 2px 20px rgba(0,0,0,.3);
+  margin-bottom:4px;
+}
+.header-hero h1 span{color:var(--goldl);}
+
+/* ─── LIVE CLOCK (Feature 1) ───────────────────── */
+.clock-card{
+  margin:0 16px;
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:20px;
+  padding:14px 18px;
+  backdrop-filter:blur(10px);
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  position:relative;z-index:2;
+}
+.clock-left{display:flex;align-items:baseline;gap:4px;}
+.clock-hms{
+  font-size:38px;
+  font-weight:900;
+  color:#fff;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:-1px;
+  line-height:1;
+}
+.clock-date{font-size:11px;color:var(--g200);font-weight:700;margin-top:3px;}
+.clock-right{flex:1;text-align:right;}
+.clock-right .meal-lbl{
+  font-size:10px;text-transform:uppercase;
+  letter-spacing:1px;color:var(--g200);font-weight:800;
+}
+.clock-right .meal-active{
+  font-size:15px;font-weight:900;
+  color:var(--goldl);margin-top:2px;line-height:1.3;
+}
+.clock-right .meal-next{
+  font-size:11px;color:rgba(255,255,255,.65);
+  font-weight:600;margin-top:3px;
+}
+.header-spacer{height:18px;}
+
+/* ─── PROGRESS (Feature 2) ─────────────────────── */
+.prog-section{
+  background:#fff;
+  padding:18px 20px 14px;
+  border-bottom:1px solid var(--g100);
+}
+.prog-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:12px;
+  gap:8px;
+}
+.prog-title{
+  font-weight:900;
+  font-size:15px;
+  color:var(--g800);
+  margin-bottom:4px;
+}
+.streak-line{
+  font-size:13px;
+  font-weight:800;
+  color:var(--gold);
+  display:flex;align-items:center;gap:4px;
+}
+.prog-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+.prog-count{font-size:22px;font-weight:900;color:var(--g700);}
+.reset-btn{
+  background:transparent;
+  border:1.5px solid var(--g200);
+  color:var(--tl);
+  border-radius:20px;
+  padding:4px 12px;
+  font-size:11px;font-weight:800;
+  cursor:pointer;
+  font-family:'Nunito',sans-serif;
+  transition:all .2s;
+}
+.reset-btn:hover{border-color:var(--g600);color:var(--g600);}
+.prog-bar-wrap{
+  background:var(--g50);
+  border:1px solid var(--g100);
+  border-radius:100px;
+  height:10px;overflow:hidden;
+}
+.prog-bar-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--g700),var(--g400));
+  border-radius:100px;
+  transition:width .5s ease;
+}
+
+/* ─── MAIN ─────────────────────────────────────── */
+.main{padding-bottom:80px;}
+
+.sec-label{
+  text-align:center;
+  padding:26px 20px 6px;
+  font-family:'Playfair Display','Noto Sans Devanagari',serif;
+  font-size:20px;font-weight:700;color:var(--g800);
+}
+.sec-label::after{
+  content:'';
+  display:block;
+  width:36px;height:3px;
+  background:var(--gold);
+  margin:8px auto 0;
+  border-radius:2px;
+}
+
+/* ─── TIMELINE ──────────────────────────────────── */
+.timeline{
+  padding:12px 14px 0;
+  position:relative;
+}
+.timeline::before{
+  content:'';
+  position:absolute;
+  left:40px;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,var(--g400),var(--g100));
+  opacity:.5;
+}
+
+.mcrd{
+  display:flex;gap:12px;
+  margin-bottom:14px;
+  position:relative;
+}
+.mcrd-time{
+  width:54px;flex-shrink:0;
+  display:flex;flex-direction:column;
+  align-items:center;
+  padding-top:14px;
+}
+.tbadge{
+  background:var(--g800);
+  color:#fff;
+  border-radius:10px;
+  padding:6px 4px;
+  text-align:center;
+  width:52px;
+  font-size:11px;font-weight:900;line-height:1.25;
+  position:relative;z-index:1;
+  box-shadow:var(--shadow);
+  transition:all .3s ease;
+}
+.tbadge .th{font-size:13px;display:block;}
+.tbadge .ta{font-size:9px;color:var(--g200);display:block;margin-top:1px;}
+
+/* active meal */
+.mcrd.act .tbadge{
+  background:var(--gold);
+  color:var(--g900);
+  transform:scale(1.12);
+  box-shadow:0 4px 18px rgba(212,168,83,.5);
+}
+.mcrd.act .tbadge .ta{color:var(--g900);}
+.mcrd.act .cbody{
+  border-color:var(--gold);
+  box-shadow:0 4px 22px rgba(212,168,83,.22);
+  background:linear-gradient(135deg,#fffffa,#fff);
+}
+
+/* completed meal */
+.mcrd.done .cbody{
+  border-color:var(--g400);
+  background:linear-gradient(135deg,var(--g50),#fff);
+}
+.mcrd.done .ckbtn{
+  background:var(--g600)!important;
+  border-color:var(--g600)!important;
+  color:#fff!important;
+}
+
+.cbody{
+  flex:1;
+  background:#fff;
+  border-radius:16px;
+  padding:14px;
+  box-shadow:0 2px 10px rgba(10,36,20,.07);
+  border:1.5px solid transparent;
+  transition:all .3s ease;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.cbody:active{transform:scale(.98);}
+
+.chead{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:8px;
+}
+.chead-left{display:flex;align-items:center;gap:10px;}
+.micon{font-size:26px;flex-shrink:0;line-height:1;}
+.mtitle{font-size:16px;font-weight:900;color:var(--td);line-height:1.2;}
+.ckbtn{
+  width:32px;height:32px;
+  border-radius:50%;
+  border:2px solid var(--g200);
+  background:transparent;
+  color:transparent;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  transition:all .3s ease;
+  font-size:16px;font-weight:800;
+  pointer-events:none;/* parent handles click */
+}
+.mdesc{
+  font-size:13px;color:var(--tm);
+  line-height:1.65;font-weight:600;
+}
+.ptag{
+  display:inline-flex;align-items:center;gap:4px;
+  background:var(--g50);
+  border:1px solid var(--g100);
+  border-radius:20px;
+  padding:4px 12px;
+  font-size:10px;font-weight:800;
+  color:var(--g700);
+  margin-top:10px;
+  text-transform:uppercase;letter-spacing:.5px;
+}
+
+/* ─── DINNER (Day Switch) ──────────────────────── */
+.dinner-wrap{padding:0 14px;}
+.day-switcher{
+  display:flex;gap:8px;
+  align-items:center;
+  justify-content:center;
+  padding:14px 0 6px;
+}
+.dbtn{
+  background:var(--g50);
+  border:2px solid var(--g200);
+  color:var(--tm);
+  border-radius:22px;
+  padding:7px 22px;
+  font-size:13px;font-weight:800;
+  cursor:pointer;
+  font-family:'Nunito',sans-serif;
+  transition:all .22s;
+}
+.dbtn.on{background:var(--g800);border-color:var(--g800);color:#fff;}
+
+.dinner-card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  border:1.5px solid var(--g100);
+  margin-top:8px;
+}
+.dinner-hdr{
+  background:var(--g800);
+  color:#fff;
+  padding:12px 20px;
+  font-weight:900;font-size:13px;
+  text-align:center;
+  letter-spacing:.8px;text-transform:uppercase;
+}
+.dinner-body{
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.dinner-info .dlbl{
+  font-size:11px;font-weight:900;
+  color:var(--g600);
+  text-transform:uppercase;letter-spacing:1px;
+  margin-bottom:5px;
+}
+.dinner-info .dmeal{
+  font-size:22px;font-weight:900;color:var(--td);
+}
+.dinner-info .dtime{
+  font-size:12px;color:var(--tl);font-weight:700;margin-top:3px;
+}
+.dinner-ck{
+  width:42px;height:42px;
+  border-radius:50%;
+  border:2.5px solid var(--g200);
+  background:transparent;
+  cursor:pointer;
+  font-size:18px;font-weight:900;
+  color:transparent;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s;flex-shrink:0;
+  font-family:'Nunito',sans-serif;
+}
+.dinner-ck.ck{background:var(--g600);border-color:var(--g600);color:#fff;}
+.dinner-warn{
+  background:#fff5f5;
+  border-top:1px solid #ffcdd2;
+  padding:11px 20px;
+  text-align:center;
+  font-size:13px;font-weight:900;
+  color:var(--red);
+}
+
+/* ─── DAILY HABITS ─────────────────────────────── */
+.habits-section{padding:4px 14px 0;}
+.habits-grid{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.hcard{
+  background:#fff;
+  border-radius:16px;
+  padding:14px 18px;
+  text-align:left;
+  box-shadow:0 2px 10px rgba(10,36,20,.07);
+  border:1.5px solid var(--g100);
+  transition:all .25s ease;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.hcard:hover{border-color:var(--g400);transform:translateX(3px);}
+.hcard:active{transform:scale(.98);}
+.hcard.hck{
+  border-color:var(--g600);
+  background:linear-gradient(90deg,var(--g50),#fff);
+}
+.hicon{font-size:30px;flex-shrink:0;margin-bottom:0;display:block;}
+.hcard-text{flex:1;}
+.hname{font-size:14px;font-weight:900;color:var(--td);margin-bottom:2px;}
+.hdetail{font-size:12px;color:var(--tl);font-weight:700;}
+.hchk{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--g50);border:2px solid var(--g200);
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:900;
+  color:transparent;
+  transition:all .3s;
+}
+.hcard.hck .hchk{background:var(--g600);border-color:var(--g600);color:#fff;}
+
+/* ─── WATER GLASSES TRACKER ─────────────────────── */
+.hcard-water{
+  flex-direction:column;
+  align-items:stretch;
+  gap:10px;
+  cursor:default;
+}
+.hcard-water:hover{transform:none;}
+.hcard-water-top{
+  display:flex;align-items:center;gap:16px;
+}
+.water-glasses-wrap{
+  display:flex;gap:6px;flex-wrap:wrap;
+  justify-content:flex-start;
+  padding:2px 0 4px;
+}
+.wglass{
+  font-size:26px;
+  cursor:pointer;
+  transition:transform .15s, filter .15s;
+  -webkit-tap-highlight-color:transparent;
+  line-height:1;
+  user-select:none;
+}
+.wglass:active{transform:scale(1.35);}
+.wglass.empty{filter:grayscale(1) opacity(.3);}
+.wglass.filled{filter:none;}
+.water-count-lbl{
+  font-size:12px;font-weight:900;
+  color:var(--g600);
+  letter-spacing:.3px;
+}
+
+/* ─── SLEEP CARD ────────────────────────────────── */
+.sleep-card{
+  margin:18px 14px 0;
+  background:linear-gradient(135deg,var(--g900),var(--g800));
+  border-radius:18px;
+  padding:22px 20px;
+  text-align:center;
+  color:#fff;
+  box-shadow:var(--shadow);
+}
+.sleep-icon{font-size:36px;margin-bottom:10px;}
+.sleep-title{font-weight:900;font-size:16px;margin-bottom:4px;}
+.sleep-desc{font-size:13px;color:var(--g200);font-weight:700;}
+
+/* ─── FOOTER ────────────────────────────────────── */
+.footer{
+  background:var(--g900);
+  color:#fff;
+  padding:24px 20px;
+  text-align:center;
+  margin-top:18px;
+}
+.footer-tag{
+  font-family:'Playfair Display','Noto Sans Devanagari',serif;
+  font-size:18px;font-style:italic;
+  color:var(--goldl);
+  margin-bottom:8px;
+}
+.footer-credit{font-size:11px;color:var(--g200);font-weight:800;letter-spacing:1.5px;text-transform:uppercase;}
+
+/* ─── TOAST ─────────────────────────────────────── */
+.toast{
+  position:fixed;
+  bottom:24px;left:50%;
+  transform:translateX(-50%) translateY(120px);
+  background:var(--g800);
+  color:#fff;
+  padding:12px 24px;
+  border-radius:30px;
+  font-weight:800;font-size:14px;
+  box-shadow:var(--shadowl);
+  z-index:9999;
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+  white-space:nowrap;
+  max-width:90vw;
+}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+/* ─── SCROLLBAR ─────────────────────────────────── */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--g50);}
+::-webkit-scrollbar-thumb{background:var(--g400);border-radius:3px;}
+
+/* ─── CALENDAR HEATMAP ──────────────────────────── */
+.cal-wrap{
+  background:#fff;border-radius:18px;
+  padding:16px 14px 14px;
+  margin-bottom:14px;
+  border:1.5px solid var(--g100);
+  box-shadow:0 2px 8px rgba(10,36,20,.06);
+}
+.cal-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:12px;
+}
+.cal-title{font-size:13px;font-weight:900;color:var(--g800);display:flex;align-items:center;gap:6px;}
+.cal-nav{display:flex;gap:6px;}
+.cal-nav button{
+  background:var(--g50);border:1.5px solid var(--g100);
+  border-radius:8px;padding:4px 10px;font-size:13px;
+  cursor:pointer;color:var(--g700);font-weight:800;
+  font-family:'Nunito',sans-serif;transition:all .2s;
+}
+.cal-nav button:hover{background:var(--g100);}
+.cal-month-label{font-size:13px;font-weight:900;color:var(--g700);text-align:center;min-width:100px;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+.cal-dow{font-size:9px;font-weight:900;color:var(--tl);text-align:center;padding-bottom:4px;text-transform:uppercase;}
+.cal-day{
+  aspect-ratio:1;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:800;
+  cursor:default;position:relative;
+  transition:transform .15s;
+}
+.cal-day.empty{background:transparent;}
+.cal-day.future{background:var(--g50);color:var(--g200);}
+.cal-day.pct-0{background:#f0f0f0;color:#aaa;}
+.cal-day.pct-1{background:rgba(116,198,157,.25);color:var(--g700);}
+.cal-day.pct-2{background:rgba(64,145,108,.45);color:#fff;}
+.cal-day.pct-3{background:rgba(45,106,79,.75);color:#fff;}
+.cal-day.pct-4{background:var(--g700);color:#fff;}
+.cal-day.pct-5{background:var(--g800);color:var(--goldl);}
+.cal-day.today-ring{box-shadow:0 0 0 2px var(--gold);}
+.cal-legend{display:flex;align-items:center;gap:6px;margin-top:10px;justify-content:flex-end;}
+.cal-legend span{font-size:10px;font-weight:700;color:var(--tl);}
+.cal-legend-box{width:12px;height:12px;border-radius:3px;}
+
+/* ─── LOADING SPINNER ───────────────────────────── */
+.loading-overlay{
+  position:fixed;inset:0;
+  background:rgba(10,36,20,.85);
+  z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:14px;
+}
+.loading-overlay.hidden{display:none;}
+.spinner{
+  width:44px;height:44px;
+  border:4px solid rgba(255,255,255,.2);
+  border-top-color:var(--goldl);
+  border-radius:50%;
+  animation:spin .8s linear infinite;
+}
+.loading-overlay p{color:#fff;font-weight:800;font-size:14px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ─── ANIMATIONS ────────────────────────────────── */
+@keyframes fadeSlide{from{opacity:0;transform:translateX(-18px);}to{opacity:1;transform:translateX(0);}}
+.mcrd{animation:fadeSlide .35s ease both;}
+.mcrd:nth-child(2){animation-delay:.05s;}
+.mcrd:nth-child(3){animation-delay:.10s;}
+.mcrd:nth-child(4){animation-delay:.15s;}
+.mcrd:nth-child(5){animation-delay:.20s;}
+.mcrd:nth-child(6){animation-delay:.25s;}
+.mcrd:nth-child(7){animation-delay:.30s;}
+.mcrd:nth-child(8){animation-delay:.35s;}
+
+/* ─── REPORT / STATS FAB ─────────────────────────── */
+.report-fab{
+  position:fixed;bottom:24px;right:20px;
+  background:linear-gradient(135deg,var(--g700),var(--g600));
+  color:#fff;border:none;border-radius:56px;
+  padding:14px 20px;font-size:13px;font-weight:900;
+  font-family:'Nunito',sans-serif;
+  box-shadow:0 6px 28px rgba(27,67,50,.42);
+  cursor:pointer;z-index:900;
+  display:flex;align-items:center;gap:8px;
+  transition:all .25s ease;
+  letter-spacing:.3px;
+}
+.report-fab:hover{transform:scale(1.06);box-shadow:0 8px 36px rgba(27,67,50,.52);}
+.report-fab:active{transform:scale(.97);}
+
+/* ─── STREAK BADGE (enhanced) ──────────────────── */
+.streak-fire-wrap{
+  display:flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,#fff7e0,#fff);
+  border:1.5px solid var(--goldl);
+  border-radius:16px;padding:10px 16px;
+  margin:0 14px 14px;
+}
+.streak-num{font-size:36px;font-weight:900;color:var(--gold);line-height:1;}
+.streak-info{flex:1;}
+.streak-info .s-title{font-size:13px;font-weight:900;color:var(--g800);}
+.streak-info .s-sub{font-size:11px;color:var(--tl);font-weight:700;margin-top:2px;}
+.streak-emoji{font-size:32px;}
+
+/* ─── MODAL OVERLAY ─────────────────────────────── */
+.modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(10,36,20,.72);
+  z-index:1000;
+  display:flex;align-items:flex-end;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s ease;
+}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal-sheet{
+  background:var(--cream);
+  border-radius:28px 28px 0 0;
+  width:100%;max-width:540px;
+  max-height:92vh;
+  overflow-y:auto;
+  transform:translateY(100%);
+  transition:transform .35s cubic-bezier(.34,1.3,.64,1);
+  padding-bottom:32px;
+}
+.modal-overlay.open .modal-sheet{transform:translateY(0);}
+.modal-handle{
+  width:44px;height:4px;
+  background:var(--g200);border-radius:2px;
+  margin:14px auto 0;
+}
+.modal-header{
+  padding:16px 20px 8px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.modal-title{
+  font-family:'Playfair Display',serif;
+  font-size:22px;font-weight:700;color:var(--g800);
+}
+.modal-close{
+  background:var(--g100);border:none;
+  width:36px;height:36px;border-radius:50%;
+  font-size:18px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--g700);
+}
+
+/* ─── TAB BAR ───────────────────────────────────── */
+.tab-bar{
+  display:flex;gap:8px;
+  padding:0 16px 16px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.tab-bar::-webkit-scrollbar{display:none;}
+.tab-btn{
+  flex-shrink:0;
+  padding:8px 20px;
+  border-radius:24px;
+  border:2px solid var(--g200);
+  background:transparent;
+  color:var(--tm);
+  font-family:'Nunito',sans-serif;
+  font-size:13px;font-weight:800;
+  cursor:pointer;
+  transition:all .2s;
+  white-space:nowrap;
+}
+.tab-btn.active{background:var(--g800);border-color:var(--g800);color:#fff;}
+
+/* ─── REPORT CARD INNER ─────────────────────────── */
+.report-inner{padding:0 16px;}
+.rep-stat-row{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:10px;margin-bottom:16px;
+}
+.rep-stat{
+  background:#fff;border-radius:16px;
+  padding:14px 10px;text-align:center;
+  border:1.5px solid var(--g100);
+  box-shadow:0 2px 8px rgba(10,36,20,.06);
+}
+.rep-stat .rv{font-size:26px;font-weight:900;color:var(--g700);line-height:1;}
+.rep-stat .rl{font-size:10px;font-weight:800;color:var(--tl);margin-top:4px;text-transform:uppercase;letter-spacing:.5px;}
+
+/* ─── CHART CONTAINERS ──────────────────────────── */
+.chart-wrap{
+  background:#fff;border-radius:18px;
+  padding:16px 14px 10px;
+  margin-bottom:14px;
+  border:1.5px solid var(--g100);
+  box-shadow:0 2px 8px rgba(10,36,20,.06);
+}
+.chart-title{
+  font-size:13px;font-weight:900;color:var(--g800);
+  margin-bottom:12px;display:flex;align-items:center;gap:6px;
+}
+canvas.rep-chart{width:100%!important;height:160px!important;}
+
+/* ─── DAY HISTORY LIST ──────────────────────────── */
+.hist-list{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
+.hist-row{
+  display:flex;align-items:center;gap:12px;
+  background:#fff;border-radius:14px;
+  padding:12px 14px;
+  border:1.5px solid var(--g100);
+}
+.hist-date{font-size:12px;font-weight:800;color:var(--tl);width:72px;flex-shrink:0;}
+.hist-bar-wrap{flex:1;background:var(--g50);border-radius:100px;height:8px;overflow:hidden;}
+.hist-bar-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--g700),var(--g400));transition:width .4s ease;}
+.hist-pct{font-size:12px;font-weight:900;color:var(--g700);width:36px;text-align:right;flex-shrink:0;}
+.hist-streak{font-size:13px;}
+
+/* ─── SHARE BUTTON ──────────────────────────────── */
+.share-btn{
+  width:100%;margin:6px 0 4px;
+  background:linear-gradient(135deg,var(--g800),var(--g700));
+  color:#fff;border:none;border-radius:16px;
+  padding:15px 20px;font-size:14px;font-weight:900;
+  font-family:'Nunito',sans-serif;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:all .22s;letter-spacing:.3px;
+}
+.share-btn:hover{transform:scale(1.02);}
+.share-btn:active{transform:scale(.98);}
+
+/* ─── SHARE CANVAS (hidden) ─────────────────────── */
+#shareCanvas{display:none;}
+
+/* ─── WEIGHT TRACKER ────────────────────────────── */
+.weight-section{
+  background:#fff;
+  border-radius:18px;
+  margin:14px 14px 0;
+  padding:18px 16px 14px;
+  border:1.5px solid var(--g100);
+  box-shadow:0 2px 10px rgba(10,36,20,.07);
+}
+.weight-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:14px;
+}
+.weight-title{font-size:15px;font-weight:900;color:var(--g800);}
+.weight-subtitle{font-size:11px;color:var(--tl);font-weight:700;margin-top:2px;}
+.weight-input-row{
+  display:flex;gap:8px;align-items:center;
+  margin-bottom:14px;
+}
+.weight-input{
+  flex:1;
+  border:2px solid var(--g200);
+  border-radius:14px;
+  padding:11px 14px;
+  font-size:16px;font-weight:800;
+  font-family:'Nunito',sans-serif;
+  color:var(--td);
+  outline:none;
+  transition:border-color .2s;
+  background:var(--g50);
+}
+.weight-input:focus{border-color:var(--g600);background:#fff;}
+.weight-unit{
+  font-size:14px;font-weight:900;color:var(--tl);
+  padding:0 4px;flex-shrink:0;
+}
+.weight-save-btn{
+  background:var(--g700);
+  color:#fff;border:none;border-radius:14px;
+  padding:11px 18px;
+  font-size:13px;font-weight:900;
+  font-family:'Nunito',sans-serif;
+  cursor:pointer;flex-shrink:0;
+  transition:all .2s;
+}
+.weight-save-btn:hover{background:var(--g800);}
+.weight-save-btn:active{transform:scale(.96);}
+.weight-stats-row{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:8px;margin-bottom:14px;
+}
+.wstat{
+  background:var(--g50);border-radius:12px;
+  padding:10px 8px;text-align:center;
+  border:1px solid var(--g100);
+}
+.wstat .wv{font-size:17px;font-weight:900;color:var(--g700);line-height:1;}
+.wstat .wl{font-size:9px;font-weight:800;color:var(--tl);margin-top:3px;text-transform:uppercase;letter-spacing:.4px;}
+.weight-chart-wrap{
+  background:var(--g50);border-radius:14px;
+  padding:14px 10px 8px;
+  border:1px solid var(--g100);
+}
+.weight-chart-title{font-size:12px;font-weight:900;color:var(--g800);margin-bottom:10px;display:flex;align-items:center;gap:5px;}
+canvas#weightChart{width:100%!important;height:150px!important;}
+.weight-log-list{
+  margin-top:12px;
+  max-height:140px;overflow-y:auto;
+  display:flex;flex-direction:column;gap:6px;
+}
+.weight-log-row{
+  display:flex;align-items:center;gap:10px;
+  background:#fff;border-radius:10px;
+  padding:8px 12px;
+  border:1px solid var(--g100);
+}
+.wlog-date{font-size:11px;font-weight:800;color:var(--tl);flex:1;}
+.wlog-kg{font-size:14px;font-weight:900;color:var(--g700);}
+.wlog-delta{font-size:11px;font-weight:800;padding:2px 8px;border-radius:20px;}
+.wlog-delta.down{background:#e8f5e9;color:#2D6A4F;}
+.wlog-delta.up{background:#fff3e0;color:#e65100;}
+.wlog-delta.same{background:var(--g50);color:var(--tl);}
+.weight-empty{text-align:center;color:var(--tl);font-size:13px;font-weight:700;padding:20px 0;}
+
+/* ─── CHATBOT ──────────────────────────────────── */
+.chat-fab{
+  position:fixed;
+  bottom:24px;left:20px;
+  width:56px;height:56px;
+  background:linear-gradient(135deg,var(--g700),var(--g900));
+  border-radius:50%;
+  border:none;
+  box-shadow:0 6px 24px rgba(27,67,50,.45);
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;
+  z-index:1100;
+  transition:transform .2s,box-shadow .2s;
+  animation:chatPulse 3s ease-in-out infinite;
+}
+.chat-fab:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(27,67,50,.55);}
+.chat-fab:active{transform:scale(.95);}
+@keyframes chatPulse{
+  0%,100%{box-shadow:0 6px 24px rgba(27,67,50,.45);}
+  50%{box-shadow:0 6px 24px rgba(27,67,50,.45),0 0 0 8px rgba(45,106,79,.15);}
+}
+.chat-fab-badge{
+  position:absolute;top:-2px;right:-2px;
+  width:18px;height:18px;
+  background:#e74c3c;
+  border-radius:50%;
+  font-size:10px;font-weight:900;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid #fff;
+  animation:bounce .6s ease infinite alternate;
+}
+@keyframes bounce{from{transform:translateY(0);}to{transform:translateY(-3px);}}
+
+.chat-panel{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  height:92vh;
+  background:#fff;
+  border-radius:24px 24px 0 0;
+  box-shadow:0 -8px 40px rgba(10,36,20,.2);
+  display:flex;flex-direction:column;
+  z-index:1200;
+  transform:translateY(100%);
+  transition:transform .35s cubic-bezier(.32,1.2,.64,1);
+  overflow:hidden;
+}
+.chat-panel.open{transform:translateY(0);}
+
+.chat-header{
+  background:linear-gradient(135deg,var(--g900) 0%,var(--g700) 100%);
+  padding:16px 18px 14px;
+  display:flex;align-items:center;gap:12px;
+  flex-shrink:0;
+  position:relative;
+}
+.chat-avatar{
+  width:44px;height:44px;
+  background:rgba(255,255,255,.15);
+  border:2px solid rgba(255,255,255,.3);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;flex-shrink:0;
+}
+.chat-header-info{flex:1;}
+.chat-bot-name{font-size:15px;font-weight:900;color:#fff;line-height:1.2;}
+.chat-bot-sub{font-size:11px;color:rgba(255,255,255,.7);font-weight:700;margin-top:2px;}
+.chat-online{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:10px;color:var(--g200);font-weight:800;
+}
+.chat-online::before{
+  content:'';width:7px;height:7px;
+  background:#4CAF50;border-radius:50%;
+  box-shadow:0 0 0 2px rgba(76,175,80,.3);
+}
+.chat-close-btn{
+  background:rgba(255,255,255,.15);
+  border:1.5px solid rgba(255,255,255,.25);
+  color:#fff;border-radius:20px;
+  padding:7px 14px;
+  font-size:12px;font-weight:800;
+  cursor:pointer;font-family:'Nunito',sans-serif;
+}
+
+.chat-messages{
+  flex:1;overflow-y:auto;
+  padding:16px 14px 8px;
+  display:flex;flex-direction:column;gap:10px;
+  background:var(--g50);
+}
+.chat-messages::-webkit-scrollbar{width:4px;}
+.chat-messages::-webkit-scrollbar-thumb{background:var(--g200);border-radius:2px;}
+
+.chat-msg{
+  display:flex;gap:8px;align-items:flex-end;
+  max-width:88%;
+  animation:msgIn .25s ease;
+}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.chat-msg.bot{align-self:flex-start;}
+.chat-msg.user{align-self:flex-end;flex-direction:row-reverse;}
+
+.msg-avatar{
+  width:30px;height:30px;
+  background:linear-gradient(135deg,var(--g700),var(--g900));
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;flex-shrink:0;
+}
+
+.msg-bubble{
+  padding:10px 14px;
+  border-radius:18px;
+  font-size:13px;font-weight:700;line-height:1.55;
+  color:var(--td);
+  max-width:100%;
+  word-break:break-word;
+}
+.chat-msg.bot .msg-bubble{
+  background:#fff;
+  border-bottom-left-radius:4px;
+  border:1px solid var(--g100);
+  box-shadow:0 2px 8px rgba(10,36,20,.06);
+}
+.chat-msg.user .msg-bubble{
+  background:linear-gradient(135deg,var(--g700),var(--g800));
+  color:#fff;
+  border-bottom-right-radius:4px;
+}
+.msg-bubble .msg-emoji{font-size:16px;display:block;margin-bottom:4px;}
+
+.chat-typing{
+  display:flex;align-items:center;gap:5px;
+  padding:10px 14px;
+  background:#fff;
+  border-radius:18px;border-bottom-left-radius:4px;
+  border:1px solid var(--g100);
+  width:60px;
+}
+.typing-dot{
+  width:7px;height:7px;
+  background:var(--g400);border-radius:50%;
+  animation:typingDot 1.2s ease-in-out infinite;
+}
+.typing-dot:nth-child(2){animation-delay:.2s;}
+.typing-dot:nth-child(3){animation-delay:.4s;}
+@keyframes typingDot{
+  0%,60%,100%{transform:translateY(0);}
+  30%{transform:translateY(-6px);}
+}
+
+.quick-replies{
+  padding:10px 14px 10px;
+  background:#fff;
+  flex-shrink:0;
+  border-top:1px solid var(--g100);
+}
+.qr-label{
+  font-size:10px;font-weight:900;
+  color:var(--tl);text-transform:uppercase;
+  letter-spacing:.7px;margin-bottom:8px;
+  padding:0 2px;
+}
+.qr-row{
+  display:flex;gap:8px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  padding-bottom:6px;
+  -webkit-overflow-scrolling:touch;
+}
+.qr-row::-webkit-scrollbar{display:none;}
+.qr-btn{
+  flex-shrink:0;
+  background:var(--g50);
+  border:1.5px solid var(--g200);
+  border-radius:20px;
+  padding:8px 14px;
+  font-size:12px;font-weight:800;
+  color:var(--g800);
+  cursor:pointer;
+  font-family:'Nunito',sans-serif;
+  transition:all .15s;
+  white-space:nowrap;
+  display:flex;align-items:center;gap:5px;
+}
+.qr-btn:hover,.qr-btn:active{
+  background:var(--g700);color:#fff;border-color:var(--g700);
+}
+
+.chat-input-bar{
+  display:flex;gap:8px;align-items:center;
+  padding:10px 14px 18px;
+  background:#fff;
+  border-top:1px solid var(--g100);
+  flex-shrink:0;
+}
+.chat-input{
+  flex:1;
+  border:2px solid var(--g200);
+  border-radius:24px;
+  padding:11px 16px;
+  font-size:14px;font-weight:700;
+  font-family:'Nunito',sans-serif;
+  outline:none;
+  color:var(--td);
+  background:var(--g50);
+  transition:border-color .2s;
+}
+.chat-input:focus{border-color:var(--g600);background:#fff;}
+.chat-send-btn{
+  width:44px;height:44px;
+  background:var(--g700);
+  border:none;border-radius:50%;
+  color:#fff;font-size:18px;
+  cursor:pointer;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.chat-send-btn:hover{background:var(--g800);}
+.chat-send-btn:active{transform:scale(.92);}
+
+.chat-date-divider{
+  text-align:center;
+  font-size:10px;font-weight:800;
+  color:var(--tl);
+  margin:4px 0;
+  letter-spacing:.5px;
+}
+.msg-time{
+  font-size:9px;font-weight:700;
+  color:var(--tl);
+  margin-top:3px;
+  padding:0 4px;
+}
+.chat-msg.user .msg-time{text-align:right;}
+</style>
+</head>
+<body>
+
+<!-- LOADING OVERLAY -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <p>Loading your data...</p>
+</div>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header class="header">
+  <div class="leaf-deco tl">🌿</div>
+  <div class="leaf-deco tr">🍃</div>
+  <div class="leaf-deco bl">🌱</div>
+  <div class="leaf-deco br">🍃</div>
+
+  <div class="header-top">
+    <div class="hbl-badge">
+      <span class="hbl-leaf">🍃</span>
+      <span>HERBALIFE<br>NUTRITION</span>
+    </div>
+    <!-- FEATURE 3: Language Toggle -->
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">🌐 हिंदी</button>
+  </div>
+
+  <div class="header-hero">
+    <div class="target-badge" id="targetBadge">🎯 Target: Effective &amp; Sustainable Weight Loss</div>
+    <h1 id="mainTitle">Weight Loss<br><span>Diet Plan</span></h1>
+  </div>
+
+  <!-- FEATURE 1: Live Clock & Active Meal Detection -->
+  <div class="clock-card">
+    <div>
+      <div class="clock-hms" id="clockHMS">--:--:--</div>
+      <div class="clock-date" id="clockDate">Loading...</div>
+    </div>
+    <div class="clock-right">
+      <div class="meal-lbl" id="mealLbl">CURRENT MEAL</div>
+      <div class="meal-active" id="mealActive">—</div>
+      <div class="meal-next" id="mealNext">Next: —</div>
+    </div>
+  </div>
+  <div class="header-spacer"></div>
+</header>
+
+<!-- ════════════════ PROGRESS (Feature 2) ════════ -->
+<div class="prog-section">
+  <div class="prog-top">
+    <div>
+      <div class="prog-title" id="progTitle">📊 Today's Progress</div>
+      <div class="streak-line" id="streakLine">🌱 Start your streak today!</div>
+    </div>
+    <div class="prog-right">
+      <div class="prog-count" id="progCount">0/9</div>
+      <button class="reset-btn" id="resetBtn" onclick="resetDay()">Reset Day</button>
+    </div>
+  </div>
+  <div class="prog-bar-wrap"><div class="prog-bar-fill" id="progBar" style="width:0%"></div></div>
+</div>
+
+<!-- ══════════ STREAK FIRE BADGE ══════════════════ -->
+<div class="streak-fire-wrap" id="streakFireWrap">
+  <div class="streak-num" id="streakFireNum">0</div>
+  <div class="streak-info">
+    <div class="s-title" id="streakFireTitle">Day Streak 🔥</div>
+    <div class="s-sub" id="streakFireSub">Complete today to build your streak!</div>
+  </div>
+  <div class="streak-emoji" id="streakEmojiIcon">🌱</div>
+</div>
+
+<!-- ══════════ WEIGHT TRACKER ══════════════════════ -->
+<div class="weight-section" id="weightSection">
+  <div class="weight-header">
+    <div>
+      <div class="weight-title">⚖️ Weight Tracker</div>
+      <div class="weight-subtitle" id="weightSubtitle">Log your weight daily to see real progress</div>
+    </div>
+  </div>
+  <div class="weight-input-row">
+    <input class="weight-input" type="number" id="weightInput" placeholder="Today's weight" step="0.1" min="30" max="250">
+    <span class="weight-unit">kg</span>
+    <button class="weight-save-btn" onclick="saveWeight()">Log ✓</button>
+  </div>
+  <div class="weight-input-row" style="margin-bottom:10px;">
+    <input class="weight-input" type="number" id="goalWeightInput" placeholder="Goal weight (e.g. 60)" step="0.1" min="30" max="250" style="font-size:13px;">
+    <span class="weight-unit" style="font-size:11px;line-height:1.2;">kg<br><span style="font-size:9px;color:var(--tl);font-weight:800;">GOAL</span></span>
+    <button class="weight-save-btn" style="font-size:12px;padding:11px 12px;" onclick="saveGoalWeight()">Set 🎯</button>
+  </div>
+  <div class="weight-stats-row" id="weightStats">
+    <div class="wstat"><div class="wv" id="wCurrent">—</div><div class="wl">Current</div></div>
+    <div class="wstat"><div class="wv" id="wLost" style="color:var(--g600)">—</div><div class="wl">Lost</div></div>
+    <div class="wstat"><div class="wv" id="wDays">—</div><div class="wl">Days</div></div>
+  </div>
+  <div class="weight-chart-wrap">
+    <div class="weight-chart-title">📉 Weight Over Time (kg)</div>
+    <canvas id="weightChart"></canvas>
+  </div>
+  <div class="weight-log-list" id="weightLogList"></div>
+</div>
+
+<!-- ══════════ REPORT FAB ══════════════════════════ -->
+<button class="report-fab" onclick="openReportModal()">📊 View Reports</button>
+
+<!-- ══════════ REPORT MODAL ════════════════════════ -->
+<div class="modal-overlay" id="reportModal" onclick="closeModalOnBg(event)">
+  <div class="modal-sheet" id="reportSheet">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <span class="modal-title" id="modalTitle">📊 My Progress</span>
+      <button class="modal-close" onclick="closeReportModal()">✕</button>
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" id="tabDaily"  onclick="switchTab('daily')">📅 Daily</button>
+      <button class="tab-btn"        id="tabWeekly" onclick="switchTab('weekly')">📆 Weekly</button>
+      <button class="tab-btn"        id="tabMonthly"onclick="switchTab('monthly')">📈 Monthly</button>
+      <button class="tab-btn"        id="tabWeight" onclick="switchTab('weight')">⚖️ Weight</button>
+    </div>
+    <div class="report-inner" id="reportInner"></div>
+  </div>
+</div>
+
+<!-- Hidden canvas for share image generation -->
+<canvas id="shareCanvas" width="1080" height="1080"></canvas>
+
+<!-- ═══════════════════ MAIN ══════════════════════ -->
+<main class="main">
+
+  <div class="sec-label" id="scheduleLbl">📅 Daily Schedule</div>
+  <div class="timeline" id="timeline"></div>
+
+  <!-- Dinner Section -->
+  <div class="sec-label" id="dinnerLbl">🌙 Dinner</div>
+  <div class="dinner-wrap">
+    <div class="day-switcher" id="daySwitcher" style="flex-wrap:wrap;gap:6px;">
+      <button class="dbtn" id="dMon" onclick="setWeekDay('Mon')">Mon</button>
+      <button class="dbtn" id="dTue" onclick="setWeekDay('Tue')">Tue</button>
+      <button class="dbtn" id="dWed" onclick="setWeekDay('Wed')">Wed</button>
+      <button class="dbtn" id="dThu" onclick="setWeekDay('Thu')">Thu</button>
+      <button class="dbtn" id="dFri" onclick="setWeekDay('Fri')">Fri</button>
+      <button class="dbtn" id="dSat" onclick="setWeekDay('Sat')">Sat</button>
+      <button class="dbtn" id="dSun" onclick="setWeekDay('Sun')">Sun</button>
+    </div>
+    <div class="dinner-card">
+      <div class="dinner-hdr" id="dinnerHdr">🍽️ DINNER OPTIONS</div>
+      <div class="dinner-body" id="dinnerBody"></div>
+      <div class="dinner-warn" id="dinnerWarn">🚫 Do NOT eat Roti at night!</div>
+    </div>
+  </div>
+
+  <!-- Daily Habits -->
+  <div class="sec-label" id="habitsLbl">⭐ Daily Habits</div>
+  <div class="habits-section">
+    <div class="habits-grid" id="habitsGrid"></div>
+  </div>
+
+  <!-- Sleep Card -->
+  <div class="sleep-card">
+    <div class="sleep-icon">😴</div>
+    <div class="sleep-title" id="sleepTitle">10:00 PM — Rest &amp; Sleep</div>
+    <div class="sleep-desc" id="sleepDesc">7–8 hours of quality sleep</div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-tag" id="footerTag">Healthy Today, Stronger Tomorrow</div>
+  <div class="footer-credit">BY VAIBHAV VASHISTH</div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<!-- ═══════════════ CHATBOT ═══════════════════════ -->
+<!-- Floating Chat Button -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" title="Chat with HerbaBot">
+  🤖
+  <div class="chat-fab-badge" id="chatBadge">1</div>
+</button>
+
+<!-- Chat Panel -->
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-header">
+    <div class="chat-avatar">🌿</div>
+    <div class="chat-header-info">
+      <div class="chat-bot-name">HerbaBot — Aapka Personal Coach</div>
+      <div class="chat-bot-sub">
+        <span class="chat-online">Always Online</span>
+        &nbsp;·&nbsp; Herbalife Weight Loss Expert
+      </div>
+    </div>
+    <button class="chat-close-btn" onclick="toggleChat()">✕ Close</button>
+  </div>
+
+  <div class="chat-messages" id="chatMessages"></div>
+
+  <div class="quick-replies" id="quickReplies">
+    <div class="qr-label">🔍 Quick Topics</div>
+    <div class="qr-row">
+      <button class="qr-btn" onclick="sendQuick('aaj ka meal plan batao')">🥗 Meal Plan</button>
+      <button class="qr-btn" onclick="sendQuick('Formula 1 shake kaise banate hain')">🥤 F1 Shake</button>
+      <button class="qr-btn" onclick="sendQuick('Afresh kya hai')">⚡ Afresh</button>
+      <button class="qr-btn" onclick="sendQuick('raat ko kya khaayein')">🌙 Raat ka khana</button>
+      <button class="qr-btn" onclick="sendQuick('weight loss tips dijiye')">⚖️ Weight Loss</button>
+    </div>
+    <div class="qr-row" style="margin-top:6px;">
+      <button class="qr-btn" onclick="sendQuick('paani kitna peena chahiye')">💧 Paani</button>
+      <button class="qr-btn" onclick="sendQuick('exercise kab karein')">🏃 Exercise</button>
+      <button class="qr-btn" onclick="sendQuick('calories kitni leni chahiye')">🔥 Calories</button>
+      <button class="qr-btn" onclick="sendQuick('protein kahan se milega')">💊 Protein</button>
+      <button class="qr-btn" onclick="sendQuick('BMI kya hota hai')">📏 BMI</button>
+    </div>
+    <div class="qr-row" style="margin-top:6px;">
+      <button class="qr-btn" onclick="sendQuick('plateau kyon aata hai')">😟 Plateau</button>
+      <button class="qr-btn" onclick="sendQuick('motivation chahiye')">💪 Motivation</button>
+      <button class="qr-btn" onclick="sendQuick('stress mein kya karein')">🧘 Stress</button>
+      <button class="qr-btn" onclick="sendQuick('mera progress kaisa hai')">📊 Progress</button>
+      <button class="qr-btn" onclick="sendQuick('travel mein diet kaise karein')">✈️ Travel</button>
+    </div>
+  </div>
+
+  <div class="chat-input-bar">
+    <input class="chat-input" id="chatInput" type="text"
+      placeholder="Kuch bhi poochho Herbalife ke baare mein..."
+      onkeydown="if(event.key==='Enter') sendChat()">
+    <button class="chat-send-btn" onclick="sendChat()">➤</button>
+  </div>
+</div>
+<div id="savedBadge" style="
+  position:fixed;bottom:86px;right:20px;
+  background:var(--g700);color:#fff;
+  border-radius:20px;padding:7px 16px;
+  font-size:12px;font-weight:800;
+  box-shadow:0 4px 16px rgba(27,67,50,.35);
+  opacity:0;transform:translateY(8px);
+  transition:opacity .25s,transform .25s;
+  pointer-events:none;z-index:999;
+  font-family:'Nunito',sans-serif;
+">✓ Data Saved</div>
+<style>
+#savedBadge.visible{opacity:1;transform:translateY(0);}
+</style>
+
+<!-- ═══════════════════ SCRIPT ════════════════════ -->
+<script>
+/* ──────────────────────────────────────────────────
+   BILINGUAL DATA
+────────────────────────────────────────────────── */
+const DATA = {
+  en: {
+    langBtn: "🌐 हिंदी",
+    targetBadge: "🎯 Target: Effective & Sustainable Weight Loss",
+    mainTitle: "Weight Loss<br><span>Diet Plan</span>",
+    mealLbl: "CURRENT MEAL",
+    nextPfx: "Next",
+    beforeFirst: "Before first meal",
+    progTitle: "📊 Today's Progress",
+    resetBtn: "Reset Day",
+    scheduleLbl: "📅 Daily Schedule",
+    dinnerLbl: "🌙 Dinner",
+    habitsLbl: "⭐ Daily Habits",
+    footerTag: "Healthy Today, Stronger Tomorrow",
+    dinnerHdr: "🍽️ DINNER OPTIONS",
+    dinnerWarn: "🚫 Do NOT eat Roti at night!",
+    sleepTitle: "10:00 PM — Rest & Sleep",
+    sleepDesc: "7–8 hours of quality sleep",
+    d1lbl: "Mon / Wed / Fri", d2lbl: "Tue / Thu / Sat",
+    d1meal: "🥤 Shake", d2meal: "🍲 Thin Moong Dal Khichdi",
+    dsunlbl: "Sunday — Free Choice 🎉", dsunmeal: "🍽️ Aapki Marzi!",
+    dsundesc: "Aaj Sunday hai — aap apni pasand ka kuch bhi kha sakte hain!",
+    dtime: "8:00 PM",
+    streakPfx: "🔥 Streak: ", streakSfx: " day(s)",
+    noStreak: "🌱 Start your streak today!",
+    lastAct: "Last activity of the day ✨",
+    toastDone: "✅ Marked done! Keep going!",
+    toastUndo: "↩️ Unmarked",
+    toastReset: "🔄 Day reset! Let's crush it!",
+    toastHabit: "🌟 Habit tracked!",
+    toastStreak: "🔥 Streak achieved! Amazing!",
+    meals: [
+      {h:6,  m:0,  time:"6:00 AM",  icon:"💧", title:"Morning Hydration",    desc:"1 glass water\nNormal or Lukewarm water", product:null},
+      {h:6,  m:30, time:"6:30 AM",  icon:"🏃", title:"Morning Club Join",    desc:"Online/community session\n+ Workout + Afresh", product:"Afresh"},
+      {h:7,  m:30, time:"7:30 AM",  icon:"🥤", title:"Shake",                desc:"Formula 1 → 3 spoons\nShakeMate → 2 spoons\nFiber Complex → 1 spoon\nMix in 400 ml water\n(Drink 1–2 glasses water after shake)", product:"Formula 1 + ShakeMate + Fiber"},
+      {h:10, m:30, time:"10:30 AM", icon:"🍎", title:"Mid-Morning Snack",    desc:"Eat any available fruit\nAfter 10 min take Afresh", product:"Afresh"},
+      {h:13, m:0,  time:"1:00 PM",  icon:"🍽️", title:"Lunch",               desc:"2 Roti + Sabji + Full Plate Salad + Curd", product:null},
+      {h:14, m:0,  time:"2:00 PM",  icon:"🌿", title:"Afresh",               desc:"2 spoons", product:"Afresh"},
+      {h:16, m:0,  time:"4:00 PM",  icon:"🥗", title:"Evening Snack",        desc:"Fruits / Salad / Makhanas", product:null},
+      {h:17, m:0,  time:"5:00 PM",  icon:"💪", title:"Evening Club Join",    desc:"Online/community session\n+ Workout + Afresh", product:"Afresh"},
+    ],
+    habits:[
+      {icon:"💧", name:"Hydration",    detail:"10 Glasses / day"},
+      {icon:"😴", name:"Sleep",        detail:"7–8 Hours / night"},
+      {icon:"👟", name:"Step Count",   detail:"7K–10K Steps / day"},
+      {icon:"🧘", name:"Mindfulness",  detail:"Stay consistent"},
+    ],
+  },
+  hi: {
+    langBtn: "🌐 English",
+    targetBadge: "🎯 लक्ष्य: प्रभावी और टिकाऊ वजन घटाना",
+    mainTitle: "वजन घटाने का<br><span>डाइट प्लान</span>",
+    mealLbl: "वर्तमान भोजन",
+    nextPfx: "अगला",
+    beforeFirst: "पहले भोजन से पहले",
+    progTitle: "📊 आज की प्रगति",
+    resetBtn: "दिन रीसेट",
+    scheduleLbl: "📅 दैनिक कार्यक्रम",
+    dinnerLbl: "🌙 रात का भोजन",
+    habitsLbl: "⭐ दैनिक आदतें",
+    footerTag: "आज स्वस्थ रहें, कल और बेहतर बनाएं",
+    dinnerHdr: "🍽️ रात के भोजन के विकल्प",
+    dinnerWarn: "🚫 रात में रोटी न खाएं!",
+    sleepTitle: "10:00 बजे — आराम करें",
+    sleepDesc: "7–8 घंटे की अच्छी नींद लें",
+    d1lbl: "सोम / बुध / शुक्र", d2lbl: "मंगल / गुरु / शनि",
+    d1meal: "🥤 शेक", d2meal: "🍲 थिन मूंग दाल खिचड़ी",
+    dsunlbl: "रविवार — आपकी मर्जी 🎉", dsunmeal: "🍽️ आपकी पसंद!",
+    dsundesc: "आज रविवार है — आप अपनी मनपसंद कुछ भी खा सकते हैं!",
+    dtime: "रात 8:00 बजे",
+    streakPfx: "🔥 स्ट्रीक: ", streakSfx: " दिन",
+    noStreak: "🌱 आज से शुरुआत करें!",
+    lastAct: "दिन की अंतिम गतिविधि ✨",
+    toastDone: "✅ हो गया! बढ़ते रहो!",
+    toastUndo: "↩️ अनमार्क किया",
+    toastReset: "🔄 दिन रीसेट! चलो करते हैं!",
+    toastHabit: "🌟 आदत ट्रैक की!",
+    toastStreak: "🔥 स्ट्रीक पूरी! शानदार!",
+    meals: [
+      {h:6,  m:0,  time:"सुबह 6:00",  icon:"💧", title:"सुबह की हाइड्रेशन",  desc:"1 गिलास पानी\nसामान्य या हल्का गुनगुना पानी", product:null},
+      {h:6,  m:30, time:"सुबह 6:30",  icon:"🏃", title:"सुबह क्लब जॉइन",    desc:"ऑनलाइन/कम्युनिटी सेशन\n+ वर्कआउट + अफ्रेश", product:"Afresh"},
+      {h:7,  m:30, time:"सुबह 7:30",  icon:"🥤", title:"शेक",                desc:"फॉर्मूला 1 → 3 चम्मच\nशेकमेट → 2 चम्मच\nफाइबर कॉम्प्लेक्स → 1 चम्मच\n400 ml पानी में मिलाएं\n(शेक के बाद 1–2 गिलास पानी पिएं)", product:"Formula 1 + ShakeMate + Fiber"},
+      {h:10, m:30, time:"सुबह 10:30", icon:"🍎", title:"मिड-मॉर्निंग स्नैक",  desc:"कोई भी उपलब्ध फल खाएं\nअफ्रेश लेने के 10 मिनट बाद लें", product:"Afresh"},
+      {h:13, m:0,  time:"दोपहर 1:00", icon:"🍽️", title:"दोपहर का भोजन",    desc:"2 रोटी + सब्जी + सलाद + दही", product:null},
+      {h:14, m:0,  time:"दोपहर 2:00", icon:"🌿", title:"अफ्रेश",              desc:"2 चम्मच", product:"Afresh"},
+      {h:16, m:0,  time:"शाम 4:00",   icon:"🥗", title:"शाम का स्नैक",       desc:"फल / सलाद / मखाना", product:null},
+      {h:17, m:0,  time:"शाम 5:00",   icon:"💪", title:"शाम क्लब जॉइन",     desc:"ऑनलाइन/कम्युनिटी सेशन\n+ वर्कआउट + अफ्रेश", product:"Afresh"},
+    ],
+    habits:[
+      {icon:"💧", name:"पर्याप्त पानी",   detail:"10 गिलास / दिन"},
+      {icon:"😴", name:"पर्याप्त नींद",    detail:"7–8 घंटे / रात"},
+      {icon:"👟", name:"रोजाना कदम",       detail:"7K–10K कदम / दिन"},
+      {icon:"🧘", name:"माइंडफुलनेस",      detail:"निरंतरता बनाए रखें"},
+    ],
+  },
+};
+
+/* ──────────────────────────────────────────────────
+   STATE  (loaded async from window.storage)
+────────────────────────────────────────────────── */
+let lang    = 'en';
+let curDay  = 1;
+let checked = {};
+let habitck = {};
+let streak  = 0;
+let waterGlasses = 0;
+let toastTimer = null;
+
+/* ══════════════════════════════════════════════════════
+   FAST STORAGE — In-memory cache + triple-redundant save
+   Layers: memCache → localStorage → IndexedDB → window.storage
+   • get()  → returns from memCache instantly (< 1ms)
+             if cold, reads localStorage (sync, < 5ms)
+             if missing, tries IndexedDB / window.storage
+   • set()  → writes memCache immediately (sync)
+             then writes all backends in parallel (async)
+   • Data is PERMANENTLY saved across sessions via
+     localStorage + IndexedDB (survives app restarts)
+══════════════════════════════════════════════════════ */
+const Store = (()=>{
+  /* ── In-memory cache (fastest layer) ── */
+  const _mem = {};
+
+  /* ── IndexedDB helper ── */
+  let _idb = null;
+  function _openIDB(){
+    if(_idb) return Promise.resolve(_idb);
+    return new Promise((res,rej)=>{
+      try{
+        const req = indexedDB.open('hl_diet_db', 1);
+        req.onupgradeneeded = e => e.target.result.createObjectStore('kv',{keyPath:'k'});
+        req.onsuccess = e => { _idb=e.target.result; res(_idb); };
+        req.onerror   = () => rej(req.error);
+      } catch(e){ rej(e); }
+    });
+  }
+  function _idbGet(key){
+    return _openIDB().then(db=>new Promise((res,rej)=>{
+      try{
+        const tx=db.transaction('kv','readonly');
+        const req=tx.objectStore('kv').get(key);
+        req.onsuccess=()=>res(req.result?req.result.v:null);
+        req.onerror=()=>rej(req.error);
+      }catch(e){rej(e);}
+    })).catch(()=>null);
+  }
+  function _idbSet(key,val){
+    return _openIDB().then(db=>new Promise((res)=>{
+      try{
+        const tx=db.transaction('kv','readwrite');
+        tx.objectStore('kv').put({k:key,v:val});
+        tx.oncomplete=()=>res(true);
+        tx.onerror=()=>res(false);
+      }catch(e){res(false);}
+    })).catch(()=>false);
+  }
+
+  /* ── localStorage helper (sync, instant) ── */
+  function _lsGet(key){ try{ return localStorage.getItem(key); }catch(e){return null;} }
+  function _lsSet(key,val){ try{ localStorage.setItem(key,val); return true; }catch(e){return false;} }
+
+  /* ── window.storage helper (Claude artifact storage) ── */
+  function _wsGet(key){
+    try{
+      if(window.storage && typeof window.storage.get==='function')
+        return window.storage.get(key).then(r=>r?r.value:null).catch(()=>null);
+    }catch(e){}
+    return Promise.resolve(null);
+  }
+  function _wsSet(key,val){
+    try{
+      if(window.storage && typeof window.storage.set==='function')
+        return window.storage.set(key,val).catch(()=>false);
+    }catch(e){}
+    return Promise.resolve(false);
+  }
+
+  /* ── Warm up: preload all hl_* keys from localStorage into memCache ── */
+  function _warmCache(){
+    try{
+      for(let i=0;i<localStorage.length;i++){
+        const k=localStorage.key(i);
+        if(k && k.startsWith('hl_')){ _mem[k]=localStorage.getItem(k); }
+      }
+    }catch(e){}
+  }
+  _warmCache();
+
+  return {
+    /* get: memCache → localStorage → IndexedDB → window.storage */
+    async get(key){
+      // 1. Memory cache — instant
+      if(_mem[key]!==undefined && _mem[key]!==null) return _mem[key];
+      // 2. localStorage — sync, fast
+      const ls=_lsGet(key);
+      if(ls!==null){ _mem[key]=ls; return ls; }
+      // 3. IndexedDB — async but local
+      const idb=await _idbGet(key);
+      if(idb!==null){ _mem[key]=idb; _lsSet(key,idb); return idb; }
+      // 4. window.storage — Claude artifact storage
+      const ws=await _wsGet(key);
+      if(ws!==null){ _mem[key]=ws; _lsSet(key,ws); _idbSet(key,ws); return ws; }
+      return null;
+    },
+
+    /* set: write memCache sync, then all backends in parallel */
+    set(key,val){
+      // Synchronous: update memory immediately
+      _mem[key]=val;
+      // Synchronous: write localStorage immediately
+      _lsSet(key,val);
+      // Async: write remaining backends in parallel (don't await)
+      Promise.all([_idbSet(key,val), _wsSet(key,val)]).catch(()=>{});
+      return Promise.resolve(true);
+    },
+
+    /* Expose cache preload for boot */
+    async preloadAll(){
+      // Try to bulk-load from IDB and window.storage for keys not yet in ls
+      const keys=['hl_prefs','hl_state','hl_history','hl_weight','hl_goal_weight'];
+      await Promise.all(keys.map(async k=>{
+        if(_mem[k]) return; // already warm
+        const idb=await _idbGet(k).catch(()=>null);
+        if(idb){ _mem[k]=idb; _lsSet(k,idb); return; }
+        const ws=await _wsGet(k).catch(()=>null);
+        if(ws){ _mem[k]=ws; _lsSet(k,ws); _idbSet(k,ws); }
+      }));
+    }
+  };
+})();
+
+/* ──────────────────────────────────────────────────
+   PERSISTENCE
+   Keys used:
+     hl_prefs   → {lang, curDay}
+     hl_state   → {date, checked, habits, streak}
+     hl_history → [{date,pct,mealsDone,habitsDone,streak}, ...]
+────────────────────────────────────────────────── */
+function todayKey(){
+  const d=new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+async function loadState(){
+  try{
+    const prRaw = await Store.get('hl_prefs');
+    if(prRaw){ const p=JSON.parse(prRaw); lang=p.lang||'en'; }
+    // Always default dinner view to today's weekday
+    activeWeekDay = getTodayWeekDay();
+
+    const stRaw = await Store.get('hl_state');
+    if(stRaw){
+      const obj=JSON.parse(stRaw);
+      streak = obj.streak||0;
+      if(obj.date===todayKey()){
+        checked=obj.checked||{};
+        habitck=obj.habits||{};
+        waterGlasses=obj.waterGlasses||0;
+      } else {
+        const yd=new Date(); yd.setDate(yd.getDate()-1);
+        const ydKey=`${yd.getFullYear()}-${yd.getMonth()+1}-${yd.getDate()}`;
+        if(obj.date!==ydKey) streak=0;
+        checked={}; habitck={}; waterGlasses=0;
+        await _saveStateCore();
+      }
+    }
+  } catch(e){ console.warn('loadState error',e); }
+}
+
+async function _saveStateCore(){
+  try{
+    await Store.set('hl_state', JSON.stringify({
+      date:todayKey(), checked, habits:habitck, streak, waterGlasses
+    }));
+  } catch(e){}
+}
+
+async function savePrefs(){
+  try{
+    await Store.set('hl_prefs', JSON.stringify({lang}));
+  } catch(e){}
+}
+
+async function saveState(){
+  await _saveStateCore();
+  await upsertTodayHistory();
+  if(typeof updateStreakBadge==='function') updateStreakBadge();
+  _flashSaved();
+}
+function _flashSaved(){
+  const el=document.getElementById('savedBadge');
+  if(!el) return;
+  el.classList.add('visible');
+  clearTimeout(el._t);
+  el._t=setTimeout(()=>el.classList.remove('visible'),1800);
+}
+
+/* ──────────────────────────────────────────────────
+   HISTORY — permanent append-only log
+────────────────────────────────────────────────── */
+async function getHistory(){
+  try{
+    const raw = await Store.get('hl_history');
+    if(!raw) return [];
+    const arr = JSON.parse(raw);
+    // Normalize date format & deduplicate (fix: old entries may have "2026-5-28" vs "2026-05-28")
+    const map = {};
+    arr.forEach(h => {
+      const parts = h.date.split('-').map(Number);
+      const normDate = `${parts[0]}-${String(parts[1]).padStart(2,'0')}-${String(parts[2]).padStart(2,'0')}`;
+      h.date = normDate;
+      // Keep entry with higher pct (most complete data for that day)
+      if(!map[normDate] || h.pct >= map[normDate].pct) map[normDate] = h;
+    });
+    return Object.values(map).sort((a,b)=>a.date.localeCompare(b.date));
+  } catch(e){ return []; }
+}
+
+async function saveHistory(arr){
+  try{
+    arr.sort((a,b)=>a.date.localeCompare(b.date));
+    if(arr.length>180) arr=arr.slice(arr.length-180);
+    await Store.set('hl_history', JSON.stringify(arr));
+  } catch(e){}
+}
+
+async function upsertTodayHistory(){
+  const key=todayKey();
+  const mDone=Object.keys(checked).filter(k=>k!=='_streakCounted'&&checked[k]).length;
+  const hDone=Object.keys(habitck).filter(k=>habitck[k]).length;
+  const pct=Math.round((mDone/TOTAL_TASKS)*100);
+  let hist=await getHistory();
+  const idx=hist.findIndex(h=>h.date===key);
+  const entry={date:key, pct, mealsDone:mDone, habitsDone:hDone, streak};
+  if(idx>=0) hist[idx]=entry; else hist.push(entry);
+  await saveHistory(hist);
+}
+
+/* ──────────────────────────────────────────────────
+   FEATURE 1 — LIVE CLOCK & ACTIVE MEAL
+────────────────────────────────────────────────── */
+function updateClock(){
+  const now = new Date();
+  const hh=String(now.getHours()).padStart(2,'0');
+  const mm=String(now.getMinutes()).padStart(2,'0');
+  const ss=String(now.getSeconds()).padStart(2,'0');
+  document.getElementById('clockHMS').textContent = `${hh}:${mm}:${ss}`;
+
+  const DAY_NAMES=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const MON_NAMES=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  document.getElementById('clockDate').textContent =
+    `${DAY_NAMES[now.getDay()]}, ${now.getDate()} ${MON_NAMES[now.getMonth()]} ${now.getFullYear()}`;
+
+  const c = DATA[lang];
+  const nowMin = now.getHours()*60 + now.getMinutes();
+  const todayDtype = getDinnerTypeForDay(now.getDay());
+  const dinnerName = todayDtype===1
+    ? (lang==='en'?'Dinner — 🥤 Shake':'रात का खाना — 🥤 शेक')
+    : todayDtype===2
+    ? (lang==='en'?'Dinner — 🍲 Khichdi':'रात का खाना — 🍲 खिचड़ी')
+    : (lang==='en'?'Dinner — 🍽️ Your Choice':'रात का खाना — 🍽️ आपकी मर्जी');
+  const allMeals = [...c.meals.map(m=>({
+    min:m.h*60+m.m, name:m.title
+  })),
+    {min:20*60, name: dinnerName},
+    {min:22*60, name: lang==='en'?'Rest & Sleep':'आराम करें'}
+  ];
+
+  let actIdx = -1;
+  for(let i=allMeals.length-1;i>=0;i--){
+    if(nowMin >= allMeals[i].min){ actIdx=i; break; }
+  }
+
+  if(actIdx>=0){
+    document.getElementById('mealLbl').textContent = c.mealLbl;
+    document.getElementById('mealActive').textContent = allMeals[actIdx].name;
+    if(actIdx < allMeals.length-1){
+      const diff = allMeals[actIdx+1].min - nowMin;
+      const dh=Math.floor(diff/60), dm=diff%60;
+      const ts = dh>0 ? `${dh}h ${dm}m` : `${dm}m`;
+      document.getElementById('mealNext').textContent =
+        `${c.nextPfx}: ${allMeals[actIdx+1].name} (${ts})`;
+    } else {
+      document.getElementById('mealNext').textContent = c.lastAct;
+    }
+  } else {
+    document.getElementById('mealActive').textContent = c.beforeFirst;
+    document.getElementById('mealNext').textContent =
+      `${c.nextPfx}: ${allMeals[0].name} (6:00 AM)`;
+  }
+
+  // Highlight active card
+  document.querySelectorAll('.mcrd').forEach((card,i)=>{
+    card.classList.toggle('act', i===actIdx);
+  });
+}
+
+/* ──────────────────────────────────────────────────
+   FEATURE 2 — DAILY PROGRESS TRACKER
+────────────────────────────────────────────────── */
+function updateProgress(){
+  const total = 9; // 8 meals + dinner
+  const done = Object.keys(checked).filter(k=>k!=='_streakCounted'&&checked[k]).length;
+  const pct = Math.round((done/total)*100);
+  document.getElementById('progBar').style.width = pct+'%';
+  document.getElementById('progCount').textContent = `${done}/${total}`;
+
+  const c = DATA[lang];
+  const sl = document.getElementById('streakLine');
+  sl.textContent = streak>0
+    ? `${c.streakPfx}${streak}${c.streakSfx}`
+    : c.noStreak;
+
+  // Check for full day completion → streak
+  if(done>=total && !checked['_streakCounted']){
+    streak++;
+    checked['_streakCounted']=true;
+    saveState();
+    showToast(c.toastStreak);
+  }
+}
+
+function toggleMeal(idx){
+  const key=`m${idx}`;
+  checked[key]=!checked[key];
+  saveState();
+  const card = document.querySelector(`[data-midx="${idx}"]`);
+  const btn  = card.querySelector('.ckbtn');
+  if(checked[key]){
+    card.classList.add('done');
+    btn.textContent='✓';btn.style.background='var(--g600)';
+    btn.style.borderColor='var(--g600)';btn.style.color='#fff';
+    showToast(DATA[lang].toastDone);
+  } else {
+    card.classList.remove('done');
+    btn.textContent='';btn.style.background='';
+    btn.style.borderColor='';btn.style.color='transparent';
+    showToast(DATA[lang].toastUndo);
+  }
+  updateProgress();
+  liveUpdateCharts();
+}
+
+function toggleDinner(){
+  checked['dinner']=!checked['dinner'];
+  saveState();
+  const btn=document.getElementById('dinnCk');
+  if(checked['dinner']){
+    btn.textContent='✓';btn.classList.add('ck');
+    showToast(DATA[lang].toastDone);
+  } else {
+    btn.textContent='';btn.classList.remove('ck');
+    showToast(DATA[lang].toastUndo);
+  }
+  updateProgress();
+  liveUpdateCharts();
+}
+
+function toggleHabit(idx){
+  const key=`h${idx}`;
+  habitck[key]=!habitck[key];
+  saveState();
+  const card=document.querySelector(`[data-hidx="${idx}"]`);
+  const chk=card.querySelector('.hchk');
+  if(habitck[key]){
+    card.classList.add('hck');chk.textContent='✓';chk.style.color='#fff';
+    showToast(DATA[lang].toastHabit);
+  } else {
+    card.classList.remove('hck');chk.textContent='';chk.style.color='transparent';
+  }
+  liveUpdateCharts();
+}
+
+function resetDay(){
+  checked={};habitck={};streak=0;waterGlasses=0;
+  saveState();
+  renderAll();
+  liveUpdateCharts();
+  showToast(DATA[lang].toastReset);
+}
+
+/* ──────────────────────────────────────────────────
+   LIVE CHART UPDATE — called on every check/uncheck
+   Updates chart data in-place (no DOM re-render)
+────────────────────────────────────────────────── */
+async function liveUpdateCharts(){
+  // Only run if modal is open
+  const modal = document.getElementById('reportModal');
+  if(!modal.classList.contains('open')) return;
+
+  // If charts haven't initialized yet, do a full re-render
+  if(activeCharts.length === 0){
+    await renderReport(activeTab);
+    return;
+  }
+
+  // Re-sync today's history entry with current checked state
+  await upsertTodayHistory();
+  const hist = await getHistory();
+
+  if(activeTab === 'daily'){
+    const todayEntry = hist.find(h=>h.date===todayKey()) || {date:todayKey(),pct:0,mealsDone:0,habitsDone:0,streak:0};
+    let recent = last(hist,7);
+    if(!recent.find(h=>h.date===todayKey())) recent = [...recent, todayEntry].slice(-7);
+    const todayIdx = recent.findIndex(h=>h.date===todayKey());
+
+    // Update stat cards
+    const el0=document.querySelector('.rep-stat-row');
+    if(el0){
+      const rvs=el0.querySelectorAll('.rv');
+      const avgPct=avg(recent.map(h=>h.pct));
+      const best=recent.reduce((b,h)=>h.pct>b?h.pct:b,0);
+      if(rvs[0]) rvs[0].textContent=todayEntry.pct+'%';
+      if(rvs[1]) rvs[1].textContent=avgPct+'%';
+      if(rvs[2]) rvs[2].textContent=best+'%';
+    }
+
+    // Update hist-bar rows
+    document.querySelectorAll('.hist-row').forEach((row,i)=>{
+      if(recent[i]){
+        const fill=row.querySelector('.hist-bar-fill');
+        const pctEl=row.querySelector('.hist-pct');
+        if(fill) fill.style.width=recent[i].pct+'%';
+        if(pctEl) pctEl.textContent=recent[i].pct+'%';
+      }
+    });
+
+    // Update chart in-place (smooth animation) — now single line chart
+    if(activeCharts[0]){
+      activeCharts[0].data.datasets[0].data = recent.map(h=>h.pct);
+      activeCharts[0].data.datasets[0].pointBackgroundColor = recent.map(h=>h.date===todayKey()?'#D4A853':'#2D6A4F');
+      activeCharts[0].update('active');
+    }
+  }
+
+  if(activeTab === 'weekly'){
+    const todayEntry = hist.find(h=>h.date===todayKey()) || {date:todayKey(),pct:0,mealsDone:0,habitsDone:0,streak:0};
+    const fullHist = hist.find(h=>h.date===todayKey()) ? hist : [...hist, todayEntry];
+    const weeks = groupIntoWeeks(fullHist,8);
+    const avgs  = weeks.map(w=>avg(w.days.map(d=>d.pct)));
+    const el0=document.querySelector('.rep-stat-row');
+    if(el0){
+      const rvs=el0.querySelectorAll('.rv');
+      const thisWkAvg=avgs[avgs.length-1]||0;
+      const bestWkAvg=avgs.length?Math.max(...avgs):0;
+      const thisWk=weeks[weeks.length-1]||{days:[]};
+      if(rvs[0]) rvs[0].textContent=thisWkAvg+'%';
+      if(rvs[1]) rvs[1].textContent=bestWkAvg+'%';
+      if(rvs[2]) rvs[2].textContent=`${thisWk.days.filter(d=>d.pct===100).length}/${thisWk.days.length}`;
+    }
+    if(activeCharts[0]){
+      activeCharts[0].data.datasets[0].data=avgs;
+      activeCharts[0].data.datasets[0].pointBackgroundColor=avgs.map((_,i)=>i===avgs.length-1?'#D4A853':'#2D6A4F');
+      activeCharts[0].update('active');
+    }
+  }
+
+  if(activeTab === 'monthly'){
+    const todayEntry = hist.find(h=>h.date===todayKey()) || {date:todayKey(),pct:0,mealsDone:0,habitsDone:0,streak:0};
+    const fullHist = hist.find(h=>h.date===todayKey()) ? hist : [...hist, todayEntry];
+    const months = groupIntoMonths(fullHist,6);
+    const avgs   = months.map(m=>avg(m.days.map(d=>d.pct)));
+    const totalPerfect=fullHist.filter(h=>h.pct===100).length;
+    const longestStr=calcLongestStreak(fullHist);
+    const el0=document.querySelector('.rep-stat-row');
+    if(el0){
+      const rvs=el0.querySelectorAll('.rv');
+      if(rvs[0]) rvs[0].textContent=(avgs[avgs.length-1]||0)+'%';
+      if(rvs[1]) rvs[1].textContent=totalPerfect;
+      if(rvs[2]) rvs[2].textContent=longestStr;
+    }
+    if(activeCharts[0]){
+      activeCharts[0].data.datasets[0].data=avgs;
+      activeCharts[0].data.datasets[0].pointBackgroundColor=avgs.map((_,i)=>i===avgs.length-1?'#D4A853':'#2D6A4F');
+      activeCharts[0].update('active');
+    }
+  }
+}
+
+/* ──────────────────────────────────────────────────
+   FEATURE 3 — LANGUAGE TOGGLE
+────────────────────────────────────────────────── */
+function toggleLang(){
+  lang = lang==='en'?'hi':'en';
+  savePrefs();
+  renderAll();
+  updateClock();
+}
+
+/* ── Weekday → dinner type mapping ── */
+// Mon(1),Wed(3),Fri(5) → Shake (type 1)
+// Tue(2),Thu(4),Sat(6) → Khichdi (type 2)
+// Sun(0)               → Free choice (type 3)
+const WEEK_DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const WEEK_LABELS = {
+  en: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
+  hi: ['रवि','सोम','मंगल','बुध','गुरु','शुक्र','शनि']
+};
+function getDinnerTypeForDay(dayIdx){
+  // dayIdx: 0=Sun,1=Mon,2=Tue,3=Wed,4=Thu,5=Fri,6=Sat
+  if([1,3,5].includes(dayIdx)) return 1;   // Shake
+  if([2,4,6].includes(dayIdx)) return 2;   // Khichdi
+  return 3;                                // Sunday free
+}
+function getTodayWeekDay(){
+  return new Date().getDay(); // 0=Sun ... 6=Sat
+}
+let activeWeekDay = getTodayWeekDay(); // auto-set to today
+
+function setWeekDay(dayCode){
+  activeWeekDay = WEEK_DAYS.indexOf(dayCode);
+  savePrefs();
+  // update button highlight
+  WEEK_DAYS.forEach(d=>{
+    const btn = document.getElementById('d'+d);
+    if(btn) btn.classList.toggle('on', d===dayCode);
+  });
+  renderDinner();
+}
+
+function initDaySwitcher(){
+  // Highlight today's button by default
+  const todayCode = WEEK_DAYS[activeWeekDay];
+  WEEK_DAYS.forEach(d=>{
+    const btn = document.getElementById('d'+d);
+    if(btn){
+      btn.classList.toggle('on', d===todayCode);
+      // Label in current lang
+      const idx = WEEK_DAYS.indexOf(d);
+      btn.textContent = WEEK_LABELS[lang][idx];
+    }
+  });
+}
+
+/* ──────────────────────────────────────────────────
+   RENDER
+────────────────────────────────────────────────── */
+function renderAll(){
+  const c=DATA[lang];
+  document.getElementById('langBtn').textContent=c.langBtn;
+  document.getElementById('targetBadge').textContent=c.targetBadge;
+  document.getElementById('mainTitle').innerHTML=c.mainTitle;
+  document.getElementById('mealLbl').textContent=c.mealLbl;
+  document.getElementById('progTitle').textContent=c.progTitle;
+  document.getElementById('resetBtn').textContent=c.resetBtn;
+  document.getElementById('scheduleLbl').textContent=c.scheduleLbl;
+  document.getElementById('dinnerLbl').textContent=c.dinnerLbl;
+  document.getElementById('habitsLbl').textContent=c.habitsLbl;
+  document.getElementById('footerTag').textContent=c.footerTag;
+  document.getElementById('dinnerHdr').textContent=c.dinnerHdr;
+  document.getElementById('dinnerWarn').textContent=c.dinnerWarn;
+  document.getElementById('sleepTitle').innerHTML=c.sleepTitle;
+  document.getElementById('sleepDesc').textContent=c.sleepDesc;
+  renderTimeline();
+  initDaySwitcher();
+  renderDinner();
+  renderHabits();
+  updateProgress();
+}
+
+function esc(t){
+  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+}
+
+function renderTimeline(){
+  const c=DATA[lang];
+  const tl=document.getElementById('timeline');
+  tl.innerHTML='';
+  c.meals.forEach((meal,i)=>{
+    const key=`m${i}`;
+    const isDone=!!checked[key];
+    const div=document.createElement('div');
+    div.className=`mcrd${isDone?' done':''}`;
+    div.setAttribute('data-midx',i);
+
+    // Parse time parts
+    const timeParts = meal.time.match(/(\d+:\d+)\s*([APM]*|सुबह|दोपहर|शाम)?/);
+    const timeMain = timeParts?timeParts[1]:meal.time;
+    const timeAmPm = timeParts?timeParts[2]:'';
+
+    div.innerHTML=`
+      <div class="mcrd-time">
+        <div class="tbadge">
+          <span class="th">${timeMain}</span>
+          <span class="ta">${timeAmPm}</span>
+        </div>
+      </div>
+      <div class="cbody" onclick="toggleMeal(${i})">
+        <div class="chead">
+          <div class="chead-left">
+            <span class="micon">${meal.icon}</span>
+            <span class="mtitle">${meal.title}</span>
+          </div>
+          <div class="ckbtn" style="${isDone?'background:var(--g600);border-color:var(--g600);color:#fff;':''}">${isDone?'✓':''}</div>
+        </div>
+        <div class="mdesc">${esc(meal.desc)}</div>
+        ${meal.product?`<div class="ptag">🌿 ${meal.product}</div>`:''}
+      </div>
+    `;
+    tl.appendChild(div);
+  });
+}
+
+function renderDinner(){
+  const c=DATA[lang];
+  const isDone=!!checked['dinner'];
+  const dtype = getDinnerTypeForDay(activeWeekDay);
+  const dayName = WEEK_LABELS[lang][activeWeekDay];
+
+  // Update day switcher button labels & highlight
+  WEEK_DAYS.forEach((d,idx)=>{
+    const btn = document.getElementById('d'+d);
+    if(btn){
+      btn.textContent = WEEK_LABELS[lang][idx];
+      btn.classList.toggle('on', idx===activeWeekDay);
+    }
+  });
+
+  // Build real date string for the selected weekday
+  const now = new Date();
+  const todayDow = now.getDay();
+  const diff = activeWeekDay - todayDow;
+  const selDate = new Date(now);
+  selDate.setDate(now.getDate() + diff);
+  const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const dateStr = `${selDate.getDate()} ${MON[selDate.getMonth()]} ${selDate.getFullYear()}`;
+
+  let dlbl, dmeal, ddesc;
+  if(dtype===1){
+    dlbl  = c.d1lbl;
+    dmeal = c.d1meal;
+    ddesc = lang==='hi' ? 'Formula 1 + ShakeMate + Fiber' : 'Formula 1 + ShakeMate + Fiber';
+  } else if(dtype===2){
+    dlbl  = c.d2lbl;
+    dmeal = c.d2meal;
+    ddesc = lang==='hi' ? 'हल्की, पौष्टिक मूंग दाल खिचड़ी' : 'Light, nutritious moong dal khichdi';
+  } else {
+    dlbl  = c.dsunlbl;
+    dmeal = c.dsunmeal;
+    ddesc = c.dsundesc;
+  }
+
+  document.getElementById('dinnerBody').innerHTML=`
+    <div class="dinner-info">
+      <div class="dlbl">${dayName} — ${dateStr}</div>
+      <div class="dmeal">${dmeal}</div>
+      <div class="dtime" style="margin-bottom:4px;">${dlbl}</div>
+      <div class="dtime">${c.dtime}</div>
+      ${ddesc ? `<div class="dtime" style="margin-top:4px;font-size:11px;color:var(--tl);">${ddesc}</div>` : ''}
+    </div>
+    <div class="dinner-ck${isDone?' ck':''}" id="dinnCk" onclick="toggleDinner()">${isDone?'✓':''}</div>
+  `;
+
+  // Show/hide warning only for non-Sunday
+  const warn = document.getElementById('dinnerWarn');
+  if(warn) warn.style.display = dtype===3 ? 'none' : '';
+}
+
+function toggleWaterGlass(n){
+  // tap on glass n (1-10): fill up to n, or unfill if already full up to n
+  if(waterGlasses === n){
+    waterGlasses = n - 1; // undo last glass
+  } else {
+    waterGlasses = n;
+  }
+  saveState();
+  renderHabits();
+  const msgs = ['💧 1 glass!','💧💧 2 glasses!','👍 3 glasses!','🌊 Halfway there!','⭐ 5 glasses!','🔥 6 glasses!','💪 7 glasses!','🌟 8 glasses!','🏆 Almost done!','👑 10 glasses! Goal complete!'];
+  showToast(msgs[waterGlasses-1] || '↩️ Glass removed');
+  liveUpdateCharts();
+}
+
+function renderHabits(){
+  const c=DATA[lang];
+  const grid=document.getElementById('habitsGrid');
+  grid.innerHTML='';
+  c.habits.forEach((h,i)=>{
+    const key=`h${i}`;
+    const isDone=!!habitck[key];
+    const div=document.createElement('div');
+
+    // Special hydration card with 10 glasses
+    if(h.name==='Hydration' || h.name==='पर्याप्त पानी'){
+      const allFull = waterGlasses >= 10;
+      div.className=`hcard hcard-water${allFull?' hck':''}`;
+      div.setAttribute('data-hidx',i);
+      const glassesHTML = Array.from({length:10},(_,gi)=>{
+        const filled = gi < waterGlasses;
+        return `<span class="wglass ${filled?'filled':'empty'}" onclick="toggleWaterGlass(${gi+1})">🥛</span>`;
+      }).join('');
+      const lbl = lang==='hi'
+        ? `${waterGlasses}/10 गिलास`
+        : `${waterGlasses}/10 glasses`;
+      div.innerHTML=`
+        <div class="hcard-water-top">
+          <span class="hicon">${h.icon}</span>
+          <div class="hcard-text">
+            <div class="hname">${h.name}</div>
+            <div class="hdetail water-count-lbl">${lbl}</div>
+          </div>
+        </div>
+        <div class="water-glasses-wrap">${glassesHTML}</div>
+      `;
+      grid.appendChild(div);
+      return;
+    }
+
+    div.className=`hcard${isDone?' hck':''}`;
+    div.setAttribute('data-hidx',i);
+    div.onclick=()=>toggleHabit(i);
+    div.innerHTML=`
+      <span class="hicon">${h.icon}</span>
+      <div class="hcard-text">
+        <div class="hname">${h.name}</div>
+        <div class="hdetail">${h.detail}</div>
+      </div>
+      <div class="hchk" style="${isDone?'color:#fff;':''}">${isDone?'✓':''}</div>
+    `;
+    grid.appendChild(div);
+  });
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),2600);
+}
+
+/* ──────────────────────────────────────────────────
+   REPORT SYSTEM — uses window.storage (permanent)
+────────────────────────────────────────────────── */
+
+const TOTAL_TASKS = 9;
+const TOTAL_HABITS = 4;
+
+function updateStreakBadge(){
+  document.getElementById('streakFireNum').textContent = streak;
+  const icons = ['🌱','🌿','🔥','🔥','⚡','💪','🏆','👑'];
+  const icon = icons[Math.min(Math.floor(streak/3), icons.length-1)];
+  document.getElementById('streakEmojiIcon').textContent = icon;
+  const sub = streak===0
+    ? (lang==='hi'?'आज से शुरुआत करें!':'Complete today to build your streak!')
+    : (lang==='hi'?`${streak} दिन की लगातार प्रगति!`:`${streak} day(s) of consistent progress!`);
+  document.getElementById('streakFireSub').textContent = sub;
+  document.getElementById('streakFireTitle').textContent =
+    lang==='hi'?'डे स्ट्रीक 🔥':'Day Streak 🔥';
+}
+
+/* ─── MODAL ─────────────────────────────────────── */
+let activeTab = 'daily';
+let activeCharts = [];
+let calViewYear, calViewMonth;
+
+async function openReportModal(){
+  await upsertTodayHistory();
+  const now=new Date();
+  calViewYear=now.getFullYear();
+  calViewMonth=now.getMonth();
+  document.getElementById('reportModal').classList.add('open');
+  document.body.style.overflow='hidden';
+  await renderReport(activeTab);
+}
+function closeReportModal(){
+  document.getElementById('reportModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeModalOnBg(e){
+  if(e.target===document.getElementById('reportModal')) closeReportModal();
+}
+async function switchTab(tab){
+  activeTab=tab;
+  ['daily','weekly','monthly','weight'].forEach(t=>{
+    const el=document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1));
+    if(el) el.classList.toggle('active',t===tab);
+  });
+  await renderReport(tab);
+}
+
+/* ─── REPORT RENDERER ───────────────────────────── */
+async function renderReport(tab){
+  // Destroy old charts
+  activeCharts.forEach(c=>{ try{c.destroy();}catch(e){} });
+  activeCharts=[];
+
+  // Sync current state to history
+  await upsertTodayHistory();
+  const hist = await getHistory();
+
+  const inner = document.getElementById('reportInner');
+  // Show skeleton loader instantly
+  inner.innerHTML = `<div style="text-align:center;padding:30px 20px;">
+    <div style="display:inline-block;width:36px;height:36px;border:4px solid var(--g100);border-top-color:var(--g600);border-radius:50%;animation:spin .7s linear infinite;margin-bottom:14px;"></div>
+    <div style="color:var(--tl);font-weight:800;font-size:13px;">Loading your data...</div>
+  </div>`;
+
+  // Data is already in memory cache — build HTML immediately
+  let html = '';
+  if(tab==='daily')   html = buildDailyHTML(hist);
+  if(tab==='weekly')  html = buildWeeklyHTML(hist);
+  if(tab==='monthly') html = buildMonthlyHTML(hist);
+  if(tab==='weight')  html = await buildWeightHTML();
+  inner.innerHTML = html;
+
+  // Wait one frame for DOM paint before Chart.js measures canvas
+  await new Promise(r=>requestAnimationFrame(()=>setTimeout(r, 80)));
+
+  // Force canvas elements to have explicit pixel dimensions before Chart.js
+  inner.querySelectorAll('canvas.rep-chart').forEach(c=>{
+    if(!c.style.maxWidth) c.style.width='100%';
+    const h=parseInt(c.style.height)||160;
+    if(!c.style.height) c.style.height='160px';
+    c.width=c.parentElement.clientWidth||300;
+    c.height=h;
+  });
+
+  if(tab==='daily')   { buildDailyCharts(hist);   buildCalHeatmap(hist); }
+  if(tab==='weekly')  { buildWeeklyCharts(hist);   buildCalHeatmap(hist); }
+  if(tab==='monthly') { buildMonthlyCharts(hist);  buildCalHeatmap(hist); }
+  if(tab==='weight')  { buildWeightReportCharts(); }
+}
+
+/* ─── HELPERS ───────────────────────────────────── */
+function last(arr,n){ return arr.slice(-n); }
+function avg(arr){ return arr.length? Math.round(arr.reduce((a,b)=>a+b,0)/arr.length) : 0; }
+function shortDate(dateStr){
+  const [y,m,d]=dateStr.split('-').map(Number);
+  const names=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${d} ${names[m-1]}`;
+}
+function weekLabel(dateStr){
+  const [y,m,d]=dateStr.split('-').map(Number);
+  const names=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${d} ${names[m-1]}`;
+}
+function pctToLevel(pct){
+  if(pct===0) return 0;
+  if(pct<=20) return 1;
+  if(pct<=40) return 2;
+  if(pct<=60) return 3;
+  if(pct<=80) return 4;
+  return 5;
+}
+
+/* ═══════════════════════════════════════════════════
+   CALENDAR HEATMAP (real dates)
+═══════════════════════════════════════════════════ */
+function buildCalHeatmap(hist){
+  const el=document.getElementById('calHeatmap');
+  if(!el) return;
+  const histMap={};
+  hist.forEach(h=>{ histMap[h.date]=h.pct; });
+  renderCalMonth(el, histMap, calViewYear, calViewMonth);
+}
+
+function renderCalMonth(el, histMap, yr, mo){
+  const now=new Date();
+  const todayStr=`${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`;
+  const MON=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const DOW=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+  const firstDay=new Date(yr,mo,1);
+  const lastDay=new Date(yr,mo+1,0);
+  // Monday-based: 0=Mon … 6=Sun
+  let startDow=firstDay.getDay(); // 0=Sun
+  startDow=(startDow===0)?6:startDow-1;
+
+  let html=`
+  <div class="cal-header">
+    <div class="cal-title">📅 Activity Calendar</div>
+    <div class="cal-nav">
+      <button onclick="calPrev()">‹</button>
+      <span class="cal-month-label">${MON[mo]} ${yr}</span>
+      <button onclick="calNext()">›</button>
+    </div>
+  </div>
+  <div class="cal-grid">
+    ${DOW.map(d=>`<div class="cal-dow">${d}</div>`).join('')}
+    ${Array(startDow).fill('<div class="cal-day empty"></div>').join('')}`;
+
+  for(let d=1;d<=lastDay.getDate();d++){
+    const key=`${yr}-${mo+1}-${d}`;
+    const isFuture=new Date(yr,mo,d)>now;
+    const isToday=key===todayStr;
+    const pct=histMap[key]??-1;
+    let cls='cal-day';
+    if(isFuture) cls+=' future';
+    else if(pct<0) cls+=' pct-0';
+    else cls+=` pct-${pctToLevel(pct)}`;
+    if(isToday) cls+=' today-ring';
+    const tip=pct>=0?`${pct}%`:'';
+    html+=`<div class="${cls}" title="${key}${tip?': '+tip:''}">${d}</div>`;
+  }
+
+  html+=`</div>
+  <div class="cal-legend">
+    <span>Less</span>
+    <div class="cal-legend-box" style="background:#f0f0f0"></div>
+    <div class="cal-legend-box" style="background:rgba(116,198,157,.4)"></div>
+    <div class="cal-legend-box" style="background:rgba(64,145,108,.6)"></div>
+    <div class="cal-legend-box" style="background:var(--g700)"></div>
+    <div class="cal-legend-box" style="background:var(--g800)"></div>
+    <span>More</span>
+  </div>`;
+
+  el.innerHTML=html;
+}
+
+async function calPrev(){
+  calViewMonth--;
+  if(calViewMonth<0){calViewMonth=11;calViewYear--;}
+  const hist=await getHistory();
+  const histMap={};hist.forEach(h=>{histMap[h.date]=h.pct;});
+  renderCalMonth(document.getElementById('calHeatmap'),histMap,calViewYear,calViewMonth);
+}
+async function calNext(){
+  const now=new Date();
+  if(calViewYear>now.getFullYear()||(calViewYear===now.getFullYear()&&calViewMonth>=now.getMonth())) return;
+  calViewMonth++;
+  if(calViewMonth>11){calViewMonth=0;calViewYear++;}
+  const hist=await getHistory();
+  const histMap={};hist.forEach(h=>{histMap[h.date]=h.pct;});
+  renderCalMonth(document.getElementById('calHeatmap'),histMap,calViewYear,calViewMonth);
+}
+
+/* ═══════════════════════════════════════════════════
+   REPORT HELPERS
+═══════════════════════════════════════════════════ */
+function trendArrow(vals){
+  if(vals.length<2) return {sym:'→',col:'#6B8F6B',txt:'Stable'};
+  const first=vals.slice(0,Math.ceil(vals.length/2));
+  const last2=vals.slice(Math.ceil(vals.length/2));
+  const f=avg(first), l=avg(last2);
+  if(l>f+5)  return {sym:'↑',col:'#2D6A4F',txt:'Improving'};
+  if(l<f-5)  return {sym:'↓',col:'#C0392B',txt:'Declining'};
+  return {sym:'→',col:'#D4A853',txt:'Stable'};
+}
+function gradeFromPct(p){
+  if(p>=90) return {g:'A+',lbl:'Excellent 🏆',col:'#2D6A4F'};
+  if(p>=75) return {g:'A', lbl:'Great 🌟',   col:'#40916C'};
+  if(p>=60) return {g:'B', lbl:'Good 👍',    col:'#74C69D'};
+  if(p>=40) return {g:'C', lbl:'Fair ⚡',    col:'#D4A853'};
+  return           {g:'D', lbl:'Keep Going 🌱',col:'#C0392B'};
+}
+function textReportCard(lines){
+  return `<div style="background:#fff;border-radius:16px;padding:16px 18px;margin-bottom:14px;border:1.5px solid var(--g100);box-shadow:0 2px 10px rgba(10,36,20,.07);">
+    ${lines.map(l=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--g50);gap:10px;">
+      <span style="font-size:13px;font-weight:700;color:var(--tm);">${l.label}</span>
+      <span style="font-size:14px;font-weight:900;color:${l.col||'var(--g800)'};">${l.val}</span>
+    </div>`).join('')}
+  </div>`;
+}
+function buildLineChart(canvasId, labels, data, color='#2D6A4F'){
+  const gc={gridColor:'rgba(116,198,157,.15)',textColor:'#6B8F6B',font:{family:'Nunito',size:11,weight:'bold'}};
+  const ptColors = data.map((_,i)=>i===data.length-1?'#D4A853':color);
+  const ptSizes  = data.map((_,i)=>i===data.length-1?8:5);
+  const ch = new Chart(document.getElementById(canvasId),{
+    type:'line',
+    data:{
+      labels,
+      datasets:[{
+        data,
+        borderColor: color,
+        backgroundColor: color==='#2D6A4F'?'rgba(45,106,79,.1)':'rgba(64,145,108,.1)',
+        tension: 0.45,
+        fill: true,
+        pointBackgroundColor: ptColors,
+        pointRadius: ptSizes,
+        pointBorderColor:'#fff',
+        pointBorderWidth:2,
+        borderWidth:3,
+      }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:ctx=>`${ctx.parsed.y}%`}}
+      },
+      scales:{
+        x:{grid:{color:gc.gridColor},ticks:{color:gc.textColor,font:gc.font,maxRotation:30}},
+        y:{min:0,max:100,grid:{color:gc.gridColor},ticks:{color:gc.textColor,font:gc.font,callback:v=>v+'%',stepSize:25}}
+      }
+    }
+  });
+  activeCharts.push(ch);
+}
+
+/* ═══════════════════════════════════════════════════
+   DAILY REPORT — Image Card with user data
+═══════════════════════════════════════════════════ */
+function buildDailyHTML(hist){
+  const todayEntry = hist.find(h=>h.date===todayKey()) || {date:todayKey(),pct:0,mealsDone:0,habitsDone:0,streak:0};
+  let display = last(hist,7);
+  if(!display.find(h=>h.date===todayKey())) display=[...display,todayEntry].slice(-7);
+  const avgPct = avg(display.map(h=>h.pct));
+  const best   = display.reduce((b,h)=>h.pct>b?h.pct:b,0);
+  const trend  = trendArrow(display.map(h=>h.pct));
+  const grade  = gradeFromPct(todayEntry.pct);
+  const perfectDays = display.filter(h=>h.pct===100).length;
+
+  return `
+  <!-- Daily Image Report Canvas -->
+  <div class="chart-wrap" style="padding:0;overflow:hidden;margin-bottom:14px;">
+    <canvas id="dailyImageCanvas" style="width:100%;border-radius:18px;display:block;"></canvas>
+  </div>
+
+  ${textReportCard([
+    {label:'📊 Today\'s Grade',   val:`${grade.g} — ${grade.lbl}`,         col:grade.col},
+    {label:'📈 7-Day Trend',      val:`${trend.sym} ${trend.txt}`,          col:trend.col},
+    {label:'🥗 Meals Done Today', val:`${todayEntry.mealsDone} / 8`,        col:'var(--g700)'},
+    {label:'⭐ Habits Done Today',val:`${todayEntry.habitsDone} / 4`,        col:'var(--g700)'},
+    {label:'🏆 Perfect Days (7d)',val:`${perfectDays} day${perfectDays!==1?'s':''}`, col:'#D4A853'},
+    {label:'🔥 Current Streak',   val:`${streak} day${streak!==1?'s':''}`,  col:streak>=3?'#D4A853':'var(--tl)'},
+  ])}
+
+  ${display.length?`<div class="hist-list">${display.slice().reverse().map(h=>{
+    const gr=gradeFromPct(h.pct);
+    return `<div class="hist-row">
+      <div class="hist-date">${shortDate(h.date)}</div>
+      <div class="hist-bar-wrap"><div class="hist-bar-fill" style="width:${h.pct}%;background:${gr.col}"></div></div>
+      <div class="hist-pct" style="color:${gr.col}">${h.pct}%</div>
+      <div class="hist-streak">${h.streak>0?'🔥':''}</div>
+    </div>`}).join('')}
+  </div>`:''}
+
+  <div class="cal-wrap" id="calHeatmap"></div>
+  <button class="share-btn" onclick="shareDailyImage()">📸 Share Daily Progress</button>`;
+}
+function buildDailyCharts(hist){
+  const todayEntry = hist.find(h=>h.date===todayKey()) || {date:todayKey(),pct:0,mealsDone:0,habitsDone:0,streak:0};
+  let display = last(hist,7);
+  if(!display.find(h=>h.date===todayKey())) display=[...display,todayEntry].slice(-7);
+  const avgPct = avg(display.map(h=>h.pct));
+  const best   = display.reduce((b,h)=>h.pct>b?h.pct:b,0);
+  const grade  = gradeFromPct(todayEntry.pct);
+  const perfectDays = display.filter(h=>h.pct===100).length;
+  const trend  = trendArrow(display.map(h=>h.pct));
+
+  // Render the daily image card on canvas
+  const canvas = document.getElementById('dailyImageCanvas');
+  if(!canvas) return;
+  const W = canvas.parentElement.clientWidth || 340;
+  const H = Math.round(W * 1.05);
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  // Background gradient
+  const bg = ctx.createLinearGradient(0,0,W,H);
+  bg.addColorStop(0,'#0a2414'); bg.addColorStop(1,'#2D6A4F');
+  ctx.fillStyle = bg; ctx.fillRect(0,0,W,H);
+
+  // Decorative circles
+  ctx.beginPath(); ctx.arc(W*.82,H*.12,W*.22,0,Math.PI*2);
+  ctx.fillStyle='rgba(116,198,157,.09)'; ctx.fill();
+  ctx.beginPath(); ctx.arc(W*.15,H*.88,W*.18,0,Math.PI*2);
+  ctx.fillStyle='rgba(212,168,83,.08)'; ctx.fill();
+
+  const fs=(s)=>Math.round(W*s/340);
+  ctx.textAlign='left';
+
+  // Brand
+  ctx.fillStyle='#D4A853'; ctx.font=`bold ${fs(13)}px Nunito,sans-serif`;
+  ctx.fillText('🌿 HERBALIFE NUTRITION', fs(22), fs(38));
+
+  // Title
+  ctx.fillStyle='#ffffff'; ctx.font=`bold ${fs(26)}px Nunito,sans-serif`;
+  ctx.fillText('Daily Progress Report', fs(22), fs(78));
+
+  // Date
+  const now=new Date();
+  const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const DAY=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  ctx.fillStyle='rgba(255,255,255,.6)'; ctx.font=`bold ${fs(11)}px Nunito,sans-serif`;
+  ctx.fillText(`${DAY[now.getDay()]}, ${now.getDate()} ${MON[now.getMonth()]} ${now.getFullYear()}`, fs(22), fs(102));
+
+  // Grade badge
+  const grX=W-fs(90), grY=fs(28);
+  ctx.fillStyle=grade.col; roundRect(ctx,grX,grY,fs(72),fs(60),fs(12)); ctx.fill();
+  ctx.fillStyle='#fff'; ctx.font=`bold ${fs(22)}px Nunito,sans-serif`; ctx.textAlign='center';
+  ctx.fillText(grade.g, grX+fs(36), grY+fs(28));
+  ctx.font=`bold ${fs(9)}px Nunito,sans-serif`;
+  ctx.fillText(grade.lbl.replace(/[🏆🌟👍⚡🌱]/g,''), grX+fs(36), grY+fs(46));
+  ctx.textAlign='left';
+
+  // Divider
+  ctx.fillStyle='rgba(255,255,255,.15)'; ctx.fillRect(fs(22),fs(116),W-fs(44),1);
+
+  // Stats row (3 boxes)
+  const statsData=[
+    {val:`${todayEntry.pct}%`, lbl:'Today'},
+    {val:`${avgPct}%`,         lbl:'7-Day Avg'},
+    {val:`${best}%`,           lbl:'Best Day'},
+  ];
+  const bW=(W-fs(44)-fs(16))/3, bH=fs(72), bY=fs(128);
+  statsData.forEach((s,i)=>{
+    const bX=fs(22)+i*(bW+fs(8));
+    ctx.fillStyle='rgba(255,255,255,.1)'; roundRect(ctx,bX,bY,bW,bH,fs(10)); ctx.fill();
+    ctx.strokeStyle='rgba(255,255,255,.2)'; ctx.lineWidth=1;
+    roundRect(ctx,bX,bY,bW,bH,fs(10)); ctx.stroke();
+    ctx.fillStyle='#F0C97A'; ctx.font=`bold ${fs(19)}px Nunito,sans-serif`; ctx.textAlign='center';
+    ctx.fillText(s.val, bX+bW/2, bY+bH*.52);
+    ctx.fillStyle='rgba(255,255,255,.65)'; ctx.font=`bold ${fs(9)}px Nunito,sans-serif`;
+    ctx.fillText(s.lbl, bX+bW/2, bY+bH*.82);
+  });
+  ctx.textAlign='left';
+
+  // Mini bar chart — last 7 days tasks done
+  const barY=fs(225), barH=fs(90), bpad=fs(22);
+  ctx.fillStyle='rgba(255,255,255,.07)'; roundRect(ctx,bpad,barY-fs(26),W-bpad*2,barH+fs(42),fs(12)); ctx.fill();
+  ctx.fillStyle='rgba(255,255,255,.6)'; ctx.font=`bold ${fs(10)}px Nunito,sans-serif`;
+  ctx.fillText('📊 Last 7 Days — Tasks Completed', bpad+fs(8), barY-fs(8));
+
+  const TOTAL_T=9;
+  const barData=display;
+  const barSlotW=(W-bpad*2)/Math.max(barData.length,1);
+  barData.forEach((h,i)=>{
+    const tasksDone=(h.mealsDone||0)+(h.habitsDone||0);
+    const frac=Math.min(tasksDone/TOTAL_T,1);
+    const bh2=Math.round(frac*(barH-fs(18)));
+    const rx=bpad+i*barSlotW+barSlotW*.12;
+    const rw=barSlotW*.76;
+    const ry=barY+barH-bh2-fs(4);
+    const grad2=ctx.createLinearGradient(0,ry,0,ry+bh2);
+    grad2.addColorStop(0,'#74C69D'); grad2.addColorStop(1,'#40916C');
+    ctx.fillStyle=grad2; roundRect(ctx,rx,ry,rw,Math.max(bh2,2),fs(3)); ctx.fill();
+    ctx.fillStyle='rgba(255,255,255,.8)'; ctx.font=`bold ${fs(8)}px Nunito,sans-serif`; ctx.textAlign='center';
+    ctx.fillText(tasksDone, rx+rw/2, ry-fs(2));
+    // day label
+    ctx.fillStyle='rgba(255,255,255,.55)'; ctx.font=`bold ${fs(8)}px Nunito,sans-serif`;
+    ctx.fillText(weekLabel(h.date), rx+rw/2, barY+barH+fs(14));
+  });
+  ctx.textAlign='left';
+
+  // Info rows
+  const rows=[
+    {icon:'🥗', lbl:'Meals Done', val:`${todayEntry.mealsDone}/8`},
+    {icon:'⭐', lbl:'Habits Done', val:`${todayEntry.habitsDone}/4`},
+    {icon:'🔥', lbl:'Streak', val:`${streak} day${streak!==1?'s':''}`},
+    {icon:'🏆', lbl:'Perfect Days (7d)', val:`${perfectDays}`},
+    {icon:'📈', lbl:'Trend', val:`${trend.sym} ${trend.txt}`},
+  ];
+  const rowStartY=barY+barH+fs(34);
+  rows.forEach((r,i)=>{
+    const ry2=rowStartY+i*fs(30);
+    ctx.fillStyle='rgba(255,255,255,.06)'; roundRect(ctx,fs(22),ry2-fs(14),W-fs(44),fs(26),fs(6)); ctx.fill();
+    ctx.fillStyle='rgba(255,255,255,.75)'; ctx.font=`bold ${fs(10)}px Nunito,sans-serif`;
+    ctx.fillText(`${r.icon} ${r.lbl}`, fs(32), ry2+fs(4));
+    ctx.fillStyle='#F0C97A'; ctx.font=`bold ${fs(10)}px Nunito,sans-serif`; ctx.textAlign='right';
+    ctx.fillText(r.val, W-fs(30), ry2+fs(4));
+    ctx.textAlign='left';
+  });
+
+  // Footer
+  ctx.fillStyle='rgba(255,255,255,.3)'; ctx.font=`bold ${fs(9)}px Nunito,sans-serif`;
+  ctx.fillText('By Vaibhav Vashisth — Weight Loss Diet Plan', fs(22), H-fs(14));
+
+  // Store hist for share
+  window._dailyHist = hist;
+}
+
+async function shareDailyImage(){
+  const canvas = document.getElementById('dailyImageCanvas');
+  if(!canvas){ shareProgress('daily'); return; }
+  canvas.toBlob(async blob=>{
+    if(!blob) return;
+    const file=new File([blob],'daily-progress.png',{type:'image/png'});
+    if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
+      try{ await navigator.share({files:[file],title:'Daily Progress',text:'My daily diet progress!'}); }
+      catch(e){ if(e.name!=='AbortError') downloadShare(blob); }
+    } else { downloadShare(blob); }
+  },'image/png');
+}
+
+/* ═══════════════════════════════════════════════════
+   WEEKLY REPORT — Bar + Pie + Line (weekdays × tasks done)
+═══════════════════════════════════════════════════ */
+function buildWeeklyHTML(hist){
+  const todayEntry = hist.find(h=>h.date===todayKey()) || {date:todayKey(),pct:0,mealsDone:0,habitsDone:0,streak:0};
+  const fullHist = hist.find(h=>h.date===todayKey()) ? hist : [...hist,todayEntry];
+  const weeks  = groupIntoWeeks(fullHist,8);
+  const wAvgs  = weeks.map(w=>avg(w.days.map(d=>d.pct)));
+  const thisWk = weeks[weeks.length-1]||{days:[]};
+  const thisWkAvg   = wAvgs[wAvgs.length-1]||0;
+  const bestWkAvg   = wAvgs.length?Math.max(...wAvgs):0;
+  const perfectDays = thisWk.days.filter(d=>d.pct===100).length;
+  const totalWkDays = thisWk.days.length;
+  const trend  = trendArrow(wAvgs);
+  const grade  = gradeFromPct(thisWkAvg);
+  const allPerfect  = fullHist.filter(h=>h.pct===100).length;
+
+  return `
+  <div class="rep-stat-row">
+    <div class="rep-stat"><div class="rv" style="color:${grade.col}">${thisWkAvg}%</div><div class="rl">This Week</div></div>
+    <div class="rep-stat"><div class="rv">${bestWkAvg}%</div><div class="rl">Best Week</div></div>
+    <div class="rep-stat"><div class="rv">${perfectDays}/${totalWkDays}</div><div class="rl">Perfect Days</div></div>
+  </div>
+
+  ${textReportCard([
+    {label:'📊 This Week\'s Grade', val:`${grade.g} — ${grade.lbl}`,          col:grade.col},
+    {label:'📈 8-Week Trend',       val:`${trend.sym} ${trend.txt}`,           col:trend.col},
+    {label:'🏆 Best Week Ever',     val:`${bestWkAvg}%`,                       col:'#D4A853'},
+    {label:'✅ Perfect Days (week)',val:`${perfectDays} / ${totalWkDays}`,      col:'var(--g700)'},
+    {label:'🌟 All-Time Perfect',   val:`${allPerfect} day${allPerfect!==1?'s':''}`, col:'var(--g700)'},
+    {label:'🔥 Current Streak',     val:`${streak} day${streak!==1?'s':''}`,   col:streak>=7?'#D4A853':streak>=3?'#40916C':'var(--tl)'},
+  ])}
+
+  <div class="chart-wrap">
+    <div class="chart-title">📊 Tasks Done by Weekday — Bar Chart</div>
+    <canvas id="chartWBar" class="rep-chart"></canvas>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">🥧 Tasks Done by Weekday — Pie Chart</div>
+    <canvas id="chartWPie" class="rep-chart" style="height:200px!important;max-width:300px;margin:0 auto;display:block;"></canvas>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">📈 Tasks Done by Weekday — Trend Line</div>
+    <canvas id="chartWLine" class="rep-chart"></canvas>
+  </div>
+
+  ${weeks.length?`<div class="hist-list">${weeks.map((w,i)=>({w,wp:wAvgs[i]})).reverse().map(({w,wp})=>{
+    const gr=gradeFromPct(wp);
+    return `<div class="hist-row">
+      <div class="hist-date" style="width:80px">${w.label||'—'}</div>
+      <div class="hist-bar-wrap"><div class="hist-bar-fill" style="width:${wp}%;background:${gr.col}"></div></div>
+      <div class="hist-pct" style="color:${gr.col}">${wp}%</div>
+    </div>`}).join('')}
+  </div>`:''}
+
+  <div class="cal-wrap" id="calHeatmap"></div>
+  <button class="share-btn" onclick="shareProgress('weekly')">📸 Share Weekly Progress</button>`;
+}
+function buildWeeklyCharts(hist){
+  const todayEntry = hist.find(h=>h.date===todayKey()) || {date:todayKey(),pct:0,mealsDone:0,habitsDone:0,streak:0};
+  const fullHist = hist.find(h=>h.date===todayKey()) ? hist : [...hist,todayEntry];
+
+  const WEEKDAYS=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  const DOW_NAMES=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+  // Use last 8 weeks of data — map every day to its weekday
+  const dayTotals={Mon:0,Tue:0,Wed:0,Thu:0,Fri:0,Sat:0,Sun:0};
+  const dayCounts={Mon:0,Tue:0,Wed:0,Thu:0,Fri:0,Sat:0,Sun:0};
+  fullHist.forEach(h=>{
+    // Parse date safely — handles both "2026-5-28" and "2026-05-28"
+    const parts=h.date.split('-').map(Number);
+    const d=new Date(parts[0], parts[1]-1, parts[2]);
+    const name=DOW_NAMES[d.getDay()];
+    const tasks=(h.mealsDone||0)+(h.habitsDone||0);
+    dayTotals[name]+=tasks;
+    dayCounts[name]++;
+  });
+
+  // Average tasks per weekday (or raw total if only 1 occurrence)
+  const tasksByDay=WEEKDAYS.map(d=>dayCounts[d]>0? Math.round(dayTotals[d]/dayCounts[d]) : 0);
+
+  // If all zero (brand new user), show today's actual data at today's weekday
+  const allZero=tasksByDay.every(v=>v===0);
+  if(allZero && todayEntry){
+    const parts=todayEntry.date.split('-').map(Number);
+    const d=new Date(parts[0],parts[1]-1,parts[2]);
+    const todayDow=DOW_NAMES[d.getDay()];
+    const idx=WEEKDAYS.indexOf(todayDow);
+    if(idx>=0) tasksByDay[idx]=(todayEntry.mealsDone||0)+(todayEntry.habitsDone||0);
+  }
+
+  const maxTasks=Math.max(...tasksByDay,1);
+  const gc={gridColor:'rgba(116,198,157,.15)',textColor:'#6B8F6B',font:{family:'Nunito',size:11,weight:'bold'}};
+  const colors=['#1B4332','#2D6A4F','#40916C','#52B788','#74C69D','#95D5B2','#B7E4C7'];
+
+  // ── Bar Chart ──
+  const chBar=new Chart(document.getElementById('chartWBar'),{
+    type:'bar',
+    data:{
+      labels:WEEKDAYS,
+      datasets:[{
+        label:'Avg Tasks Done',
+        data:tasksByDay,
+        backgroundColor:colors,
+        borderRadius:8,
+        borderSkipped:false,
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:c=>`${c.parsed.y} tasks`}},
+      },
+      scales:{
+        x:{grid:{color:gc.gridColor},ticks:{color:gc.textColor,font:gc.font}},
+        y:{min:0,max:Math.max(maxTasks+2,9),grid:{color:gc.gridColor},
+           ticks:{color:gc.textColor,font:gc.font,stepSize:1,precision:0,callback:v=>Number.isInteger(v)?v+' tasks':''}}
+      }
+    }
+  });
+  activeCharts.push(chBar);
+
+  // ── Pie Chart — show all days; if all zero use placeholder ──
+  const pieData=tasksByDay.some(v=>v>0) ? tasksByDay : [1,1,1,1,1,1,1]; // equal slices as placeholder
+  const pieLabels=tasksByDay.some(v=>v>0)
+    ? WEEKDAYS
+    : WEEKDAYS.map(d=>`${d} (no data)`);
+  const chPie=new Chart(document.getElementById('chartWPie'),{
+    type:'pie',
+    data:{
+      labels:pieLabels,
+      datasets:[{
+        data:pieData,
+        backgroundColor:colors,
+        borderWidth:2,
+        borderColor:'#fff'
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:true,position:'right',
+          labels:{font:{family:'Nunito',size:10,weight:'bold'},color:'#3D5A3E',boxWidth:12,padding:8}},
+        tooltip:{callbacks:{label:c=>tasksByDay.some(v=>v>0)?`${WEEKDAYS[c.dataIndex]}: ${tasksByDay[c.dataIndex]} tasks`:`${WEEKDAYS[c.dataIndex]}: start tracking!`}}
+      }
+    }
+  });
+  activeCharts.push(chPie);
+
+  // ── Line Chart ──
+  const chLine=new Chart(document.getElementById('chartWLine'),{
+    type:'line',
+    data:{
+      labels:WEEKDAYS,
+      datasets:[{
+        label:'Avg Tasks Done',
+        data:tasksByDay,
+        borderColor:'#2D6A4F',
+        backgroundColor:'rgba(45,106,79,.12)',
+        tension:0.4,fill:true,
+        pointBackgroundColor:colors,
+        pointRadius:7,pointBorderColor:'#fff',pointBorderWidth:2,borderWidth:3,
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.parsed.y} tasks`}}},
+      scales:{
+        x:{grid:{color:gc.gridColor},ticks:{color:gc.textColor,font:gc.font}},
+        y:{min:0,max:Math.max(maxTasks+2,9),grid:{color:gc.gridColor},
+           ticks:{color:gc.textColor,font:gc.font,stepSize:1,precision:0,callback:v=>Number.isInteger(v)?v+' tasks':''}}
+      }
+    }
+  });
+  activeCharts.push(chLine);
+}
+
+/* ═══════════════════════════════════════════════════
+   MONTHLY REPORT — Bar + Pie + Line (days of month × tasks done)
+═══════════════════════════════════════════════════ */
+function buildMonthlyHTML(hist){
+  const todayEntry = hist.find(h=>h.date===todayKey()) || {date:todayKey(),pct:0,mealsDone:0,habitsDone:0,streak:0};
+  const fullHist = hist.find(h=>h.date===todayKey()) ? hist : [...hist,todayEntry];
+  const months   = groupIntoMonths(fullHist,6);
+  const mAvgs    = months.map(m=>avg(m.days.map(d=>d.pct)));
+  const thisMonthAvg  = mAvgs[mAvgs.length-1]||0;
+  const bestMonthAvg  = mAvgs.length?Math.max(...mAvgs):0;
+  const totalPerfect  = fullHist.filter(h=>h.pct===100).length;
+  const longestStr    = calcLongestStreak(fullHist);
+  const totalTracked  = fullHist.length;
+  const trend  = trendArrow(mAvgs);
+  const grade  = gradeFromPct(thisMonthAvg);
+  const thisM  = months[months.length-1]||{days:[]};
+  const thisMonthPerfect = thisM.days.filter(d=>d.pct===100).length;
+
+  // Get current month day count for labels
+  const now=new Date();
+  const daysInMonth=new Date(now.getFullYear(),now.getMonth()+1,0).getDate();
+
+  return `
+  <div class="rep-stat-row">
+    <div class="rep-stat"><div class="rv" style="color:${grade.col}">${thisMonthAvg}%</div><div class="rl">This Month</div></div>
+    <div class="rep-stat"><div class="rv">${totalPerfect}</div><div class="rl">Perfect Days</div></div>
+    <div class="rep-stat"><div class="rv">${longestStr}</div><div class="rl">Best Streak</div></div>
+  </div>
+
+  ${textReportCard([
+    {label:'📊 This Month\'s Grade',  val:`${grade.g} — ${grade.lbl}`,         col:grade.col},
+    {label:'📈 6-Month Trend',        val:`${trend.sym} ${trend.txt}`,          col:trend.col},
+    {label:'🏆 Best Month Ever',      val:`${bestMonthAvg}%`,                   col:'#D4A853'},
+    {label:'✅ Perfect Days (month)', val:`${thisMonthPerfect} / ${thisM.days.length}`, col:'var(--g700)'},
+    {label:'🌟 All-Time Perfect Days',val:`${totalPerfect}`,                    col:'var(--g700)'},
+    {label:'📅 Total Days Tracked',   val:`${totalTracked} day${totalTracked!==1?'s':''}`, col:'var(--g600)'},
+    {label:'🔥 Longest Streak Ever',  val:`${longestStr} day${longestStr!==1?'s':''}`, col:longestStr>=14?'#D4A853':'var(--tl)'},
+  ])}
+
+  <div class="chart-wrap">
+    <div class="chart-title">📊 Tasks Done per Day This Month — Bar Chart</div>
+    <canvas id="chartMBar" class="rep-chart" style="height:180px!important;"></canvas>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">🥧 Tasks Completed vs Remaining This Month — Pie Chart</div>
+    <canvas id="chartMPie" class="rep-chart" style="height:200px!important;max-width:300px;margin:0 auto;display:block;"></canvas>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">📈 Tasks Done per Day This Month — Trend Line</div>
+    <canvas id="chartMLine" class="rep-chart" style="height:180px!important;"></canvas>
+  </div>
+
+  ${months.length?`<div class="hist-list">${months.map((m,i)=>({m,mp:mAvgs[i]})).reverse().map(({m,mp})=>{
+    const gr=gradeFromPct(mp);
+    return `<div class="hist-row">
+      <div class="hist-date" style="width:80px">${m.label||'—'}</div>
+      <div class="hist-bar-wrap"><div class="hist-bar-fill" style="width:${mp}%;background:${gr.col}"></div></div>
+      <div class="hist-pct" style="color:${gr.col}">${mp}%</div>
+    </div>`}).join('')}
+  </div>`:''}
+
+  <div class="cal-wrap" id="calHeatmap"></div>
+  <button class="share-btn" onclick="shareProgress('monthly')">📸 Share Monthly Progress</button>`;
+}
+function buildMonthlyCharts(hist){
+  const todayEntry = hist.find(h=>h.date===todayKey()) || {date:todayKey(),pct:0,mealsDone:0,habitsDone:0,streak:0};
+  const fullHist = hist.find(h=>h.date===todayKey()) ? hist : [...hist,todayEntry];
+
+  // Current month days
+  const now=new Date();
+  const yr=now.getFullYear(), mo=now.getMonth();
+  const daysInMonth=new Date(yr,mo+1,0).getDate();
+  const dayLabels=Array.from({length:daysInMonth},(_,i)=>String(i+1));
+
+  // Map history entries to day-of-month tasks done (current month only)
+  // Safe parse handles both zero-padded "2026-05-28" and "2026-5-28"
+  const tasksByDay=Array(daysInMonth).fill(0);
+  fullHist.forEach(h=>{
+    const parts=h.date.split('-').map(Number);
+    const hy=parts[0], hm=parts[1], hd=parts[2];
+    if(hy===yr && hm===mo+1 && hd>=1 && hd<=daysInMonth){
+      tasksByDay[hd-1]=(h.mealsDone||0)+(h.habitsDone||0);
+    }
+  });
+
+  const maxTasks=Math.max(...tasksByDay,1);
+  const gc={gridColor:'rgba(116,198,157,.15)',textColor:'#6B8F6B',font:{family:'Nunito',size:9,weight:'bold'}};
+
+  // Color gradient across days
+  const palette=dayLabels.map((_,i)=>{
+    const t=i/Math.max(daysInMonth-1,1);
+    const r=Math.round(45+(116-45)*t);
+    const g=Math.round(106+(198-106)*t);
+    const b=Math.round(79+(157-79)*t);
+    return `rgba(${r},${g},${b},0.85)`;
+  });
+
+  // Bar Chart
+  const chBar=new Chart(document.getElementById('chartMBar'),{
+    type:'bar',
+    data:{
+      labels:dayLabels,
+      datasets:[{
+        label:'Tasks Done',
+        data:tasksByDay,
+        backgroundColor:palette,
+        borderRadius:4,
+        borderSkipped:false,
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`Day ${c.label}: ${c.parsed.y} tasks`}}},
+      scales:{
+        x:{grid:{color:gc.gridColor},ticks:{color:gc.textColor,font:gc.font,maxTicksLimit:16,maxRotation:0}},
+        y:{min:0,max:Math.max(maxTasks+1,9),grid:{color:gc.gridColor},ticks:{color:gc.textColor,font:gc.font,stepSize:1,callback:v=>v+' tasks'}}
+      }
+    }
+  });
+  activeCharts.push(chBar);
+
+  // Pie — completed days vs pending days this month
+  const totalTasksDone=tasksByDay.reduce((a,b)=>a+b,0);
+  const totalTasksPossible=daysInMonth*9;
+  const remaining=Math.max(totalTasksPossible-totalTasksDone,0);
+  // Ensure at least one value is non-zero so pie renders
+  const pieVals=totalTasksDone>0?[totalTasksDone,remaining]:[0,totalTasksPossible||1];
+  const chPie=new Chart(document.getElementById('chartMPie'),{
+    type:'pie',
+    data:{
+      labels:['Tasks Done','Remaining'],
+      datasets:[{
+        data:pieVals,
+        backgroundColor:['#2D6A4F','rgba(184,225,196,0.45)'],
+        borderWidth:2,borderColor:'#fff'
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:true,position:'right',labels:{font:{family:'Nunito',size:11,weight:'bold'},color:'#3D5A3E',boxWidth:14}},
+        tooltip:{callbacks:{label:c=>`${c.label}: ${c.parsed}`}}
+      }
+    }
+  });
+  activeCharts.push(chPie);
+
+  // Line Chart — upward trend line
+  const chLine=new Chart(document.getElementById('chartMLine'),{
+    type:'line',
+    data:{
+      labels:dayLabels,
+      datasets:[{
+        label:'Tasks Done',
+        data:tasksByDay,
+        borderColor:'#2D6A4F',
+        backgroundColor:'rgba(45,106,79,.12)',
+        tension:0.4,fill:true,
+        pointBackgroundColor:palette,
+        pointRadius:tasksByDay.map(v=>v>0?4:2),
+        pointBorderColor:'#fff',pointBorderWidth:1.5,borderWidth:2.5,
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`Day ${c.label}: ${c.parsed.y} tasks`}}},
+      scales:{
+        x:{grid:{color:gc.gridColor},ticks:{color:gc.textColor,font:gc.font,maxTicksLimit:16,maxRotation:0}},
+        y:{min:0,max:Math.max(maxTasks+1,9),grid:{color:gc.gridColor},ticks:{color:gc.textColor,font:gc.font,stepSize:1,callback:v=>v+' tasks'}}
+      }
+    }
+  });
+  activeCharts.push(chLine);
+}
+
+/* ═══════════════════════════════════════════════════
+   WEIGHT REPORT TAB — Line + Bar + Pie charts
+═══════════════════════════════════════════════════ */
+async function buildWeightHTML(){
+  const log = await getWeightLog();
+  if(!log.length){
+    return `<div style="text-align:center;padding:40px 20px;">
+      <div style="font-size:48px;margin-bottom:14px;">⚖️</div>
+      <div style="font-weight:900;font-size:16px;color:var(--g800);margin-bottom:8px;">No Weight Data Yet</div>
+      <div style="font-size:13px;color:var(--tl);font-weight:700;">Log your weight daily from the home screen<br>to see your progress graphs here.</div>
+    </div>`;
+  }
+
+  const cur   = log[log.length-1].kg;
+  const start = log[0].kg;
+  const lost  = Math.round((start-cur)*10)/10;
+  const best  = Math.min(...log.map(e=>e.kg));
+  const days  = log.length;
+  const lostCol = lost>=0 ? '#2D6A4F' : '#C0392B';
+
+  // Weekly averages for bar chart
+  const weekMap={};
+  log.forEach(e=>{
+    const parts=e.date.split('-').map(Number);
+    const d=new Date(parts[0],parts[1]-1,parts[2]);
+    const dow=d.getDay();
+    const mon=new Date(d); mon.setDate(d.getDate()-(dow===0?6:dow-1));
+    // Use local date string to avoid UTC offset shifting the date
+    const wk=`${mon.getFullYear()}-${String(mon.getMonth()+1).padStart(2,'0')}-${String(mon.getDate()).padStart(2,'0')}`;
+    if(!weekMap[wk]) weekMap[wk]={sum:0,count:0,label:''};
+    weekMap[wk].sum+=e.kg; weekMap[wk].count++;
+    const mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    weekMap[wk].label=`${mon.getDate()} ${mo[mon.getMonth()]}`;
+  });
+  const weekArr=Object.keys(weekMap).sort().map(k=>({label:weekMap[k].label,avg:Math.round(weekMap[k].sum/weekMap[k].count*10)/10}));
+  const recentWeeks=weekArr.slice(-8);
+
+  const targetW = goalWeight ? goalWeight : Math.round((start - start*0.10)*10)/10;
+  const goalLossTotal = Math.max(0, Math.round((start - targetW)*10)/10);
+
+  return `
+  <div class="rep-stat-row">
+    <div class="rep-stat"><div class="rv" style="color:var(--g700)">${cur}kg</div><div class="rl">Current</div></div>
+    <div class="rep-stat"><div class="rv" style="color:${lostCol}">${lost>=0?'-'+lost:'+'+Math.abs(lost)}kg</div><div class="rl">Total ${lost>=0?'Lost':'Gained'}</div></div>
+    <div class="rep-stat"><div class="rv">${days}</div><div class="rl">Days Logged</div></div>
+  </div>
+
+  <div style="background:#fff;border-radius:16px;padding:16px 18px;margin-bottom:14px;border:1.5px solid var(--g100);box-shadow:0 2px 10px rgba(10,36,20,.07);">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--g50);">
+      <span style="font-size:13px;font-weight:700;color:var(--tm);">🏁 Starting Weight</span>
+      <span style="font-size:14px;font-weight:900;color:var(--g800);">${start} kg</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--g50);">
+      <span style="font-size:13px;font-weight:700;color:var(--tm);">⚖️ Current Weight</span>
+      <span style="font-size:14px;font-weight:900;color:var(--g700);">${cur} kg</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--g50);">
+      <span style="font-size:13px;font-weight:700;color:var(--tm);">🎯 Goal Weight</span>
+      <span style="font-size:14px;font-weight:900;color:var(--gold);">${targetW} kg ${goalWeight?'':'(default)'}</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--g50);">
+      <span style="font-size:13px;font-weight:700;color:var(--tm);">🏆 Lowest Weight</span>
+      <span style="font-size:14px;font-weight:900;color:#2D6A4F;">${best} kg</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0;">
+      <span style="font-size:13px;font-weight:700;color:var(--tm);">📅 Days Tracked</span>
+      <span style="font-size:14px;font-weight:900;color:var(--g600);">${days} day${days!==1?'s':''}</span>
+    </div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">📈 Weight Over Time — Line Chart</div>
+    <canvas id="chartWtLine" class="rep-chart" style="height:180px!important;"></canvas>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">📊 Weekly Avg Weight — Bar Chart</div>
+    <canvas id="chartWtBar" class="rep-chart" style="height:180px!important;"></canvas>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title">🥧 Weight Lost vs Remaining Goal — Pie Chart</div>
+    <canvas id="chartWtPie" class="rep-chart" style="height:200px!important;max-width:300px;margin:0 auto;display:block;"></canvas>
+  </div>
+
+  <!-- Recent log list -->
+  <div style="font-weight:900;font-size:13px;color:var(--g800);margin-bottom:10px;">📋 Recent Entries</div>
+  <div class="hist-list" style="margin-bottom:16px;">
+    ${[...log].reverse().slice(0,10).map((e,i,arr)=>{
+      const prev=arr[i+1];
+      let delta='',cls='same';
+      if(prev){const diff=Math.round((e.kg-prev.kg)*10)/10;if(diff<0){delta=diff+'kg';cls='down';}else if(diff>0){delta='+'+diff+'kg';cls='up';}else{delta='=';cls='same';}}
+      return `<div class="hist-row">
+        <div class="hist-date">${shortDateW(e.date)}</div>
+        <div style="flex:1;font-size:14px;font-weight:900;color:var(--g700);">${e.kg} kg</div>
+        <div class="wlog-delta ${cls}" style="font-size:11px;font-weight:800;padding:2px 8px;border-radius:20px;">${delta||'—'}</div>
+      </div>`;
+    }).join('')}
+  </div>
+
+  <button class="share-btn" onclick="shareProgress('daily')">📸 Share Progress</button>`;
+}
+
+async function buildWeightReportCharts(){
+  const log = await getWeightLog();
+  if(!log.length) return;
+
+  const gc={gridColor:'rgba(116,198,157,.15)',textColor:'#6B8F6B',font:{family:'Nunito',size:10,weight:'bold'}};
+
+  // ── LINE CHART — all entries over time ──
+  const lineLabels=log.map(e=>shortDateW(e.date));
+  const lineData=log.map(e=>e.kg);
+  const yMin=Math.max(0,Math.min(...lineData)-3);
+  const yMax=Math.max(...lineData)+3;
+
+  const chLine=new Chart(document.getElementById('chartWtLine'),{
+    type:'line',
+    data:{
+      labels:lineLabels,
+      datasets:[{
+        label:'Weight (kg)',
+        data:lineData,
+        borderColor:'#2D6A4F',
+        backgroundColor:'rgba(45,106,79,.1)',
+        tension:0.35,fill:true,
+        pointBackgroundColor:lineData.map((_,i)=>i===lineData.length-1?'#D4A853':'#1B4332'),
+        pointRadius:lineData.map((_,i)=>i===lineData.length-1?7:4),
+        pointBorderColor:'#fff',pointBorderWidth:2,borderWidth:2.5,
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.parsed.y} kg`}}},
+      scales:{
+        x:{grid:{color:gc.gridColor},ticks:{color:gc.textColor,font:gc.font,maxRotation:45,maxTicksLimit:10}},
+        y:{min:yMin,max:yMax,grid:{color:gc.gridColor},ticks:{color:gc.textColor,font:gc.font,callback:v=>v+'kg'}}
+      }
+    }
+  });
+  activeCharts.push(chLine);
+
+  // ── BAR CHART — weekly average weight ──
+  const weekMap={};
+  log.forEach(e=>{
+    const parts=e.date.split('-').map(Number);
+    const d=new Date(parts[0],parts[1]-1,parts[2]);
+    const dow=d.getDay();
+    const mon=new Date(d); mon.setDate(d.getDate()-(dow===0?6:dow-1));
+    const wk=`${mon.getFullYear()}-${String(mon.getMonth()+1).padStart(2,'0')}-${String(mon.getDate()).padStart(2,'0')}`;
+    if(!weekMap[wk]) weekMap[wk]={sum:0,count:0};
+    weekMap[wk].sum+=e.kg; weekMap[wk].count++;
+  });
+  const weekArr=Object.keys(weekMap).sort().slice(-8).map(k=>{
+    const [wy,wm,wd]=k.split('-').map(Number);
+    const mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return {label:`${wd} ${mo[wm-1]}`,avg:Math.round(weekMap[k].sum/weekMap[k].count*10)/10};
+  });
+
+  const barColors=weekArr.map((_,i)=>{
+    const t=i/Math.max(weekArr.length-1,1);
+    return `rgba(${Math.round(45+71*t)},${Math.round(106+92*(1-t))},${Math.round(79+0*t)},0.85)`;
+  });
+  const barMin=Math.max(0,Math.min(...weekArr.map(w=>w.avg))-2);
+  const barMax=Math.max(...weekArr.map(w=>w.avg))+2;
+
+  const chBar=new Chart(document.getElementById('chartWtBar'),{
+    type:'bar',
+    data:{
+      labels:weekArr.map(w=>w.label),
+      datasets:[{
+        label:'Avg Weight (kg)',
+        data:weekArr.map(w=>w.avg),
+        backgroundColor:weekArr.map((_,i)=>i===weekArr.length-1?'#D4A853':'#2D6A4F'),
+        borderRadius:8,borderSkipped:false,
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.parsed.y} kg`}}},
+      scales:{
+        x:{grid:{color:gc.gridColor},ticks:{color:gc.textColor,font:gc.font,maxRotation:30}},
+        y:{min:barMin,max:barMax,grid:{color:gc.gridColor},ticks:{color:gc.textColor,font:gc.font,callback:v=>v+'kg'}}
+      }
+    }
+  });
+  activeCharts.push(chBar);
+
+  // ── PIE CHART — weight lost vs remaining to goal ──
+  const start=log[0].kg;
+  const cur=log[log.length-1].kg;
+  const totalLost=Math.max(0,Math.round((start-cur)*10)/10);
+
+  // Use user-set goal weight, else fallback to 10% loss from start
+  const targetWeight = goalWeight ? goalWeight : Math.round((start - start*0.10)*10)/10;
+  const goalLoss = Math.max(0, Math.round((start - targetWeight)*10)/10);
+  const remaining = Math.max(0, Math.round((goalLoss - totalLost)*10)/10);
+
+  const pieCanvas = document.getElementById('chartWtPie');
+
+  if(goalLoss <= 0){
+    // Goal weight >= starting weight — show message
+    pieCanvas.parentElement.innerHTML = `<div class="chart-title">🥧 Weight Lost vs Remaining Goal — Pie Chart</div>
+      <div style="text-align:center;padding:20px;font-size:13px;color:var(--tl);font-weight:700;">
+        ⚠️ Goal weight is same or higher than starting weight.<br>Please set a lower goal weight above.
+      </div>`;
+    return;
+  }
+
+  if(totalLost === 0){
+    // No loss yet — show encouraging message instead of misleading chart
+    const pct = 0;
+    pieCanvas.parentElement.innerHTML = `<div class="chart-title">🥧 Weight Lost vs Remaining Goal</div>
+      <div style="background:var(--g50);border-radius:14px;padding:18px 16px;text-align:center;border:1px solid var(--g100);">
+        <div style="font-size:32px;margin-bottom:8px;">🎯</div>
+        <div style="font-weight:900;font-size:15px;color:var(--g800);margin-bottom:6px;">Goal: ${targetWeight} kg</div>
+        <div style="font-size:13px;color:var(--tl);font-weight:700;margin-bottom:12px;">Need to lose: <strong style="color:var(--g700);">${goalLoss} kg</strong></div>
+        <div style="background:var(--g200);border-radius:100px;height:10px;overflow:hidden;margin-bottom:6px;">
+          <div style="height:100%;width:0%;background:var(--g700);border-radius:100px;"></div>
+        </div>
+        <div style="font-size:11px;color:var(--tl);font-weight:800;">0% complete — Keep going! Log daily weight to track progress.</div>
+      </div>`;
+    return;
+  }
+
+  const pieData=[totalLost, remaining];
+  const pieLabels=[`Lost: ${totalLost}kg`,`Remaining: ${remaining}kg`];
+  const pieColors=['#2D6A4F','rgba(184,225,196,0.6)'];
+
+  const chPie=new Chart(pieCanvas,{
+    type:'pie',
+    data:{
+      labels:pieLabels,
+      datasets:[{data:pieData,backgroundColor:pieColors,borderWidth:2,borderColor:'#fff'}]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:true,position:'right',
+          labels:{font:{family:'Nunito',size:11,weight:'bold'},color:'#3D5A3E',boxWidth:14,padding:10}},
+        tooltip:{callbacks:{label:c=>c.label}}
+      }
+    }
+  });
+  activeCharts.push(chPie);
+}
+
+/* ─── GROUPING HELPERS ──────────────────────────── */
+function groupIntoWeeks(hist,maxWeeks){
+  if(!hist.length) return [];
+  const map={};
+  hist.forEach(h=>{
+    const d=new Date(h.date+'T00:00:00');
+    const dow=d.getDay();
+    const monday=new Date(d); monday.setDate(d.getDate()-(dow===0?6:dow-1));
+    const wk=`${monday.getFullYear()}-${String(monday.getMonth()+1).padStart(2,'0')}-${String(monday.getDate()).padStart(2,'0')}`;
+    if(!map[wk]) map[wk]={label:weekLabel(wk),days:[]};
+    map[wk].days.push(h);
+  });
+  return Object.keys(map).sort().map(k=>map[k]).slice(-maxWeeks);
+}
+function groupIntoMonths(hist,maxMonths){
+  if(!hist.length) return [];
+  const map={};
+  hist.forEach(h=>{
+    const [y,m]=h.date.split('-');
+    const key=`${y}-${m}`;
+    if(!map[key]) map[key]={label:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][parseInt(m)-1]+' '+y.slice(2),days:[]};
+    map[key].days.push(h);
+  });
+  return Object.keys(map).sort().map(k=>map[k]).slice(-maxMonths);
+}
+function calcLongestStreak(hist){
+  if(!hist.length) return 0;
+  let max=0,cur=0;
+  [...hist].sort((a,b)=>a.date.localeCompare(b.date)).forEach(h=>{
+    if(h.pct>=50){cur++;if(cur>max)max=cur;}else cur=0;
+  });
+  return max;
+}
+
+/* ═══════════════════════════════════════════════════
+   SHARE PROGRESS
+═══════════════════════════════════════════════════ */
+async function shareProgress(tab){
+  const hist=await getHistory();
+  const canvas=document.getElementById('shareCanvas');
+  canvas.width=1080;canvas.height=1080;
+  const ctx=canvas.getContext('2d');
+  const bg=ctx.createLinearGradient(0,0,1080,1080);
+  bg.addColorStop(0,'#0a2414');bg.addColorStop(1,'#2D6A4F');
+  ctx.fillStyle=bg;ctx.fillRect(0,0,1080,1080);
+  ctx.beginPath();ctx.arc(900,150,260,0,Math.PI*2);
+  ctx.fillStyle='rgba(116,198,157,.08)';ctx.fill();
+  ctx.beginPath();ctx.arc(150,900,200,0,Math.PI*2);
+  ctx.fillStyle='rgba(212,168,83,.07)';ctx.fill();
+  ctx.fillStyle='#D4A853';ctx.font='bold 38px Nunito,sans-serif';
+  ctx.fillText('🌿 HERBALIFE NUTRITION',80,90);
+  ctx.fillStyle='#ffffff';ctx.font='bold 72px Nunito,sans-serif';
+  ctx.fillText('My Progress Report',80,185);
+  const tabLabel=tab==='daily'?'📅 Daily':tab==='weekly'?'📆 Weekly':'📈 Monthly';
+  ctx.fillStyle='rgba(255,255,255,.55)';ctx.font='bold 36px Nunito,sans-serif';
+  ctx.fillText(tabLabel,80,245);
+  const today=hist.find(h=>h.date===todayKey())||{pct:0,streak:0};
+  const recent=last(hist,7);
+  const avgPct=avg(recent.map(h=>h.pct));
+  const totalPerfect=hist.filter(h=>h.pct===100).length;
+  const longestStr=calcLongestStreak(hist);
+  const stats=[
+    {val:today.pct+'%',lbl:'Today'},
+    {val:avgPct+'%',lbl:'7-Day Avg'},
+    {val:streak+'🔥',lbl:'Current Streak'},
+    {val:totalPerfect,lbl:'Perfect Days'},
+    {val:longestStr,lbl:'Best Streak'},
+    {val:hist.length,lbl:'Days Tracked'},
+  ];
+  stats.forEach((s,i)=>{
+    const col=i%3;const row=Math.floor(i/3);
+    const x=80+col*330;const y=330+row*200;
+    ctx.fillStyle='rgba(255,255,255,.1)';
+    roundRect(ctx,x,y,300,160,20);ctx.fill();
+    ctx.strokeStyle='rgba(255,255,255,.18)';ctx.lineWidth=1.5;
+    roundRect(ctx,x,y,300,160,20);ctx.stroke();
+    ctx.fillStyle='#F0C97A';ctx.font='bold 56px Nunito,sans-serif';ctx.textAlign='center';
+    ctx.fillText(String(s.val),x+150,y+90);
+    ctx.fillStyle='rgba(255,255,255,.65)';ctx.font='bold 26px Nunito,sans-serif';
+    ctx.fillText(s.lbl,x+150,y+135);ctx.textAlign='left';
+  });
+  const barData=last(hist,7);
+  const bx=80,by=780,bw=920/Math.max(barData.length,1),bh=160;
+  ctx.fillStyle='rgba(255,255,255,.07)';roundRect(ctx,60,750,960,220,18);ctx.fill();
+  ctx.fillStyle='rgba(255,255,255,.55)';ctx.font='bold 28px Nunito,sans-serif';
+  ctx.fillText('Last 7 Days Completion',80,790);
+  barData.forEach((h,i)=>{
+    const barH=Math.round((h.pct/100)*(bh-40));
+    const rx=bx+i*bw+bw*.1;const ry=by+bh-barH+20;const rw=bw*.8;
+    const grad=ctx.createLinearGradient(0,ry,0,ry+barH);
+    grad.addColorStop(0,'#74C69D');grad.addColorStop(1,'#40916C');
+    ctx.fillStyle=grad;roundRect(ctx,rx,ry,rw,barH,6);ctx.fill();
+    ctx.fillStyle='#fff';ctx.font='bold 22px Nunito,sans-serif';ctx.textAlign='center';
+    ctx.fillText(h.pct+'%',rx+rw/2,ry-8);ctx.textAlign='left';
+  });
+  ctx.fillStyle='rgba(255,255,255,.35)';ctx.font='bold 28px Nunito,sans-serif';
+  ctx.fillText('By Vaibhav Vashisth — Weight Loss Diet Plan',80,1040);
+  canvas.style.display='block';
+  canvas.toBlob(async blob=>{
+    canvas.style.display='none';
+    if(!blob) return;
+    const file=new File([blob],'progress.png',{type:'image/png'});
+    if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
+      try{ await navigator.share({files:[file],title:'My Diet Progress',text:'Check my Herbalife diet progress!'}); }
+      catch(e){ if(e.name!=='AbortError') downloadShare(blob); }
+    } else { downloadShare(blob); }
+  },'image/png');
+}
+function downloadShare(blob){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);a.download='my-progress.png';a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),3000);
+  showToast('📸 Image saved! Share it anywhere!');
+}
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+  ctx.lineTo(x+w,y+h-r);ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+  ctx.lineTo(x+r,y+h);ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+  ctx.lineTo(x,y+r);ctx.quadraticCurveTo(x,y,x+r,y);ctx.closePath();
+}
+
+/* ══════════════════════════════════════════════════
+   WEIGHT TRACKER
+══════════════════════════════════════════════════ */
+let weightChart = null;
+let goalWeight = null; // user-set target weight in kg
+
+async function getWeightLog(){
+  try{
+    const raw = await Store.get('hl_weight');
+    // Also load goal weight
+    const gRaw = await Store.get('hl_goal_weight').catch(()=>null);
+    if(gRaw) goalWeight = parseFloat(gRaw);
+    // Populate goal input if set
+    const gInp = document.getElementById('goalWeightInput');
+    if(gInp && goalWeight) gInp.value = goalWeight;
+    return raw ? JSON.parse(raw) : [];
+  } catch(e){ return []; }
+}
+
+async function saveGoalWeight(){
+  const inp = document.getElementById('goalWeightInput');
+  const val = parseFloat(inp.value);
+  if(!val || val<30 || val>250){
+    showToast('🎯 Please enter a valid goal weight (30–250 kg)');
+    return;
+  }
+  goalWeight = val;
+  await Store.set('hl_goal_weight', String(val));
+  showToast('🎯 Goal weight set to ' + val + ' kg!');
+  // Refresh weight charts if modal open
+  const modal = document.getElementById('reportModal');
+  if(modal && modal.classList.contains('open') && activeTab==='weight') await renderReport('weight');
+}
+
+async function saveWeightLog(arr){
+  try{
+    arr.sort((a,b)=>a.date.localeCompare(b.date));
+    if(arr.length>365) arr=arr.slice(arr.length-365);
+    await Store.set('hl_weight', JSON.stringify(arr));
+  } catch(e){}
+}
+
+async function saveWeight(){
+  const inp = document.getElementById('weightInput');
+  const val = parseFloat(inp.value);
+  if(!val || val<30 || val>250){
+    showToast('⚖️ Please enter a valid weight (30–250 kg)');
+    return;
+  }
+  const log = await getWeightLog();
+  const key = todayKey();
+  const idx = log.findIndex(e=>e.date===key);
+  const entry = {date:key, kg: Math.round(val*10)/10};
+  if(idx>=0) log[idx]=entry; else log.push(entry);
+  await saveWeightLog(log);
+  inp.value='';
+  showToast('⚖️ Weight logged! Keep it up!');
+  renderWeightTracker(log); // always update home widget
+  // Also live-update if modal is open on any tab
+  const modal = document.getElementById('reportModal');
+  if(modal && modal.classList.contains('open')) await liveUpdateCharts();
+}
+
+function shortDateW(dateStr){
+  const [y,m,d]=dateStr.split('-').map(Number);
+  const names=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return `${d} ${names[m-1]}`;
+}
+
+async function renderWeightTracker(logParam){
+  const log = logParam || await getWeightLog();
+
+  // Stats
+  const cur = log.length ? log[log.length-1].kg : null;
+  const first = log.length ? log[0].kg : null;
+  const lost = (cur!==null && first!==null) ? Math.round((first-cur)*10)/10 : null;
+  document.getElementById('wCurrent').textContent = cur ? cur+'kg' : '—';
+  document.getElementById('wLost').textContent = lost!==null ? (lost>=0?'-'+lost:'+'+Math.abs(lost))+'kg' : '—';
+  document.getElementById('wDays').textContent = log.length || '—';
+
+  // Chart
+  const labels = log.map(e=>shortDateW(e.date));
+  const data   = log.map(e=>e.kg);
+
+  if(weightChart){ weightChart.destroy(); weightChart=null; }
+
+  if(log.length===0){
+    document.getElementById('weightChart').style.display='none';
+    return;
+  }
+  document.getElementById('weightChart').style.display='block';
+
+  const yMin = Math.max(0, Math.min(...data)-2);
+  const yMax = Math.max(...data)+2;
+
+  const gc={gridColor:'rgba(116,198,157,.18)',textColor:'#6B8F6B',font:{family:'Nunito',size:10,weight:'bold'}};
+  weightChart = new Chart(document.getElementById('weightChart'),{
+    type:'line',
+    data:{
+      labels,
+      datasets:[{
+        data,
+        borderColor:'#2D6A4F',
+        backgroundColor:'rgba(45,106,79,.1)',
+        tension:.35,
+        fill:true,
+        pointBackgroundColor: data.map((v,i)=>i===data.length-1?'#D4A853':'#1B4332'),
+        pointRadius: data.map((v,i)=>i===data.length-1?6:4),
+        pointBorderColor:'#fff',
+        pointBorderWidth:2,
+        borderWidth:2.5
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          callbacks:{
+            label:ctx=>`${ctx.parsed.y} kg`
+          }
+        }
+      },
+      scales:{
+        x:{grid:{color:gc.gridColor},ticks:{color:gc.textColor,font:gc.font,maxRotation:45}},
+        y:{
+          min:yMin,max:yMax,
+          grid:{color:gc.gridColor},
+          ticks:{color:gc.textColor,font:gc.font,callback:v=>v+'kg'}
+        }
+      }
+    }
+  });
+
+  // Log list (recent 10, reverse)
+  const list = document.getElementById('weightLogList');
+  const recent = [...log].reverse().slice(0,10);
+  if(recent.length===0){ list.innerHTML='<div class="weight-empty">No entries yet</div>'; return; }
+
+  list.innerHTML = recent.map((e,i)=>{
+    const prev = recent[i+1];
+    let delta='', cls='same';
+    if(prev){
+      const diff = Math.round((e.kg-prev.kg)*10)/10;
+      if(diff<0){delta=diff+'kg';cls='down';}
+      else if(diff>0){delta='+'+diff+'kg';cls='up';}
+      else{delta='—';cls='same';}
+    }
+    return `<div class="weight-log-row">
+      <span class="wlog-date">${shortDateW(e.date)}</span>
+      <span class="wlog-kg">${e.kg} kg</span>
+      ${prev?`<span class="wlog-delta ${cls}">${delta}</span>`:'<span class="wlog-delta same">Start</span>'}
+    </div>`;
+  }).join('');
+}
+
+/* ──────────────────────────────────────────────────
+   BOOT — fast load: preload all data into cache first,
+   then render. Total time < 2 seconds on any device.
+────────────────────────────────────────────────── */
+async function boot(){
+  const t0=Date.now();
+  const overlay=document.getElementById('loadingOverlay');
+  const loadTxt=overlay.querySelector('p');
+  if(loadTxt) loadTxt.textContent='Loading your data...';
+
+  try{
+    // Preload all keys into memory cache in parallel (fast!)
+    await Store.preloadAll();
+  }catch(e){ console.warn('preload error',e); }
+
+  try{
+    // Load state from cache (now instant since cache is warm)
+    await loadState();
+  }catch(e){ console.warn('boot load error',e); }
+
+  // Render UI immediately from cached data
+  renderAll();
+  updateClock();
+  updateStreakBadge();
+
+  // Persist today's snapshot
+  await upsertTodayHistory();
+  await renderWeightTracker();
+
+  // Show loading overlay min 400ms for smooth UX
+  const elapsed=Date.now()-t0;
+  if(elapsed<400) await new Promise(r=>setTimeout(r,400-elapsed));
+
+  overlay.classList.add('hidden');
+  setInterval(updateClock,1000);
+
+  // Background sync: pull any data from window.storage after UI visible
+  setTimeout(async()=>{
+    try{ await Store.preloadAll(); }catch(e){}
+  }, 1500);
+}
+boot();
+
+/* ══════════════════════════════════════════════════
+   HERBABOT — Smart Rule-Based Chatbot Engine
+   100% Offline · No API · Lifetime Free
+══════════════════════════════════════════════════ */
+(function(){
+
+/* ── State ── */
+let chatOpen = false;
+let chatHistory = []; // {role:'bot'|'user', text, time}
+let lastTopic = null;
+let typingTimer = null;
+let chatInitDone = false;
+const MAX_HISTORY = 80;
+
+/* ── Knowledge Base ── */
+const KB = {
+
+  greet: {
+    k: ['hello','hi','hii','hey','namaste','namaskar','helo','salam','sat sri akal','jai hind','good morning','good evening','good afternoon','good night','subah','sham','raat','goodnight','gm','gn'],
+    r: () => {
+      const h = new Date().getHours();
+      const tod = h<12 ? 'Subah' : h<17 ? 'Dopahar' : h<21 ? 'Sham' : 'Raat';
+      const greets = [
+        `🌿 ${tod} ki Shubhkamnaaein! Main HerbaBot hun — aapka personal Herbalife coach! Kya sawaal hai aaj?`,
+        `🤖 Hey! HerbaBot yahan hai — 24/7 aapki madad ke liye. Kuch poochho diet, products ya weight loss ke baare mein!`,
+        `🌱 ${tod} aayi! Main HerbaBot hun — aapka personal weight loss guide. Bolo kya jaanna hai? 😊`
+      ];
+      return pick(greets);
+    }
+  },
+
+  howAreYou: {
+    k: ['kaise ho','kaisa hai','how are you','kaisi hai','theek','sab theek','all good','sab kuch theek'],
+    r: () => pick([
+      '😊 Main bilkul theek hun! Aur aap? Aaj ka meal complete hua kya? 🥗',
+      '🌿 Mast! Aapke baare mein batao — aaj kitna paani piya? 💧',
+      '💪 Ekdum fit! Aaj ka progress check kiya? Main yahan hun — kuch bhi poochho!'
+    ])
+  },
+
+  thanks: {
+    k: ['thanks','thank you','shukriya','dhanyawad','bahut acha','bahut badhiya','best','great','awesome','zabardast','shandar','perfect','superb'],
+    r: () => pick([
+      '🌿 Bahut khoob! Consistency hi aapka sabse bada weapon hai. Chalta rehna! 💪',
+      '😊 Aapka swagat hai! Koi aur sawaal ho to main yahan hun 24/7.',
+      '🏆 Keep going Vaibhav ji! Ek ek din add hoga aur results aayenge zaroor!'
+    ])
+  },
+
+  mealPlan: {
+    k: ['meal plan','diet plan','khana','khaana','schedule','routine','kab khana','timing','time','aaj ka','today','breakfast','lunch','snack','subah ka','din ka','shaam ka','khane ka time'],
+    r: () => pick([
+      `🥗 <b>Vaibhav ka Daily Meal Schedule:</b><br><br>
+☀️ <b>6:00 AM</b> — Formula 1 Shake + ShakeMate<br>
+🍎 <b>9:00 AM</b> — Fruit snack (1 apple / banana / papaya)<br>
+🥤 <b>11:00 AM</b> — Afresh Energy Drink<br>
+🍱 <b>1:00 PM</b> — Dal-chawal / roti-sabzi (normal lunch)<br>
+🫐 <b>3:00 PM</b> — Light snack (dry fruits / roasted chana)<br>
+🥤 <b>5:00 PM</b> — Afresh + Fiber<br>
+🌙 <b>8:00 PM</b> — Dinner (Mon/Wed/Fri: Shake | Tue/Thu/Sat: Khichdi | Sun: Free!)<br>
+😴 <b>10:00 PM</b> — Rest & Sleep<br><br>
+App mein checkboxes tick karo progress track karne ke liye! ✅`,
+      `📅 <b>Aaj ke meals yaad dilata hun:</b><br><br>
+• Subah khali pet Formula 1 shake pehla kaam karo ☀️<br>
+• Afresh subah 11 baje aur shaam 5 baje lena mat bhoolo ⚡<br>
+• Dinner 8 baje tak ho jaana chahiye 🌙<br>
+• Raat ko roti bilkul nahi! Shake ya khichdi lo ❌🫓<br><br>
+App mein har meal ka checkbox hai — wahan track karo! 📱`
+    ])
+  },
+
+  formula1: {
+    k: ['formula 1','formula1','f1','shake','herbalife shake','protein shake','shake kaise','shake banate','shake recipe','shake ingredients','shake banana','shake time','shake pina'],
+    r: () => pick([
+      `🥤 <b>Formula 1 Shake — Sahi Tarika:</b><br><br>
+<b>Ingredients:</b><br>
+• 2 scoops Formula 1 (25g)<br>
+• 250ml skimmed milk / soy milk / cold water<br>
+• 1 scoop ShakeMate protein (optional)<br>
+• Ice cubes (optional)<br><br>
+<b>Mix karein:</b> Blender mein 30-40 seconds blend karein. Lump nahi rehne chahiye.<br><br>
+<b>Best time:</b> Subah 6 baje naashte ki jagah + shaam dinner (Mon/Wed/Fri)<br><br>
+💡 Tip: Blender mein pehle paani/milk daalo, phir powder — clumps nahi banenge!`,
+      `🥤 <b>Formula 1 ke fayde:</b><br><br>
+✅ 21+ vitamins & minerals<br>
+✅ High protein — muscle banata hai<br>
+✅ Low calories — 200-220 kcal per serving<br>
+✅ Fibre se bhara — bhook nahi lagti<br>
+✅ Gut-friendly formula<br><br>
+<b>Flavours available:</b> Vanilla, Chocolate, Strawberry, Cookies & Cream<br><br>
+💡 Milk ke saath banao to better taste aur extra protein milti hai! 🥛`
+    ])
+  },
+
+  afresh: {
+    k: ['afresh','energy drink','green tea','chai','afresh kya','afresh kaise','afresh time','afresh benefits','afresh lemon','afresh peach','metabolism'],
+    r: () => pick([
+      `⚡ <b>Afresh Energy Drink — Complete Guide:</b><br><br>
+<b>Kya hai?</b> Green tea + herbs se bana natural energy booster<br><br>
+<b>Kaise use karein:</b><br>
+• 1 teaspoon warm/cold water mein dissolve karein<br>
+• Subah 11 baje ya shaam 5 baje lena best hai<br><br>
+<b>Fayde:</b><br>
+⚡ Metabolism 20-30% boost karta hai<br>
+🔥 Fat burning badhaata hai<br>
+😴 Neend nahi aati dopahar ko<br>
+🧠 Mental focus sharp hota hai<br><br>
+⚠️ Raat 7 baje ke baad mat lo — neend kharab ho sakti hai!`,
+      `⚡ <b>Afresh Tips:</b><br><br>
+• Khane ke 30 min pehle pia to fat burning max hoti hai 🔥<br>
+• Lemon Afresh best hai weight loss ke liye<br>
+• Zyada mat lo — 2 cups per day maximum ✅<br>
+• Pregnant ya BP patients — doctor se poocho pehle<br><br>
+App mein "Afresh Morning" aur "Afresh Evening" dono habits check karna mat bhoolo! ✅`
+    ])
+  },
+
+  fiber: {
+    k: ['fiber','fibre','nli','multifiber','multi fiber','fibre le','pet saaf','kabz','constipation','digestive','digestion','pet','stomach'],
+    r: () => pick([
+      `🌾 <b>Herbalife Fiber (NLT) — Kyu Zaruri Hai:</b><br><br>
+<b>Kab lo:</b> Shaam ke Afresh ke saath (5 PM)<br>
+<b>Kaise lo:</b> 1 tablespoon water mein mix karke<br><br>
+<b>Fayde:</b><br>
+✅ Bhook late lagti hai — overeating rokta hai<br>
+✅ Blood sugar control karta hai<br>
+✅ Cholesterol kam karta hai<br>
+✅ Pet saaf rehta hai<br>
+✅ Gut bacteria healthy rehte hain<br><br>
+💡 Fiber lete waqt khoob paani peeyo — warna ulta effect ho sakta hai! 💧`
+    ])
+  },
+
+  water: {
+    k: ['paani','water','hydration','pani','paani kitna','kitna paani','water intake','hydrate','dehydrated','thirst','pryas'],
+    r: () => pick([
+      `💧 <b>Daily Water Target:</b><br><br>
+<b>Aapke liye (based on avg weight):</b> <span style="color:var(--g700);font-weight:900;">2.5–3 litres per day</span><br><br>
+<b>Smart Schedule:</b><br>
+🌅 Subah uthke — 2 glass warm water<br>
+🥤 Har meal se 30 min pehle — 1 glass<br>
+⚡ Afresh ke saath — 1 glass<br>
+🌙 Sone se 1 hr pehle — 1 glass (zyada nahi)<br><br>
+💡 <b>Trick:</b> App mein water glasses (🥛) track hote hain — 10 glasses ka target set hai!<br><br>
+⚠️ Sirf paani — juices, chai, cold drink count nahi hote!`,
+      `💧 <b>Paani ke Fayde Weight Loss Mein:</b><br><br>
+🔥 Metabolism 30% tak boost hoti hai cold water se<br>
+🍽️ Khane se pehle paani peene se 30% kam khaate ho<br>
+🧪 Toxins flush hote hain<br>
+💪 Muscles ko repair karne mein help karta hai<br>
+✨ Skin glow karne lagti hai<br><br>
+Formula: Body weight (kg) × 35ml = Daily water (ml)<br>
+67kg × 35 = 2345ml ≈ <b>2.5 litres</b> 💧`
+    ])
+  },
+
+  weightLossTips: {
+    k: ['weight loss','tips','tricks','vajan','wajan kam','motapa','fat','slim','patla','thin','reduce weight','loss weight','lose weight','kaise ghatao','ghatana','vajan kaise','kilo','kg kam','kg kaise','body','body kam','pet kam','tummy','belly'],
+    r: () => pick([
+      `⚖️ <b>Top 7 Weight Loss Tips:</b><br><br>
+1️⃣ <b>Protein badhaao</b> — Formula 1 + ShakeMate se har meal mein protein lo<br>
+2️⃣ <b>Sugar bilkul band</b> — Cold drinks, juice, mithai avoid karo<br>
+3️⃣ <b>Raat ko light khao</b> — Shake ya khichdi, roti nahi!<br>
+4️⃣ <b>Paani pehle</b> — Har khane se 30 min pehle 1 glass paani<br>
+5️⃣ <b>Neend poori karo</b> — 7-8 ghante, warna fat-burning hormones fail hote hain<br>
+6️⃣ <b>Streak mat todna</b> — App mein 🔥 streak banao, ek ek din important hai<br>
+7️⃣ <b>Consistency king hai</b> — Perfect diet cheater diet se behtar hai har waqt! 👑`,
+      `🔥 <b>Science-Based Weight Loss:</b><br><br>
+📊 <b>Calorie deficit</b> = Weight loss ka formula<br>
+• Ek kilo fat = 7700 calories<br>
+• Agar rozana 500 cal kam khaao → 15 din mein 1 kg less!<br><br>
+🏃 <b>Exercise + Diet combo</b> best results deta hai<br>
+💤 <b>Neend</b> mein 70% fat burning hoti hai — 7-8 hr must!<br>
+⚡ <b>Afresh</b> se metabolism 20-30% badhti hai<br>
+🥗 <b>Meal timing</b> — 3-4 hrs gap rakho meals ke beech<br><br>
+Aaj ka target: App ke saare 9 tasks complete karo! ✅`
+    ])
+  },
+
+  exercise: {
+    k: ['exercise','workout','vyayam','gym','yoga','running','walk','jogging','cardio','stretching','physical','activity','sport','kab exercise','kitni exercise','exercise kab','exercise time','kitna chalein'],
+    r: () => pick([
+      `🏃 <b>Exercise Guide for Weight Loss:</b><br><br>
+<b>Best time:</b> Subah khali pet (6-7 AM) ya shaam (5-6 PM)<br><br>
+<b>Weekly Plan:</b><br>
+Mon/Wed/Fri → 30 min brisk walk + 15 min stretching<br>
+Tue/Thu → Light yoga ya home exercises<br>
+Sat → 45 min walk ya cycling<br>
+Sun → Rest ya light activity<br><br>
+💡 <b>Beginner Tips:</b><br>
+• Pehle week sirf 20-30 min walk karo<br>
+• Dheere dheere intensity badhaao<br>
+• Exercise se pehle 1 glass paani zaroor peeo<br><br>
+⚡ Afresh exercise se 30 min pehle lo — extra energy milegi!`,
+      `🏃 <b>Ghar pe Exercise (Bina Gym):</b><br><br>
+✅ 15 min morning walk — belly fat ke liye best<br>
+✅ 20 squats + 15 push-ups (beginner level)<br>
+✅ Surya Namaskar — full body workout in 15 min<br>
+✅ Jump rope — 10 min = 100 calories burn!<br>
+✅ Dancing — 30 min = 200+ cal burn 🕺<br><br>
+<b>Remember:</b> Diet 70% + Exercise 30% = Weight Loss formula!<br>
+Sirf exercise se nahi hoga — Herbalife diet ke saath combo karo 💪`
+    ])
+  },
+
+  sleep: {
+    k: ['neend','sleep','sona','so','raat','jagana','late night','jagge','neend nahi','insomnia','thaka','thak','rest','aaram'],
+    r: () => pick([
+      `😴 <b>Neend aur Weight Loss:</b><br><br>
+💡 <b>Jaano:</b> 70% fat burning neend mein hoti hai!<br><br>
+<b>Ideal Routine:</b><br>
+🌙 10 PM — Dinner complete aur phone down<br>
+😴 10:30 PM — Bed par jaana<br>
+☀️ 6:00 AM — Fresh start!<br><br>
+<b>Neend achhi karne ke tips:</b><br>
+• Sone se 1 hr pehle screen band karo 📵<br>
+• Room dark aur thanda rakho<br>
+• Afresh raat ko mat lo (caffeine hai) ⚠️<br>
+• Ek glass warm water + pinch haldi raat ko<br><br>
+7 ghante se kam neend = cortisol badhe = fat badhe = weight loss stop ❌`
+    ])
+  },
+
+  plateau: {
+    k: ['plateau','weight ruka','weight nahi ghat','weight same','progress nahi','stuck','koi change nahi','nahi ghat raha','nahi kam','results nahi','slow','slow results','weight stuck'],
+    r: () => pick([
+      `😤 <b>Weight Plateau — Kyu Aata Hai aur Kaise Todein:</b><br><br>
+<b>Kyu hota hai?</b><br>
+Sharir teri diet ka "aadat" ho jaata hai. Smart body hai — adjust ho jaata hai!<br><br>
+<b>Plateau todne ke 5 tarike:</b><br>
+1️⃣ <b>Water intake badhaao</b> — 3 litres target karo<br>
+2️⃣ <b>Meal timing change karo</b> — 30 min aage/peeche karo<br>
+3️⃣ <b>Exercise mein variation laao</b> — naya type try karo<br>
+4️⃣ <b>Ek baar calorie count karo</b> — hidden calories ho sakti hain<br>
+5️⃣ <b>Neend check karo</b> — 7-8 hrs puri ho rahi hai?<br><br>
+💪 Plateau normal hai — 2-3 weeks mein khud break ho jaata hai consistency se!`,
+      `😤 <b>Plateau Tips:</b><br><br>
+✅ Sunday ko ek cheat meal lo — metabolism reset hoti hai<br>
+✅ Protein intake badhaao — muscles fat burn karte hain<br>
+✅ 5-10 min extra exercise add karo<br>
+✅ Stress kam karo — cortisol fat store karta hai<br>
+✅ Formula 1 ka flavour change karo — variety metabolism ko jaga deti hai<br><br>
+⏳ <b>Yaad rakho:</b> 1 kg lose karna = 7700 cal deficit. Patience rakhna padega! 🌱`
+    ])
+  },
+
+  progress: {
+    k: ['progress','kaisa hai','result','results','kitna','kitna gaya','kitna kam','check','kya hua','track','tracking','report','mera'],
+    r: async () => {
+      const hist = await getHistory().catch(()=>[]);
+      const log  = await getWeightLog().catch(()=>[]);
+      const today = hist.find(h=>h.date===todayKey());
+      const pct   = today ? today.pct : 0;
+      const streak_v = typeof streak !== 'undefined' ? streak : 0;
+      const perfect  = hist.filter(h=>h.pct===100).length;
+      const curWt = log.length ? log[log.length-1].kg : null;
+      const startWt = log.length ? log[0].kg : null;
+      const lost = (curWt && startWt) ? Math.max(0,Math.round((startWt-curWt)*10)/10) : null;
+      return `📊 <b>Aapka Live Progress Report:</b><br><br>
+📅 <b>Aaj ka score:</b> ${pct}% ${pct===100?'🏆 Perfect!':pct>=75?'🌟 Great!':pct>=50?'👍 Good!':'💪 Aur karo!'}<br>
+🔥 <b>Current streak:</b> ${streak_v} din<br>
+🏆 <b>Perfect days:</b> ${perfect} din<br>
+📋 <b>Total days tracked:</b> ${hist.length}<br>
+${curWt ? `⚖️ <b>Current weight:</b> ${curWt} kg` : '⚖️ <b>Weight:</b> Log nahi kiya abhi'}<br>
+${lost!==null ? `🎯 <b>Weight lost:</b> ${lost} kg` : ''}<br><br>
+${pct<100 ? '💪 Aaj ka baaki kaam poora karo — A+ possible hai!' : '🎉 Aaj ka din perfect raha! Kal bhi aise hi!'}`
+    }
+  },
+
+  motivation: {
+    k: ['motivation','motivate','himmat','haar','thak','bore','give up','quit','chhodna','pareshaan','mushkil','hard','tough','nahi ho raha','nahi hoga','frustrated','dull','energy nahi','lazy'],
+    r: () => pick([
+      `💪 <b>Sunno Vaibhav ji — YE JOURNEY AAPKI HAI!</b><br><br>
+"<i>Log 2 weeks mein results dekhna chahte hain, jo 10 saal mein build hua.</i>"<br><br>
+Aaj aap uthke app khola — YE KAFI HAI! ✅<br><br>
+🌱 Pehla kadam sabse bada hota hai<br>
+🔥 Ek missed day se streak nahi toot-ti — ek naya din shuru hota hai<br>
+⚖️ 1 kg = 7700 calories. Rozana thoda thoda hota hai<br>
+🏆 Sirf 30 din consistent raho — phir ye habit ban jaayegi<br><br>
+<b>Aaj ka chhota kaam:</b> Sirf aaj ka Formula 1 shake peeyo. Bas itna. Kar sakte ho? 🥤`,
+      `🔥 <b>Facts jo aapko jalayenge:</b><br><br>
+📈 Jo log 90 days consistent rehte hain — 95% apna goal reach karte hain<br>
+⚖️ Ek mahine mein 3-4 kg fat loss possible hai Herbalife ke saath<br>
+💪 5% weight loss bhi diabetes risk 50% kam kar deta hai<br>
+😴 Better sleep, better energy, better mood — sab saath mein aata hai<br><br>
+<b>Yaad rakho:</b> Aap wahi ban jaate hain jo aap rozana karte hain.<br>Aaj = kal ka foundation! 🌱<br><br>
+Chalo — ek glass paani piyo aur checkboxes tick karo! 💧`
+    ])
+  },
+
+  products: {
+    k: ['product','products','herbalife products','kya kya hai','range','sab kuch','catalogue','list','kya khaayen','kya lein','kya use','konsa product','supplements'],
+    r: () => `🌿 <b>Vaibhav ke Plan mein Herbalife Products:</b><br><br>
+🥤 <b>Formula 1 Shake</b> — Meal replacement, 21+ nutrients<br>
+💪 <b>ShakeMate (Protein)</b> — Extra protein for muscles<br>
+⚡ <b>Afresh Energy</b> — Green tea metabolism booster<br>
+🌾 <b>Fiber (NLT)</b> — Digestive health + fullness<br>
+🌱 <b>Aloe Vera Drink</b> — Gut health + hydration<br>
+💊 <b>Cell-U-Loss</b> — Water retention reducer<br>
+🌟 <b>Total Control</b> — Thermogenic fat burner<br><br>
+In sabka combination aur timing bilkul sahi hai Vaibhav ke plan mein. App mein sab set hai! ✅`
+  },
+
+  aloe: {
+    k: ['aloe','aloe vera','aloe drink','alovera','aloe kaise','aloe benefits','gut','intestine','aant'],
+    r: () => `🌱 <b>Herbalife Aloe Vera Drink:</b><br><br>
+<b>Fayde:</b><br>
+✅ Gut health improve karta hai<br>
+✅ Nutrient absorption 20% badhaata hai (other products ka)<br>
+✅ IBS aur acidity mein relief<br>
+✅ Skin se andar saaf karta hai<br><br>
+<b>Kaise lo:</b> 30ml concentrated aloe + 250ml paani<br>
+<b>Kab lo:</b> Subah Formula 1 ke saath ya khane se pehle<br><br>
+💡 Tip: Aloe ke saath Formula 1 ka absorption bahut behtar ho jaata hai — isiliye pair karo! 🥤`
+  },
+
+  dinner: {
+    k: ['dinner','raat ka khana','raat ko','rat ko khana','night meal','raat','khichdi','khichri','shake dinner','dinner kya','dinner options','roti'],
+    r: () => `🌙 <b>Dinner Guide:</b><br><br>
+<b>Monday / Wednesday / Friday:</b><br>
+🥤 Formula 1 Shake — same as breakfast shake<br><br>
+<b>Tuesday / Thursday / Saturday:</b><br>
+🍲 Thin Moong Dal Khichdi — light, healthy, filling<br><br>
+<b>Sunday:</b><br>
+🍽️ Free choice! Apni marzi — enjoy karo! 🎉<br><br>
+⏰ <b>Dinner time:</b> 8:00 PM se pehle — uske baad kuch nahi!<br><br>
+🚫 <b>Raat ko KABHI nahi:</b><br>
+❌ Roti / chapati<br>
+❌ Rice (basmati bhi nahi)<br>
+❌ Heavy dal or gravy<br>
+❌ Fried food<br><br>
+Zyada bhook lage to ek glass warm water pio! 💧`
+  },
+
+  cheatMeal: {
+    k: ['cheat','cheat meal','cheat day','bahar khana','party','restaurant','kuch alag','treat','kha sakta','kha sakti','extra','function','shaadi','occasion'],
+    r: () => pick([
+      `🎉 <b>Cheat Meal Guide:</b><br><br>
+✅ <b>Sunday ek cheat MEAL</b> (not day!) allowed hai<br>
+✅ Cheat meal metabolism reset karta hai — helpful hai!<br><br>
+<b>Smart cheat meal tips:</b><br>
+• Normal portion lo — plate bhar ke nahi<br>
+• Before eating — Afresh ya paani lo<br>
+• Fried items kam karo, baked better hai<br>
+• Sweets thoda — poori plate nahi 😅<br>
+• Raat ko cheat mat karo — lunch better hai<br><br>
+💪 Ek cheat meal se 3 months ki mehnat nahi jaati — kal se fresh start!`,
+    ])
+  },
+
+  sideEffects: {
+    k: ['side effect','nuksan','harm','nuksaan','safe','surakshit','koi problem','body mein','dizziness','chakkar','weakness','kamzori','nausea','ulti','gas','bloating','pet phoolna','acidity','reaction'],
+    r: () => `⚠️ <b>Herbalife Safety Guide:</b><br><br>
+<b>Common (temporary) reactions — 1-2 weeks mein normal ho jaate hain:</b><br>
+😴 Thakaan pehle kuch din — body adjust kar rahi hai<br>
+🚽 Loose motions ya kabz — fiber changes<br>
+💨 Bloating — probiotic adjustment<br><br>
+<b>Kaise avoid karein:</b><br>
+✅ Products dheere dheere introduce karo<br>
+✅ Paani poora peeyo — 2.5L+ daily<br>
+✅ Khali pet Afresh mat lo<br><br>
+<b>Doctor se zaroor milo agar:</b><br>
+🔴 Severe acidity ya chest pain<br>
+🔴 Allergy symptoms<br>
+🔴 Pregnant ya breastfeeding hain<br>
+🔴 Koi chronic illness hai<br><br>
+Overall Herbalife products globally tested aur safe hain ✅`
+  },
+
+  cost: {
+    k: ['cost','price','kitna paisa','mehnga','sasta','affordable','budget','kharcha','rupees','rs','₹','kitne ka','paise'],
+    r: () => `💰 <b>Herbalife Products ki Value:</b><br><br>
+Formula 1 shake ek meal replace karta hai — sirf uska cost compare karo!<br><br>
+<b>Cost vs Benefit:</b><br>
+🏥 Doctor bills aur medicines agar bimar pade = Zyada mehenga<br>
+🏋️ Gym membership = Similar ya zyada<br>
+🍔 Bahar ka khana = Aap pehle se zyada spend karte ho<br><br>
+💡 Herbalife ek investment hai health mein — ek baar healthy ho gaye to future expenses kam honge!<br><br>
+Products ke liye apne Herbalife coach (Vaibhav ji) se contact karo 📞`
+  },
+
+  howLong: {
+    k: ['kitne din','kitne mahine','kitne time','kitne weeks','kab dikha','kab result','kitne dino','when results','results kab','time lagta','months','weeks','quickly','fast results','jaldi'],
+    r: () => `⏳ <b>Results Timeline:</b><br><br>
+<b>Week 1-2:</b> Bloating kam, energy better, neend achhi 💤<br>
+<b>Week 3-4:</b> 1-2 kg weight down visible hoga ⚖️<br>
+<b>Month 2:</b> Clothes fitting loose, face thinner 👗<br>
+<b>Month 3:</b> 5-8 kg down possible with full consistency 🏆<br><br>
+<b>Results depend karte hain:</b><br>
+✅ Consistency (sabse important!)<br>
+✅ Water intake<br>
+✅ Exercise<br>
+✅ Starting weight<br>
+✅ Sleep quality<br><br>
+💡 Average: <b>1-1.5 kg per week</b> safe aur sustainable loss hai!<br>Zyada fast = muscle loss + rebound 😬`
+  },
+
+  streak: {
+    k: ['streak','fire','🔥','consecutive','lagataar','miss','choot','bhool','kal nahi','skip'],
+    r: () => {
+      const sv = typeof streak !== 'undefined' ? streak : 0;
+      return pick([
+        `🔥 <b>Aapki Streak: ${sv} din!</b><br><br>
+${sv===0 ? 'Aaj se shuru karo — ek din hi kafi hai! 🌱' : sv<7 ? 'Shuruaat ho gayi — ek hafte poora karo! 💪' : sv<30 ? '7 din! Ab ek mahina target karo 🏆' : 'Amazing consistency! Aap champion ho! 👑'}<br><br>
+<b>Streak kaise banayein:</b><br>
+• Har roz app kholo 📱<br>
+• Saare meals checkmark karo ✅<br>
+• Chahe ek baar miss hua — kal fresh start 🌅<br><br>
+Streak sirf ek sankhya hai — real jeet consistency hai! 💚`,
+      ])
+    }
+  },
+
+  hindi: {
+    k: ['hindi','हिंदी','hindi mein','hindi me','hindi bolo','hindi bol','language'],
+    r: () => `🌐 Main dono Hindi aur English mein baat kar sakta hun!<br><br>Agar aap Hindi mein baat karna chahte hain to app ke upar "🌐 हिंदी" button dabaao — poora app Hindi mein ho jaayega! 😊<br><br>Aur main Hinglish mein bhi samjha deta hun — jaise ab kar raha hun! 🤖`
+  },
+
+  bye: {
+    k: ['bye','goodbye','alvida','phir milenge','baad mein','later','ok bye','ok thankyou','ok thanks','chal','chal chalte','band karo'],
+    r: () => pick([
+      '🌿 Alvida! Yaad rakho — aaj ka ek task bhi karo! 💪',
+      '😊 Phir milenge! HerbaBot 24/7 yahan hai — jab chaaho aao!',
+      '🏆 Take care! Aaj ka meal complete karna mat bhoolo! 🥗'
+    ])
+  },
+
+  whatIsThis: {
+    k: ['kya hai ye','kya kar sakte','kya pooch','help','madad','features','kya karta','tumhara kaam','tu kya','tum kya','aap kya','bot kya'],
+    r: () => `🤖 <b>Main HerbaBot hun — Aapka Personal Coach!</b><br><br>
+<b>Mujhse ye sab pooch sakte ho:</b><br>
+🥗 Meal plan & timing<br>
+🥤 Formula 1, Afresh, Fiber, ShakeMate<br>
+⚖️ Weight loss tips & science<br>
+🏃 Exercise & cardio guidance<br>
+💧 Hydration tips<br>
+😤 Plateau break karna<br>
+🔥 Calorie & protein info<br>
+📊 BMI & progress review<br>
+🧘 Stress & mindset tips<br>
+😴 Sleep & recovery<br>
+🍬 Sugar & junk food guidance<br>
+🌙 Raat ka khana plan<br>
+✈️ Travel mein diet tips<br>
+🥗 Vegetarian protein sources<br>
+⚕️ Medical conditions guidance<br><br>
+100% free, offline, hamesha available! Koi bhi sawaal karo 😊`
+  },
+
+  /* ── NEW TOPICS ── */
+
+  bmi: {
+    k: ['bmi','body mass index','mera bmi','bmi kya','bmi calculate','bmi kitna','healthy weight','ideal weight','normal weight'],
+    r: () => `📊 <b>BMI (Body Mass Index) Guide:</b><br><br>
+<b>BMI Formula:</b> Weight(kg) ÷ Height(m)²<br><br>
+<b>BMI Ranges:</b><br>
+🔴 Under 18.5 = Underweight<br>
+🟢 18.5–24.9 = Normal (Healthy!)<br>
+🟡 25–29.9 = Overweight<br>
+🔴 30+ = Obese<br><br>
+<b>Ideal Weight Formula (Hamwi):</b><br>
+Women: 45.4 + 2.3 × (inches above 5 feet)<br>
+Men: 48.1 + 2.7 × (inches above 5 feet)<br><br>
+💡 BMI sirf ek indicator hai — muscle mass, age aur body type bhi matter karte hain! Weight tracker mein apna weight log karo daily 📉`
+  },
+
+  calories: {
+    k: ['calorie','calories','kcal','kitni calorie','calorie count','calorie deficit','calorie intake','calorie kya','daily calories','energy','khana kitna','kitna khana'],
+    r: () => pick([
+      `🔥 <b>Calorie Guide for Weight Loss:</b><br><br>
+<b>Average Daily Need:</b><br>
+👩 Women: 1800–2000 kcal<br>
+👨 Men: 2200–2500 kcal<br><br>
+<b>Weight Loss ke liye:</b><br>
+500 kcal deficit = 0.5 kg/week loss 📉<br><br>
+<b>Herbalife Plan Mein Roughly:</b><br>
+🥤 Shake (breakfast): ~200 kcal<br>
+🍎 Snack: ~150 kcal<br>
+🍽️ Lunch: ~500 kcal<br>
+🥗 Evening snack: ~150 kcal<br>
+🌙 Dinner: ~300–400 kcal<br>
+<b>Total: ~1200–1400 kcal</b> ✅<br><br>
+💡 500-700 kcal deficit — safe and sustainable!`,
+      `🍽️ <b>Meal Calorie Breakdown:</b><br><br>
+Formula 1 shake: 200 kcal<br>
+2 Roti + sabji: 350 kcal<br>
+Dal khichdi: 250 kcal<br>
+Fruits: 80–120 kcal<br>
+Salad: 50–80 kcal<br>
+Curd: 60 kcal<br><br>
+🎯 Total target: 1200–1500 kcal/day<br>Ye calorie deficit banata hai jo fat burn karta hai! 🔥`
+    ])
+  },
+
+  protein: {
+    k: ['protein','protien','protein kya','protein kitna','protein source','protein food','muscle','muscles','muscle gain','muscle loss','lean','lean body','body banao'],
+    r: () => `💪 <b>Protein — Weight Loss Ka Secret Weapon:</b><br><br>
+<b>Daily Protein Need:</b> 0.8–1.2g per kg body weight<br>
+(60kg person = 48–72g protein/day)<br><br>
+<b>Herbalife Sources:</b><br>
+🥤 Formula 1 (1 scoop) = 9g protein<br>
+💊 ShakeMate (1 scoop) = 14g protein<br>
+Total shake = ~23g per serving ✅<br><br>
+<b>Food Sources:</b><br>
+🥚 2 Eggs = 12g<br>
+🍗 Chicken 100g = 27g<br>
+🫘 Dal 1 bowl = 8g<br>
+🥛 Curd 1 bowl = 5g<br>
+🫙 Paneer 100g = 18g<br><br>
+⚠️ Protein zyada lene se muscle protect hoti hai diet mein!`
+  },
+
+  sugar: {
+    k: ['sugar','cheeni','chini','sweet','meetha','chocolate','mithai','ice cream','cold drink','soda','juice','fruit juice','cheat','gur','shakkar'],
+    r: () => `🍬 <b>Sugar aur Weight Loss:</b><br><br>
+<b>Sabse bada enemy hai sugar!</b><br><br>
+<b>Kya avoid karein:</b><br>
+❌ Cold drinks (1 can = 39g sugar = 10 tsp!)<br>
+❌ Fruit juices (packed = 6 tsp sugar)<br>
+❌ Biscuits, namkeen<br>
+❌ Maida — bread, white rice<br>
+❌ Alcohol<br><br>
+<b>Natural sweet alternatives:</b><br>
+✅ Fruits (mein natural sugar + fiber dono hain)<br>
+✅ Curd with honey (thoda sa)<br>
+✅ Dark chocolate (85%+) — ek piece<br><br>
+💡 <b>Sugar cravings ko:</b> Afresh peeo — naturally sweet hota hai + cravings kam karta hai ⚡`
+  },
+
+  breakfast: {
+    k: ['breakfast','nashta','naashta','subah ka khana','morning food','subah kya khayein','khali pet','empty stomach','subah pehle'],
+    r: () => `🌅 <b>Perfect Morning Routine:</b><br><br>
+<b>6:00 AM — Pehle karo:</b><br>
+💧 2 glass paani (lukewarm/normal) — metabolism start<br><br>
+<b>6:30 AM — Club/Workout:</b><br>
+🏃 Exercise + Afresh energy<br><br>
+<b>7:30 AM — Formula 1 Shake (Breakfast):</b><br>
+🥤 3 spoon F1 + 2 spoon ShakeMate + 1 spoon Fiber<br>
+400 ml water ya milk mein mix<br>
+Shake ke baad 1-2 glass paani<br><br>
+💡 <b>Why shake for breakfast?</b><br>
+• 200 kcal vs 500+ kcal regular breakfast<br>
+• High protein = muscle protect<br>
+• Fast to make = no excuse! ✅`
+  },
+
+  lunch: {
+    k: ['lunch','dopahar','dopahar ka khana','dophar','lunch mein kya','dupahar','khana kya khayein','khana kab','1 baje','1pm'],
+    r: () => `🍽️ <b>Perfect Lunch Plan (1:00 PM):</b><br><br>
+<b>Plate Structure:</b><br>
+🫓 2 Roti (small, chapati)<br>
+🫘 1 bowl Sabji (any veg)<br>
+🥗 Full plate Salad (cucumber, tomato, onion, lemon)<br>
+🥛 1 bowl Curd (plain, no sugar)<br><br>
+<b>Kya add karein:</b><br>
+✅ Dal (protein ke liye)<br>
+✅ Hara dhania aur nimbu<br>
+✅ Kachumbar salad<br><br>
+<b>Kya avoid karein:</b><br>
+❌ 3+ roti<br>
+❌ Rice (white rice weight loss mein slow karta hai)<br>
+❌ Fried items<br>
+❌ Mithai ya dessert<br><br>
+⏰ 2:00 PM Afresh lo bhi — digestion aur energy ke liye!`
+  },
+
+  snack: {
+    k: ['snack','evening snack','shaam ka khana','shaam kya khayein','bhook lagi','bhooka','hungry','4 baje','4pm','makhana','fruits','fruit snack'],
+    r: () => `🥗 <b>Healthy Snack Options:</b><br><br>
+<b>Best Evening Snacks (4 PM):</b><br>
+🍎 Fruits (apple, guava, papaya, watermelon)<br>
+🫘 Makhanas — 30g (low calorie, high protein!)<br>
+🥒 Cucumber + carrot sticks + hummus<br>
+🥜 Handful of almonds/walnuts (10-15 pieces)<br>
+🥛 Buttermilk (chaas) — no sugar!<br><br>
+<b>Timing Tips:</b><br>
+⏰ 10:30 AM: Mid-morning fruit<br>
+⏰ 4:00 PM: Evening snack<br><br>
+❌ Chips, biscuits, namkeen se bachein!<br>
+✅ 150-200 kcal snack — bhook control hoti hai`
+  },
+
+  roti: {
+    k: ['roti','chapati','rice','chawal','wheat','atta','bread','maida','naan','paratha'],
+    r: () => `🫓 <b>Roti vs Rice — Weight Loss Guide:</b><br><br>
+<b>Roti (Recommended):</b><br>
+✅ 1 roti = ~80 kcal, ~3g fiber<br>
+✅ Slow digestion = bhook kam lagti hai<br>
+✅ Whole wheat = better nutrition<br>
+Max per day: <b>2 roti lunch mein</b><br><br>
+<b>Rice:</b><br>
+⚠️ 1 bowl = ~200 kcal, low fiber<br>
+⚠️ Quick digestion = jaldi bhook lagti hai<br>
+If eating rice: <b>Brown rice prefer karo, small portion</b><br><br>
+🚫 <b>RAAT KO ROTI/RICE BILKUL NAHI!</b><br>Raat ko shake ya khichdi lo only — yahi plan ka sabse important rule hai!`
+  },
+
+  gym: {
+    k: ['gym','workout kya','weight training','strength training','lifting','dumbbell','barbell','equipment','gym jana'],
+    r: () => `🏋️ <b>Gym + Herbalife = Maximum Results!</b><br><br>
+<b>Recommended Routine:</b><br>
+🌅 Subah: Cardio + Club session (45 min)<br>
+🌆 Shaam: Strength training (30-45 min)<br><br>
+<b>Strength Training Benefits for Weight Loss:</b><br>
+💪 Muscle banata hai — muscle zyada calories burn karta hai REST mein bhi!<br>
+🔥 After-burn effect (EPOC) = 24-48 hrs tak fat burn<br>
+📉 Body composition improve hota hai<br><br>
+<b>Beginner Routine:</b><br>
+Mon/Wed/Fri: Upper body<br>
+Tue/Thu/Sat: Lower body<br>
+Sun: Rest ya light walk<br><br>
+💡 ShakeMate protein workout ke 30 min baad lo!`
+  },
+
+  cardio: {
+    k: ['cardio','running','walk','walking','jogging','cycling','swimming','zumba','dance','aerobic','steps','kadam','chalte','chal'],
+    r: () => pick([
+      `🏃 <b>Best Cardio for Weight Loss:</b><br><br>
+<b>Options (Best to Good):</b><br>
+1️⃣ Brisk Walking — 45 min, easy on joints 🚶<br>
+2️⃣ Running — 30 min, high calorie burn 🏃<br>
+3️⃣ Cycling — 40 min, fun and effective 🚴<br>
+4️⃣ Swimming — 30 min, full body 🏊<br>
+5️⃣ Zumba/Dance — 40 min, enjoyable! 💃<br><br>
+<b>Target:</b> 7,000–10,000 steps daily 👟<br><br>
+💡 <b>Fasted Cardio Trick:</b><br>
+Subah khali pet cardio karo — fat burning 20% zyada hoti hai! 🔥`,
+      `👟 <b>Step Count Guide:</b><br><br>
+🎯 Target: 7,000–10,000 steps/day<br><br>
+<b>Easily kaise achieve karein:</b><br>
+• Lift ki jagah stairs use karo<br>
+• Car parking 500m door karo<br>
+• Lunch ke baad 10 min walk<br>
+• Phone pe baat karte hue ghoomte raho<br>
+• Har ghante 5 min walk break<br><br>
+App mein Step Count habit track karo daily! 👟`
+    ])
+  },
+
+  shakeMate: {
+    k: ['shakemate','shake mate','protein powder','protein supplement','whey','soy protein','extra protein'],
+    r: () => `💊 <b>ShakeMate — Protein Booster:</b><br><br>
+<b>Kya hai?</b> Herbalife ka protein supplement<br>
+<b>Quantity:</b> 2 spoons (per shake)<br>
+<b>Protein:</b> ~14g per serving<br><br>
+<b>Kab use karein:</b><br>
+✅ Har Formula 1 shake ke saath<br>
+✅ Exercise ke baad bhi extra le sakte ho<br><br>
+<b>Fayde:</b><br>
+💪 Muscle repair & growth<br>
+🎯 Protein gap fill karta hai<br>
+🔥 Fat burn karte waqt muscle protect karta hai<br>
+😋 Shake ka taste better hota hai<br><br>
+💡 Bina ShakeMate ke shake kamzor hota hai — dono milake lo!`
+  },
+
+  aloe: {
+    k: ['aloe','aloe vera','aloe concentrate','aloevera','aloe gel','aloe drink','aloe vera juice'],
+    r: () => `🌵 <b>Herbalife Aloe Vera Concentrate:</b><br><br>
+<b>Kya hai?</b> Aloe vera se bana gut health drink<br>
+<b>Kaise lo:</b> 3 caps (caps mein aata hai) paani mein mix karke, shake se pehle<br><br>
+<b>Fayde:</b><br>
+✅ Gut lining repair karta hai<br>
+✅ Protein absorption badhata hai<br>
+✅ Constipation door karta hai<br>
+✅ Anti-inflammatory<br>
+✅ Skin aur hair ke liye bhi acha<br><br>
+💡 Shake se 15-20 min pehle peeyo — nutrients better absorb honge!<br>
+Order: Aloe → wait 15 min → Formula 1 Shake 🥤`
+  },
+
+  stress: {
+    k: ['stress','tension','chinta','anxiety','pareshani','mental health','mind','dimag','depression','sad','udaas','emotional eating','binge','upset'],
+    r: () => pick([
+      `🧘 <b>Stress aur Weight Loss:</b><br><br>
+Stress ek silent weight gain enemy hai!<br><br>
+<b>Kya hota hai stress mein:</b><br>
+😰 Cortisol hormone badhta hai<br>
+🍔 Emotional eating hoti hai<br>
+😴 Neend kharab hoti hai<br>
+🔥 Fat burning slow hoti hai<br>
+💧 Water retention badhti hai<br><br>
+<b>Stress kam karne ke tarike:</b><br>
+🧘 10 min meditation/pranayam daily<br>
+🚶 Morning walk — nature mein<br>
+📖 Journal likhna<br>
+💬 Kisi se baat karna<br>
+🥤 Afresh lo — L-Theanine se natural calm milti hai<br><br>
+💡 Aaj ka ek achha kaam karo — brain relaxed hoga! 🌿`,
+      `💪 <b>Emotional Eating se Kaise Bachein:</b><br><br>
+🔑 Pehchaano — bhook hai ya boredom/stress?<br><br>
+<b>Techniques:</b><br>
+⏳ 10 min rule: Craving aaye to 10 min wait karo<br>
+💧 Pehle 1 glass paani peeyo<br>
+🥗 Agar sach mein bhook hai to healthy snack lo<br>
+📱 App kholo aur streak dekho — motivation milega!<br>
+🤙 Coach (Vaibhav ji) ko message karo support ke liye<br><br>
+💡 Yaad rakho: Ek bad day poori journey nahi todi! 🌈`
+    ])
+  },
+
+  thyroid: {
+    k: ['thyroid','pcod','pcos','hormones','hormone','diabetes','bp','blood pressure','cholesterol','heart','medical condition','bimari','disease','insulin'],
+    r: () => `⚕️ <b>Medical Conditions aur Weight Loss:</b><br><br>
+Herbalife products generally safe hain, but medical conditions ke saath doctor se zaroor poocho.<br><br>
+<b>Thyroid:</b><br>
+Underactive thyroid mein weight loss slow hota hai — patience rakho aur medicine regular lo. Herbalife metabolism support karta hai.<br><br>
+<b>PCOD/PCOS:</b><br>
+Sugar aur maida bilkul band karo. Protein aur fiber badhao. Exercise zaroor karo.<br><br>
+<b>Diabetes:</b><br>
+Formula 1 ka GI low hai — suitable hai. Doctor se sugar monitoring regular karo.<br><br>
+<b>Blood Pressure:</b><br>
+Sodium kam karo. Afresh caffeine-containing hai — 1 cup max rakhein.<br><br>
+⚠️ <b>Doctor se consult karna ZARURI hai kisi bhi medical condition mein!</b>`
+  },
+
+  age: {
+    k: ['age','umar','umra','40 saal','50 saal','30 saal','bujurg','elderly','young','jawan','teen','teenager','adult','maa','mom','dad','papa'],
+    r: () => `👨‍👩‍👧 <b>Age ke Hisaab se Weight Loss:</b><br><br>
+<b>20s:</b> Metabolism fast — results jaldi. Focus on muscle building. 💪<br><br>
+<b>30s:</b> Metabolism thoda slow. Protein + strength training important. 🏋️<br><br>
+<b>40s:</b> Hormonal changes — patience chahiye. Stress management zaruri. 🧘<br><br>
+<b>50s+:</b> Calcium aur Vitamin D extra lena. Joint-friendly exercise. 🚶<br><br>
+<b>Sabke liye common rules:</b><br>
+✅ Protein sufficient lo har age pe<br>
+✅ Water intake poori rakho<br>
+✅ Sleep compromise mat karo<br>
+✅ Consistency sabse important hai<br><br>
+💡 Herbalife products har age ke liye suitable hain!`
+  },
+
+  night: {
+    k: ['raat ka khana','night food','rat ko','raat mein kya','late night','8 baje','9 baje','10 baje','sone se pehle','dinner time','raat dinner'],
+    r: () => `🌙 <b>Raat ka Khana — Rules:</b><br><br>
+⏰ <b>Ideal Dinner Time: 7:00–8:00 PM</b><br><br>
+<b>Plan ke Hisaab se Dinner:</b><br>
+🟢 Mon/Wed/Fri: Formula 1 Shake<br>
+🟢 Tue/Thu/Sat: Thin Moong Dal Khichdi<br>
+🎉 Sunday: Aapki marzi!<br><br>
+<b>Kya BILKUL NAHI khaana:</b><br>
+❌ Roti/Rice raat ko (high carb = fat store)<br>
+❌ Fried food<br>
+❌ Heavy protein (late digestion)<br>
+❌ 10 PM ke baad kuch bhi!<br><br>
+<b>Raat ko ACHHA hai:</b><br>
+✅ Khichdi (low carb, light)<br>
+✅ Shake (protein, low calorie)<br>
+✅ Salad (kaafi)<br>
+✅ Soup (vegetable)<br><br>
+💡 Sone se 2-3 ghante pehle khaana band karo!`
+  },
+
+  mindset: {
+    k: ['mindset','attitude','positive','soch','thinking','belief','confidence','self','body image','shame','log kya kahenge','log','society','comparison'],
+    r: () => pick([
+      `🧠 <b>Weight Loss Mindset — Sabse Important:</b><br><br>
+<b>3 Powerful Shifts:</b><br><br>
+1️⃣ <b>"Main diet pe hun"</b> ❌<br>
+→ <b>"Main apni body ka khayal rakh raha/rahi hun"</b> ✅<br><br>
+2️⃣ <b>"Ye bahut mushkil hai"</b> ❌<br>
+→ <b>"Ek ek din count karta hai"</b> ✅<br><br>
+3️⃣ <b>"Kal se pakka karenge"</b> ❌<br>
+→ <b>"Aaj abhi ek glass paani peete hain"</b> ✅<br><br>
+💡 Journey mein 1000 small wins hoti hain. Celebrate karo har ek ko! 🎉`,
+      `🌈 <b>Body Positivity + Weight Loss:</b><br><br>
+Apne body ko abhi love karo — aur saath mein healthier bhi bana raho!<br><br>
+Ye dono ek saath ho sakte hain. 💚<br><br>
+<b>Daily Affirmations:</b><br>
+✨ "Main apni body ka respect karta/karti hun"<br>
+✨ "Meri consistency hi meri superpower hai"<br>
+✨ "Results aa rahe hain — time lagta hai"<br><br>
+Ek din mein mountain nahi chadha jaata — lekin ek kadam roz liya to ek din wahan zaroor honge! 🏔️`
+    ])
+  },
+
+  family: {
+    k: ['family','ghar pe','ghar wale','mummy','papa','husband','wife','pati','patni','bacche','children','ghar ka khana','shaadi','party','function','event'],
+    r: () => `👨‍👩‍👧 <b>Family ke Saath Weight Loss Karna:</b><br><br>
+<b>Common Challenges:</b><br>
+😅 Ghar mein alag khana banana<br>
+😅 Functions mein zyada khaana<br>
+😅 Family ka pressure<br><br>
+<b>Solutions:</b><br>
+✅ Sabko same healthy khana khilao — poore family ko benefit hoga!<br>
+✅ Events mein: pehle salad, curd, vegetables khao<br>
+✅ Functions mein: plate ek baar lo, doosri baar mat lo<br>
+✅ Shake apne liye banao — ghar wale bhi try kar sakte hain<br><br>
+💡 Apne consistency ko "obsession" mat samjhao — ye "self-care" hai. Ghar walon ko bhi yahi bolo! 🌿`
+  },
+
+  travel: {
+    k: ['travel','safar','bahar','hotel','restaurant','eating out','dhaba','bahar ka khana','outing','trip'],
+    r: () => `✈️ <b>Travel mein Diet Kaise Maintain Karein:</b><br><br>
+<b>Must Carry:</b><br>
+🥤 Formula 1 sachets (portable!)<br>
+⚡ Afresh sachets<br>
+🫘 Makhanas / almonds (snack)<br><br>
+<b>Restaurant mein kya order karein:</b><br>
+✅ Dal + sabji (no butter)<br>
+✅ Grilled/tandoor (no fried)<br>
+✅ Salad + soup<br>
+✅ Roti max 2<br>
+❌ Creamy curries, biryani, fried items<br><br>
+<b>Hotel mein:</b><br>
+✅ Milk le aao — shake banao room mein<br>
+✅ Fruits order karo breakfast mein<br><br>
+💡 Travel mein 100% perfect nahi hoga — 80% good enough hai! Wapas aake streak rebuild karo 💪`
+  },
+
+  vegetarian: {
+    k: ['vegetarian','veg','vegan','egg','non veg','chicken','fish','meat','paneer','tofu','dahi','curd'],
+    r: () => `🥗 <b>Vegetarian Weight Loss Plan:</b><br><br>
+<b>Best Veg Protein Sources:</b><br>
+🫘 Dal — 1 bowl = 8g protein<br>
+🧀 Paneer — 100g = 18g protein<br>
+🥛 Curd/Dahi — 1 bowl = 5g protein<br>
+🥚 Eggs (if egg-veg) — 2 eggs = 12g<br>
+🌱 Soy milk — 1 cup = 7g protein<br>
+🫙 Rajma/Chana — 1 bowl = 9g protein<br><br>
+<b>Herbalife is Vegetarian Friendly!</b><br>
+✅ Formula 1 — veg options available<br>
+✅ ShakeMate — soy protein based<br>
+✅ Afresh — herbal, fully veg<br>
+✅ Fiber complex — plant based<br><br>
+💡 Protein variety rakho — sirf ek source pe depend mat raho!`
+  },
+
+  weekPlan: {
+    k: ['week plan','7 din','7 days','week mein','weekly plan','poore hafte','monday to sunday','full week','diet chart'],
+    r: () => `📅 <b>7-Day Diet Plan Overview:</b><br><br>
+<b>Every Day (Common):</b><br>
+6:00 AM 💧 2 glass paani<br>
+7:30 AM 🥤 Formula 1 Shake<br>
+10:30 AM 🍎 Fruit<br>
+1:00 PM 🍽️ Roti + sabji + salad + curd<br>
+4:00 PM 🥗 Healthy snack<br>
+5:00 PM ⚡ Afresh + exercise<br><br>
+<b>Dinner Rotation:</b><br>
+🟢 Mon/Wed/Fri: Formula 1 Shake<br>
+🟢 Tue/Thu/Sat: Moong Dal Khichdi<br>
+🎉 Sunday: Your choice! (cheat meal allowed)<br><br>
+💡 App ke Daily Schedule mein poora timeline dekh sakte ho! 📱`
+  },
+
+  weightGain: {
+    k: ['weight gain','weight badh','mota','motapa badhna','underweight','patla hona','weight kam','weight nahi badh'],
+    r: () => `⚖️ <b>Weight Gain ke Liye Herbalife Tips:</b><br><br>
+Agar weight gain karna hai (healthy weight tak pahunchna):<br><br>
+<b>Key Changes:</b><br>
+✅ Calories badhaao — 300-500 kcal surplus<br>
+✅ ShakeMate zyada lo — extra protein<br>
+✅ Har meal mein protein sure karo<br>
+✅ Strength training shuru karo<br>
+✅ Khane ki frequency badhaao (5-6 baar chhota chhota)<br><br>
+<b>Herbalife for Weight Gain:</b><br>
+🥤 Formula 1 + ShakeMate = lean muscle gain<br>
+💊 Milk ke saath banao shake = extra calories<br><br>
+⚠️ Weight gain bhi healthy tarike se karo — junk food se nahi!<br>
+💡 Coach se apna specific plan discuss karo 📞`
+  },
+
+  contactCoach: {
+    k: ['coach','contact','phone','number','call','whatsapp','order','buy','khareedna','kahan milega','kaise order','join','herbalife member','distributor','vaibhav ji','vaibhav contact'],
+    r: () => `📞 <b>Apne Herbalife Coach se Contact Karein:</b><br><br>
+Kisi bhi cheez ke liye — products order karna, plan banana, ya support chahiye:<br><br>
+<b>Coach: Vaibhav Vashisth</b> 🌿<br><br>
+✅ Products order<br>
+✅ Personalized meal plan<br>
+✅ Progress review<br>
+✅ Doubt clearing session<br>
+✅ Community club access<br><br>
+💡 App mein sab details aur plan already set hai aapke liye — daily follow karo aur results dekho! 💚`
+  },
+
+  notFound: {
+    r: () => pick([
+      `🤔 Hmm, samjha nahi poori baat. Thoda detail mein poochho?<br><br>
+<b>In topics pe pooch sakte ho:</b><br>
+🥗 Meal plan | 🥤 Products | ⚖️ Weight loss | 💧 Paani<br>
+🏃 Exercise | 💪 Motivation | 😴 Neend | 📊 BMI<br>
+🔥 Calories | 💊 Protein | 🍬 Sugar | 🌙 Raat ka khana<br>
+🧘 Stress | 🏋️ Gym | ✈️ Travel tips`,
+      `😊 Ye sawaal mera database mein nahi mila! Try karo:<br>
+• "Formula 1 kaise banate hain"<br>
+• "Weight loss tips dijiye"<br>
+• "Exercise kab karein"<br>
+• "Calories kitni leni chahiye"<br>
+• "Protein kahan se milega"<br>
+• "Travel mein diet kaise karein"<br>
+• "Raat ko kya khaayein"`,
+      `🌿 Ek baar aur poochho different tarike se? Ya quick reply buttons use karo neeche! 👇<br><br>
+<b>Kuch popular questions:</b><br>
+→ "BMI kya hai mera"<br>
+→ "Stress mein kya karein"<br>
+→ "Thyroid ke saath weight loss"<br>
+→ "Vegetarian protein sources"`
+    ])
+  }
+};
+
+function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+/* ── Intent Matching ── */
+function detectIntent(txt){
+  const t = txt.toLowerCase()
+    .replace(/[।,.?!]/g,'')
+    .replace(/\s+/g,' ').trim();
+
+  const order = ['greet','bye','thanks','howAreYou','progress','motivation','plateau',
+    'formula1','afresh','fiber','aloe','shakeMate','products','mealPlan','dinner','cheatMeal',
+    'water','exercise','cardio','gym','sleep','weightLossTips','sideEffects','cost','howLong',
+    'streak','hindi','whatIsThis',
+    'bmi','calories','protein','sugar','breakfast','lunch','snack','roti','night',
+    'stress','mindset','thyroid','age','family','travel','vegetarian','weekPlan',
+    'weightGain','contactCoach'];
+
+  for(const intent of order){
+    const kb = KB[intent];
+    if(!kb.k) continue;
+    for(const kw of kb.k){
+      if(t.includes(kw)) return intent;
+    }
+  }
+  return 'notFound';
+}
+
+/* ── Message Rendering ── */
+function addMsg(html, isUser, animate=true){
+  const wrap = document.getElementById('chatMessages');
+  if(!wrap) return;
+
+  const now = new Date();
+  const time = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+
+  const div = document.createElement('div');
+  div.className = `chat-msg ${isUser?'user':'bot'}${animate?' msg-new':''}`;
+
+  if(!isUser){
+    div.innerHTML = `
+      <div class="msg-avatar">🌿</div>
+      <div>
+        <div class="msg-bubble">${html}</div>
+        <div class="msg-time">${time}</div>
+      </div>`;
+  } else {
+    div.innerHTML = `
+      <div>
+        <div class="msg-bubble">${html}</div>
+        <div class="msg-time">${time}</div>
+      </div>`;
+  }
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+
+  chatHistory.push({role: isUser?'user':'bot', text: html, time});
+  if(chatHistory.length > MAX_HISTORY) chatHistory.shift();
+}
+
+function showTyping(){
+  const wrap = document.getElementById('chatMessages');
+  if(!wrap || document.getElementById('typingIndicator')) return;
+  const div = document.createElement('div');
+  div.className = 'chat-msg bot';
+  div.id = 'typingIndicator';
+  div.innerHTML = `
+    <div class="msg-avatar">🌿</div>
+    <div class="chat-typing">
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+    </div>`;
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+
+function hideTyping(){
+  const el = document.getElementById('typingIndicator');
+  if(el) el.remove();
+}
+
+/* ── Core Chat Functions ── */
+async function getBotReply(userText){
+  const intent = detectIntent(userText);
+  const kb = KB[intent];
+  let reply;
+  if(typeof kb.r === 'function'){
+    reply = kb.r();
+    // Handle async (progress intent)
+    if(reply && typeof reply.then === 'function') reply = await reply;
+  } else {
+    reply = kb.r;
+  }
+  lastTopic = intent;
+  return reply;
+}
+
+async function sendChat(){
+  const inp = document.getElementById('chatInput');
+  if(!inp) return;
+  const txt = inp.value.trim();
+  if(!txt) return;
+
+  inp.value = '';
+  inp.focus();
+
+  // Remove badge
+  const badge = document.getElementById('chatBadge');
+  if(badge) badge.style.display='none';
+
+  addMsg(txt, true);
+
+  // Typing indicator delay (feels natural)
+  const delay = 600 + Math.random()*700;
+  showTyping();
+
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(async()=>{
+    hideTyping();
+    const reply = await getBotReply(txt);
+    addMsg(reply, false);
+  }, delay);
+}
+
+function sendQuick(text){
+  const inp = document.getElementById('chatInput');
+  if(inp) inp.value = text;
+  sendChat();
+}
+
+function toggleChat(){
+  chatOpen = !chatOpen;
+  const panel = document.getElementById('chatPanel');
+  const badge = document.getElementById('chatBadge');
+  if(!panel) return;
+
+  if(chatOpen){
+    panel.classList.add('open');
+    document.body.style.overflow='hidden';
+    if(badge) badge.style.display='none';
+    if(!chatInitDone){
+      chatInitDone = true;
+      // Welcome message after short delay
+      setTimeout(()=>{
+        const h = new Date().getHours();
+        const tod = h<12?'Subah':'Sham';
+        addMsg(`🌿 <b>${tod} aayi!</b><br><br>
+Main <b>HerbaBot</b> hun — aapka 24/7 Herbalife coach! 🤖<br><br>
+Koi bhi poochho:<br>
+🥗 Meal plan · 🥤 Products · ⚖️ Tips · 💪 Motivation<br><br>
+<i>100% offline · koi API nahi · lifetime free!</i>`, false, false);
+      }, 300);
+    } else {
+      // Scroll to bottom on reopen
+      setTimeout(()=>{
+        const wrap = document.getElementById('chatMessages');
+        if(wrap) wrap.scrollTop = wrap.scrollHeight;
+      }, 100);
+    }
+  } else {
+    panel.classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+
+// Close on background tap
+document.addEventListener('click', e=>{
+  const panel = document.getElementById('chatPanel');
+  const fab = document.getElementById('chatFab');
+  if(chatOpen && panel && !panel.contains(e.target) && fab && !fab.contains(e.target)){
+    toggleChat();
+  }
+});
+
+// Expose globally
+window.toggleChat  = toggleChat;
+window.sendChat    = sendChat;
+window.sendQuick   = sendQuick;
+
+})(); /* end HerbaBot IIFE */
+</script>
+</body>
+</html>
